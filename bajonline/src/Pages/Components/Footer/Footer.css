@@ -1,0 +1,80 @@
+footer .upper__part {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    height: 220px;
+    font-family: 'Inter';
+
+}
+
+footer .upper__part .logo {
+    font-family: "GFSDidot";
+    padding-left: 8%;
+    color: #ba4e34;
+    font-weight: 100;
+    font-size: 36px;
+}
+
+
+
+footer ul {
+    list-style-type: none;
+}
+
+footer ul li {
+    font-size: 15px;
+    text-align: center;
+    padding-top: 19px;
+}
+
+footer .powered__by {
+    text-align: center;
+    background-color: #f6f3ef;
+    height: 35px;
+    padding-top: 10px
+}
+
+footer .email__div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .email__div h2 {
+    font-size: 28px;
+    letter-spacing: 5px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+
+footer .email {
+    margin: 10px 0;
+    display: block;
+    border: none;
+    font-size: 16px;
+    border-bottom: 1px solid #ba4e34;
+}
+
+footer .email:focus {
+    outline: 0;
+}
+
+footer .email:hover  {
+    border-bottom: 2px solid #ba4e34;
+    transition: border-bottom 0.4s;
+}
+
+footer .email__div .send {
+    width: 200px;
+    height: 45px;
+    border: 1px solid #bc4c2a;
+    color: #bc4c2a;
+    background-color: transparent;
+}
+
+footer .email__div .send:hover {
+    background-color: #bc4c2a;
+    color: white;
+    transition: background-color 0.5s, color 0.5s;
+}
