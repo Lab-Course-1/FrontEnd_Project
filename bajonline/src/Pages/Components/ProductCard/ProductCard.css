@@ -1,0 +1,29 @@
+.product__card {
+    width: 350px;
+    height: 520px;
+    background-color: #f6f3ef;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product__card .image {
+    margin:0;
+    padding: 0;
+    min-width: 270px;
+    max-width: 360px;
+    min-height: 330px;
+    max-height: 400px;
+}
+
+.product__card .product__title {
+    font-family: 'inter';
+    margin: 0;
+    color: #222
+}
+
+.product__card .product__price {
+    color: #8c4a2e;
+    font-weight: 700;
+}
