@@ -7,6 +7,15 @@ nav {
     background-color: #FFFBFF;
 }
 
+nav .bottom__part .active {
+    color: #bc4c2a;
+}
+
+nav .bottom__part a {
+    text-decoration: none;
+    color: inherit;
+}
+
 nav .upper__part {
     display: flex;
     justify-content: space-between;
@@ -88,6 +97,6 @@ nav .bottom__part ul li {
     cursor: pointer;
 }
 
-nav .bottom__part ul li:hover{
+nav .bottom__part ul li:hover {
     color: #bc4c2a;
 }

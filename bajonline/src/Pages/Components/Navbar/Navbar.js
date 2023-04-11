@@ -5,6 +5,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import LoginIcon from '@mui/icons-material/Login';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { NavLink } from 'react-router-dom';
 import "./Navbar.css"
 
 const Navbar = () => {
@@ -36,11 +37,11 @@ const Navbar = () => {
             </div>
             <div className='bottom__part'>
                 <ul>
-                    <li className='home'>Home</li>
-                    <li className='shop__all'>Shop All</li>
-                    <li className='our__story'>Our Story</li>
-                    <li className='our__craft'>Our Craft</li>
-                    <li className='contact'>Contact</li>
+                    <li><NavLink exact to="/" activeClassName="active">Home</NavLink></li>
+                    <li><NavLink exact to="/shopall" activeClassName="active">Shop All</NavLink></li>
+                    <li>Our Story</li>
+                    <li>Our Craft</li>
+                    <li><NavLink exact to="/contact" activeClassName="active">Contact</NavLink></li>
                 </ul>
             </div>
         </nav>
