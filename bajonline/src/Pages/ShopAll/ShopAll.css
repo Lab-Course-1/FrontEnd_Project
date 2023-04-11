@@ -1,0 +1,43 @@
+.shop__all {
+    margin-bottom: 80px;
+    min-width: 330px;
+}
+.shop__all .title {
+    text-align: center;
+    font-size: 44px;
+    font-family: 'Poppins';
+    letter-spacing: 3px;
+    margin: 50px 0;
+}
+
+.shop__all .filters__and__products .filters {
+    margin-right: 15px;
+}
+
+.shop__all .filters__and__products .filters h1 {
+    font-size: 24px;
+    font-weight: 400;
+    font-family: 'Inter'
+}
+
+.shop__all .filters__and__products {
+    padding: 0 4%;
+    display: grid;
+    grid-template-columns: 2.5fr 9fr;
+}
+
+.shop__all .filters__and__products .price input {
+    display: inline;
+    height: 35px;
+    width: 115px;
+}
+
+.shop__all .filters__and__products .price span {
+    width: 30px; 
+}
+.shop__all .filters__and__products .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
