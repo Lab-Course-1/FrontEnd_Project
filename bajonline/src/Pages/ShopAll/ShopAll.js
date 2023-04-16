@@ -2,9 +2,11 @@ import React from 'react'
 import Navbar from '../Components/Navbar/Navbar'
 import Footer from '../Components/Footer/Footer'
 import ProductCard from '../Components/ProductCard/ProductCard'
+import Home from '../Home/Home'
 import "./ShopAll.css"
 
 const ShopAll = () => {
+    const data = ['asda','asdfas','dsafdsfd']
     return (
         <>
             <Navbar />
@@ -28,6 +30,7 @@ const ShopAll = () => {
                         </div>
                         <hr />
                         <div className='price'>
+                            <h4>Price</h4>
                             <input className='from' type='number' name='from' placeholder='2' />
                             <p>to</p>
                             <input className='from' type='number' name='to' placeholder='102' />

@@ -33,7 +33,7 @@
 }
 
 .shop__all .filters__and__products .price span {
-    width: 30px; 
+    width: 20px;
 }
 .shop__all .filters__and__products .products {
     display: flex;
@@ -41,3 +41,8 @@
     gap: 30px;
 }
 
+
+.shop__all .price p{
+    margin: 2px;
+    display: inline;
+}
