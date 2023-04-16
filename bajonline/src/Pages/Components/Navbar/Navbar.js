@@ -39,7 +39,7 @@ const Navbar = () => {
                 <ul>
                     <li><NavLink exact to="/" activeClassName="active">Home</NavLink></li>
                     <li><NavLink exact to="/shopall" activeClassName="active">Shop All</NavLink></li>
-                    <li>Our Story</li>
+                    <li><NavLink exact to="/ourstory" activeClassName="active">Our Story</NavLink></li>
                     <li>Our Craft</li>
                     <li><NavLink exact to="/contact" activeClassName="active">Contact</NavLink></li>
                 </ul>
