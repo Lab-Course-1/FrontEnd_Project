@@ -1,0 +1,95 @@
+.register__container {
+    background: linear-gradient(to right, #94d3ee, #aeb1b2, #a0f7a0);
+    height: 100vh;
+
+}
+
+.register__container .website {
+    text-align: center;
+    margin: 0;
+    padding: 15px;
+    color: #00D5FA;
+    font-size: 45px;
+}
+
+.register__page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh
+}
+
+.register {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 700px;
+
+}
+
+.register img {
+    margin: auto;
+    width: 100%;
+    border-radius: 40px;
+    padding-right: 10px;
+}
+
+.register form input {
+    width: 290px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #e6e6e6;
+    border: none;
+    margin: 5px 0;
+    padding: 0 20px;
+    font-size: 16px;
+    color: #666;
+}
+
+.register h1 {
+    margin: 0;
+    padding: 0 20px;
+}
+
+.register__button {
+    margin: 20px 0;
+    width: 330px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: #57b846;
+}
+
+.register__button:hover {
+    cursor: pointer;
+    padding-bottom: 4px;
+}
+
+.register .error {
+    display: none;
+    color: red;
+}
+
+
+@media screen and (max-width: 678px) {
+    .register {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0;
+    }
+
+    .register img {
+        width: 400px;
+    }
+
+    body {
+        text-align: center;
+        padding-bottom: 60px;
+    }
+
+}
