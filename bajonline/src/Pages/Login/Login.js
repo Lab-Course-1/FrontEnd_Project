@@ -12,7 +12,7 @@ const Login = () => {
         event.preventDefault()
 
         try {
-            const response = await axios.post(Variables.API_URL + 'User/login', {
+            const response = await axios.post(Variables.API_URL + 'user/login', {
                 userName: userName,
                 password: password
             });

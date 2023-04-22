@@ -24,10 +24,10 @@ const Register = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post(Variables.API_URL + 'UserRegistration/register', {
+      const response = await axios.post(Variables.API_URL + 'user/register', {
         firstName: firstName,
         lastName: lastName,
-        dob: birthDate,
+        birthday: birthDate,
         address: address,
         email: email,
         userName: userName,

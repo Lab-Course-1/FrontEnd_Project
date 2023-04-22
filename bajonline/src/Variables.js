@@ -1,1 +1,1 @@
-export const Variables = {     API_URL: "https://localhost:44332/api/" }
+export const Variables = { API_URL: "https://localhost:44332/api/" }
