@@ -1,11 +1,9 @@
 import React, { useContext } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
-import { AppContext } from '../../AppContext'
 import { Link } from 'react-router-dom';
 import { FaExclamationTriangle } from 'react-icons/fa';
 import "./Oops.css"
 const Oops = () => {
-    const { lightMode, setLightMode } = useContext(AppContext);
     return (
         <div className="oops-container">
             <h1 className='website'>Fondgram</h1>
