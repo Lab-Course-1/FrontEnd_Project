@@ -35,6 +35,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
+            {/* Ky eshte nje komment */}
             <div className='bottom__part'>
                 <ul>
                     <li><NavLink exact to="/" activeClassName="active">Home</NavLink></li>
