@@ -46,12 +46,12 @@
     color: #666;
 }
 
-.register h1 {
+.register .register h1 {
     margin: 0;
     padding: 0 20px;
 }
 
-.register__button {
+.register .register__button {
     margin: 17px 0;
     width: 330px;
     height: 50px;
@@ -63,7 +63,7 @@
     background-color: #57b846;
 }
 
-.register__button:hover {
+.register .register__button:hover {
     cursor: pointer;
     padding-bottom: 4px;
 }
@@ -86,7 +86,7 @@
         width: 400px;
     }
 
-    body {
+    .register body {
         text-align: center;
         padding-bottom: 60px;
     }

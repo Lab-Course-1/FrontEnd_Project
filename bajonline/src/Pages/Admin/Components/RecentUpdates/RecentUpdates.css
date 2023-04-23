@@ -1,0 +1,19 @@
+.recent__updates {
+    margin: 5px 3px;
+    height: 285px;
+    min-width: 270px;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 20px;
+    padding: 12px;
+    cursor: pointer;
+    box-shadow: 0 1rem 1rem rgba(132, 139, 200, 0.1);
+
+}
+.recent__updates:hover{
+    box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.3);
+
+}
+.recent__updates .update:last-child{
+    margin-bottom: 10px;
+}

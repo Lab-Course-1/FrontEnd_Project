@@ -3,16 +3,24 @@
 }
 
 .sidebar h1 {
-    margin: 20px 0 0 37px;
+    margin: 10px;
 }
+
 .sidebar {
     background-color: #e8eaed;
     display: flex;
     padding-right: 20px;
     flex-direction: column;
-    width: 270px;
+    width: 240px;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    box-shadow: 0 0 1rem rgba(132, 139, 200, 0.2);
+
+}
+
+.sidebar:hover {
+    box-shadow: 0 0 2rem rgba(132, 139, 200, 0.7);
+
 }
 
 .sidebar ul {
@@ -35,11 +43,18 @@
     background-color: #ccc;
     border-left: 5px solid #726bfa;
 }
-.sidebar ul li a{
+
+.sidebar ul li:has(.active) {
+    color: #726bfa;
+    background-color: #ccc;
+    border-left: 5px solid #726bfa;
+}
+
+.sidebar ul li a {
     display: flex;
     align-items: center;
     gap: 12px;
-    color:#666;
+    color: #666;
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -52,9 +67,9 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    border:none;
+    border: none;
     background-color: transparent;
-    color:#666;
+    color: #666;
     height: 60px;
     width: 220px;
     font-size: 17px;
@@ -65,8 +80,22 @@
     padding: 5px;
     cursor: pointer;
 }
-.sidebar .log__out__button:hover{
+
+.sidebar .log__out__button:hover {
     color: #726bfa;
     /* background-color: #ccc; */
     /* border-left: 5px solid #726bfa; */
+}
+
+@media screen and (max-width: 1080px) {
+    .sidebar .toggled {
+        background-color: #e8eaed;
+        display: flex;
+        padding-right: 20px;
+        flex-direction: column;
+        width: 240px;
+        align-items: center;
+        min-height: 100vh;
+        box-shadow: 0 0 1rem rgba(132, 139, 200, 0.2);
+    }
 }

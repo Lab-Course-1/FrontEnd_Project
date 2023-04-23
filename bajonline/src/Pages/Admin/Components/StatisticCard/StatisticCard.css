@@ -1,0 +1,60 @@
+.statistic__card {
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    width: 260px;
+    height: 230px;
+    border-radius: 20px;
+    background-color: white;
+    padding: 12px;
+    margin-top: 10px;
+    box-shadow: 0 1rem 1rem rgba(132, 139, 200, 0.1);
+
+}
+
+.statistic__card:hover{
+    box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.3);
+    padding: 13px;
+    transition: padding 0.05s;
+    cursor: pointer;
+}
+
+.material-symbols-outlined {
+    font-size: 42px;
+    font-weight: 700;
+    color: white;
+}
+
+.statistic__card .left__part {
+    padding: 10px 0 0 4px;
+}
+
+.statistic__card .left__part h3 {
+    color: #555555;
+    margin: 5px;
+    margin-top: 30px;
+}
+
+.statistic__card .left__part h1 {
+    margin: 5px;
+    font-size: 34px;
+    max-width: 160px;
+}
+
+.statistic__card .left__part .logo__container {
+    padding: 5px;
+    background-color: #726bfa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+}
+
+
+.statistic__card .right__part {
+    padding: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

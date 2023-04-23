@@ -5,7 +5,7 @@ import ProductCard from '../ProductCard/ProductCard'
 const BestSellers = () => {
     return (
         <section className='bestsellers'>
-            <h1>BEST SELLERS</h1>
+            <h1 className='best__sellers__title'>BEST SELLERS</h1>
             <div className='products'>
                 <ProductCard/>
                 <ProductCard/>

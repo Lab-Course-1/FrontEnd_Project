@@ -1,9 +1,16 @@
 import React from 'react'
+import SideNav from '../Components/SideNav/SideNav'
 import "./Reports.css"
 
 const Reports = () => {
   return (
-    <div>Reports</div>
+
+    <div className='reports'>
+      <SideNav />
+
+      Reports</div>
+
+
   )
 }
 

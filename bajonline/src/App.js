@@ -7,7 +7,8 @@ import Oops from './Pages/Components/Oops/Oops'
 import Login from './Pages/Login/Login'
 import Register from './Pages/Register/Register'
 import Settings from './Pages/Admin/Settings/Settings'
-import DbEntities from './Pages/Admin/SimpleDashboards/DbEntities'
+import DbEntities from './Pages/Admin/DbEntities/DbEntities'
+import Dashboards from './Pages/Admin/Dashboards/Dashboards'
 import Reports from './Pages/Admin/Reports/Reports'
 import Analytics from './Pages/Admin/Analytics/Analytics'
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/admin/reports/" element={<Reports />} exact />
         <Route path="/admin/analytics" element={<Analytics />} exact />
         <Route path="/admin/dbentities" element={<DbEntities />} exact />
+        <Route path="/admin/dashboards" element={<Dashboards />} exact />
       </Routes>
     </Router>
   )

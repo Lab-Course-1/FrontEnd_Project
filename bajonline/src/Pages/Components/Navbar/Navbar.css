@@ -1,3 +1,20 @@
+header h3 {
+    text-align: center;
+    margin: 0;
+    padding: 6px;
+    font-weight: 400;
+    cursor: pointer;
+    letter-spacing: 2px;
+    background-color: #f0f2f5;
+    text-decoration: none;
+    position: relative;
+}
+
+header h3:hover {
+    color: darkred
+}
+
+
 nav {
     display: grid;
     grid-template-rows: 1fr 1fr;

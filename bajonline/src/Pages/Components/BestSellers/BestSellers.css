@@ -3,7 +3,7 @@
     flex-direction: column;
 }
 
-.bestsellers h1 {
+.bestsellers .best__sellers__title {
     text-align: center;
     font-size: 30px;
     font-family: 'Poppins';

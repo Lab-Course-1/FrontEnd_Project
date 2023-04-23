@@ -1,17 +1,19 @@
-.title{
+.contact .title {
     text-align: center;
     font-size: 44px;
     font-family: 'Poppins';
     letter-spacing: 3px;
     margin: 50px 0;
 }
- .service{
+
+.contact .service {
     background-color: #f6f3ef;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
- }
-.customer_service{
+}
+
+.contact .customer_service {
     text-align: center;
     font-size: 30px;
     font-family: 'Poppins';
@@ -20,7 +22,7 @@
     position: relative;
 }
 
-.customer_service::after {
+.contact .customer_service::after {
     content: "";
     display: block;
     width: 50px;
@@ -32,7 +34,7 @@
     transform: translateX(-25%);
 }
 
-.container_1{
+.contact .container_1 {
     color: #bc4c2a;
     font-family: "GFSDidot";
     font-size: 28px;
@@ -40,14 +42,15 @@
     font-style: italic;
     margin-left: 500px;
 }
- .paragraph_1{
-    color:black;
+
+.contact .paragraph_1 {
+    color: black;
     font-style: normal;
     font-family: "Courier";
     font-size: 17px;
- }
+}
 
- .container_2{
+.contact .container_2 {
     color: #bc4c2a;
     font-family: "GFSDidot";
     font-size: 28px;
@@ -55,14 +58,15 @@
     font-style: italic;
     margin-left: 100px;
 }
- .paragraph_2{
-    color:black;
+
+.contact .paragraph_2 {
+    color: black;
     font-style: normal;
     font-family: "Courier";
     font-size: 17px;
 }
 
-.container_3{
+.contact .container_3 {
     color: #bc4c2a;
     font-family: "GFSDidot";
     font-size: 28px;
@@ -70,10 +74,10 @@
     font-style: italic;
     margin-left: 100px;
 }
- .paragraph_3{
-    color:black;
+
+.contact .paragraph_3 {
+    color: black;
     font-style: normal;
     font-family: "Courier";
     font-size: 17px;
- }
-
+}

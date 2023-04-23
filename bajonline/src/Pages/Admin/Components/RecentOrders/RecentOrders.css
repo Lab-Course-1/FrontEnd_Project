@@ -1,0 +1,68 @@
+.recent__orders {
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: white;
+    height: 434px;
+    padding: 12px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.recent__orders:hover {
+    box-shadow: 0 0 2rem rgba(132, 139, 200, 0.5);
+    padding: 13px;
+    transition: padding 0.1s;
+
+}
+
+.recent__orders table {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    border: none;
+}
+
+
+
+.recent__orders table td,
+.recent__orders table th {
+    border: none;
+    font-size: 16px;
+    height: 35px;
+}
+
+.recent__orders table tr:nth-child(odd) {
+    border: none;
+    background-color: #eee;
+    border: 3px solid black;
+}
+
+.recent__orders table th {
+    background-color: white;
+    box-shadow: inset 0 0 1rem rgba(132, 139, 200, 0.2);
+
+}
+
+.recent__orders table th:hover {
+    box-shadow: 0 0 1rem rgba(132, 139, 200, 0.3);
+
+}
+
+.recent__orders table .details__button {
+    width: 73px;
+    height: 25px;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+.recent__orders table .details__button:hover {
+    background-color: #2980ff;
+}
