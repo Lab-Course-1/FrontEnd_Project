@@ -11,6 +11,7 @@ import DbEntities from './Pages/Admin/DbEntities/DbEntities'
 import Dashboards from './Pages/Admin/Dashboards/Dashboards'
 import Reports from './Pages/Admin/Reports/Reports'
 import Analytics from './Pages/Admin/Analytics/Analytics'
+import Users from './Pages/Admin/Users/Users'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/admin/analytics" element={<Analytics />} exact />
         <Route path="/admin/dbentities" element={<DbEntities />} exact />
         <Route path="/admin/dashboards" element={<Dashboards />} exact />
+        <Route path="/admin/users" element={<Users />} exact />
       </Routes>
     </Router>
   )

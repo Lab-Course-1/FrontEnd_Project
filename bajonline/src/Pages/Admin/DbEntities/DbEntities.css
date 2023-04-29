@@ -1,0 +1,83 @@
+.db__entities * {
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+.db__entities nav {
+    height: 70px;
+}
+.db__entities body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.db__entities nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+
+.db__entities nav .active {
+    color: #FFC515;
+}
+.db__entities nav ul li {
+    padding: 5px 17px;
+    font-size: 18px;
+    margin: 5px;
+    font-weight: 600;
+}
+
+.db__entities nav ul li:hover {
+    color: #FFC515;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: black;
+}
+
+.db__entities .container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.db__entities .card {
+    width: 340px;
+    height: 240px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.db__entities .card h4 {
+    font-size: 29px;
+    text-align: center;
+    margin: 0px;
+    margin-top: 20px;
+}
+
+
+.db__entities .card a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 19px;
+    font-weight: 700;
+    width: 150px;
+    height: 33px;
+    background-color: #FFC515;
+    border-radius: 8px;
+    margin: 20px;
+    padding-top: 6px;
+    text-align: center;
+
+}
+
+.db__entities .card a:hover {
+    padding-top: 7px;
+
+}
