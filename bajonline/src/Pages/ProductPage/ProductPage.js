@@ -7,7 +7,7 @@ const ProductPage = () => {
     return (
         <div>
             <Navbar />
-            <div className='product__page'>ProductPage
+            <div className='product__page'>
                 <div className='left__part'>
                     <h2>Badfnsoidfbiusdfiubiubiusdbfiusbdiufbiusa sfbaiusbfiuasfia dgiudfuabdsiufbbasd isadfubdsaiufsad fisabfuaofbg iaef fdahsaiu</h2>
                 </div>

@@ -1,5 +1,9 @@
 .product__page {
     display: grid;
-    grid-template-columns: 2fr 4fr 6fr;
+    grid-template-columns: 1fr 4fr 6fr;
     grid-template-rows: 1fr;
+}
+
+.product__page .left__part{
+    background-color: red;
 }
