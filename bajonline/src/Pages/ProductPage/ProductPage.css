@@ -14,7 +14,7 @@
 }
 
 .details__list .button {
-    background-color: bisque;
+    background-color: white;
     color: black;
     padding: 5px 10px;
     border-radius: 10px;
@@ -55,10 +55,11 @@
     background-color: rgb(217, 223, 223);
   }
   .section__divider {
-    margin-right: 50px ;
+    margin-right: 50px;
     border: none;
-    border-top: 1px solid #f00;
+    border-top: 1px solid rgba(255, 0, 0, 0.3);
   }
+  
   .color__list {
     display: flex;
     list-style: none;
@@ -84,8 +85,24 @@
   .color__item.active {
     background-color: #f00; 
   }
-  .color__selection .button{
-    font-size: 120%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    opacity: 0.6;
+  .color__selection {
+    margin-bottom: 20px;
   }
+  
+  .add__to__cart {
+    background-color: #2c2d2c;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  .add__to__cart:hover {
+    background-color:gray;
+    color: #2c2d2c;
+  }
+  
+  

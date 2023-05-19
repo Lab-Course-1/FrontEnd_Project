@@ -12,6 +12,7 @@ const BestSellers = () => {
                 <ProductCard/>
             </div>
             <button type='button' className='shop__all'>Shop All Products</button>
+            
         </section>
     )
 }
