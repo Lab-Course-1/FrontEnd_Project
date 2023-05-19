@@ -1,20 +1,41 @@
-import React from 'react'
-import "./BestSellers.css"
-import ProductCard from '../ProductCard/ProductCard'
+import React, { useState, useEffect } from "react";
+import "./BestSellers.css";
+import ProductCard from "../ProductCard/ProductCard";
+import axios from "axios";
+import { Variables } from "../../../Variables";
 
 const BestSellers = () => {
-    return (
-        <section className='bestsellers'>
-            <h1 className='best__sellers__title'>BEST SELLERS</h1>
-            <div className='products'>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-            </div>
-            <button type='button' className='shop__all'>Shop All Products</button>
-            
-        </section>
-    )
-}
+  const [products, setProducts] = useState([]);
 
-export default BestSellers
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(
+          Variables.API_URL + "Product/Products"
+        );
+        setProducts(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  return (
+    <section className="bestsellers">
+      <h1 className="best__sellers__title">BEST SELLERS</h1>
+      <div className="products">
+        {products.map((p) => (
+          <ProductCard props={p} />
+        ))}
+      </div>
+      <button type="button" className="shop__all">
+        Shop All Products
+      </button>
+    </section>
+  );
+};
+
+export default BestSellers;
