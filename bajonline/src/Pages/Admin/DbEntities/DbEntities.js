@@ -7,10 +7,10 @@ const DbEntities = () => {
     <div className='db__entities'>
       <nav>
         <ul>
-          <li><NavLink to="/" activeclassName="active">Home</NavLink></li>
-          <li><NavLink to="/shopall" activeclassName="active">Shop All</NavLink></li>
-          <li><NavLink to="/contact" activeClassName="active">Contact</NavLink></li>
-          <li><NavLink to="/admin/dbentities" activeClassName="active">Db Entities</NavLink></li>
+          <li><NavLink to="/"  >Home</NavLink></li>
+          <li><NavLink to="/shopall"  >Shop All</NavLink></li>
+          <li><NavLink to="/contact"  >Contact</NavLink></li>
+          <li><NavLink to="/admin/dbentities"  >Db Entities</NavLink></li>
         </ul>
       </nav>
       <div className="container">

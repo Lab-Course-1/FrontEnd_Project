@@ -1,12 +1,13 @@
 import React from 'react'
 import "./ProductCard.css"
 
-const ProductCard = () => {
+const ProductCard = ({props}) => {
+    const imageUrl = (props.imageUrl !== "string" || "") ? props.imageUrl : "Assets/pic1.png"
     return (
         <div className='product__card'>
-            <img className='image' src={require("./Assets/pic1.png")} alt='pencil' />
-            <p className='product__title'>Title: Im a product</p>
-            <p className='product__price'><i>$250.00</i></p>
+            <img className='image' src={(imageUrl)} alt='pencil' />
+            <p className='product__title'>{props.name}</p>
+            <p className='product__price'><i>{props.price}  </i></p>
         </div>
     )
 }

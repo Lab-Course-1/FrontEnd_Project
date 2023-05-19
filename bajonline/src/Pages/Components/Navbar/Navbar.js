@@ -42,11 +42,11 @@ const Navbar = () => {
                 </div>
                 <div className='bottom__part'>
                     <ul>
-                        <li><NavLink to="/" activeClassName="active">Home</NavLink></li>
-                        <li><NavLink to="/shopall" activeClassName="active">Shop All</NavLink></li>
+                        <li><NavLink to="/"  >Home</NavLink></li>
+                        <li><NavLink to="/shopall"  >Shop All</NavLink></li>
                         <li>Our Story</li>
                         <li>Our Craft</li>
-                        <li><NavLink to="/contact" activeClassName="active">Contact</NavLink></li>
+                        <li><NavLink to="/contact"  >Contact</NavLink></li>
                     </ul>
                 </div>
             </nav>
