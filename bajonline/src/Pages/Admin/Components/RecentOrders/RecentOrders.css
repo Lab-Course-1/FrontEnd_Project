@@ -11,8 +11,6 @@
 
 .recent__orders:hover {
     box-shadow: 0 0 2rem rgba(132, 139, 200, 0.5);
-    padding: 13px;
-    transition: padding 0.1s;
 
 }
 

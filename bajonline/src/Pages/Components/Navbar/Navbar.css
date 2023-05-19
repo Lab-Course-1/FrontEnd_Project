@@ -15,7 +15,7 @@ header h3:hover {
 }
 
 
-nav {
+header nav {
     display: grid;
     grid-template-rows: 1fr 1fr;
     color: #bc4c2a;
@@ -24,7 +24,7 @@ nav {
     background-color: #FFFBFF;
 }
 
-nav .bottom__part .active {
+header nav .bottom__part .active {
     color: #bc4c2a;
 }
 

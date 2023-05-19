@@ -10,7 +10,6 @@ import "./Navbar.css"
 
 const Navbar = () => {
     const isAdmin = true;//Todo: make this dynamic
-
     return (
         <header>
             {isAdmin && <NavLink to="/admin/dashboards" style={{ textDecoration: 'none' }}><h3>Administration</h3></NavLink>}
@@ -43,11 +42,11 @@ const Navbar = () => {
                 </div>
                 <div className='bottom__part'>
                     <ul>
-                        <li><NavLink exact to="/" activeClassName="active">Home</NavLink></li>
-                        <li><NavLink exact to="/shopall" activeClassName="active">Shop All</NavLink></li>
+                        <li><NavLink to="/" activeClassName="active">Home</NavLink></li>
+                        <li><NavLink to="/shopall" activeClassName="active">Shop All</NavLink></li>
                         <li>Our Story</li>
                         <li>Our Craft</li>
-                        <li><NavLink exact to="/contact" activeClassName="active">Contact</NavLink></li>
+                        <li><NavLink to="/contact" activeClassName="active">Contact</NavLink></li>
                     </ul>
                 </div>
             </nav>

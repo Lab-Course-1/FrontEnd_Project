@@ -5,6 +5,7 @@ import BestSellers from '../Components/BestSellers/BestSellers'
 import "./Home.css"
 
 const Home = () => {
+  // axios.get("localhost/getCurrentUser", {token:sessionStorage.getItem("jwtToken")})
   return (
     <div>
       <Navbar />

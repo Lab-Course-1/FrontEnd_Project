@@ -17,11 +17,9 @@ const Login = () => {
                 password: password
             });
             const token = response.data.token;
-            console.log("token: " + token)
-            // Do something with the JWT token, such as storing it in local storage
+            sessionStorage.setItem('jwtToken', token);
         } catch (error) {
             console.error(error);
-            // Handle any errors that occur during the login process
         }
     };
     return (
