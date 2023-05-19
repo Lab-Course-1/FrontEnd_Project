@@ -102,7 +102,21 @@ const ShoppingCartPage = () => {
 
         <div className="payment__section">
           <h3 className="payment__title">Payment</h3>
-
+          <div className="payment__options">
+            <div className="option">
+              <span className="option__label">Nëntotali:</span>
+              <span className="option__value">$45</span>
+            </div>
+            <div className="option">
+              <span className="option__label">Duke përfshirë zbritjen:</span>
+              <span className="option__value">$0</span>
+            </div>
+            <div className="option">
+              <span className="option__label">Gjithsej çmimi:</span>
+              <span className="option__value">$45</span>
+            </div>
+          </div>
+          <button className="continue__btn">Continue</button>
         </div>
       </div>
 
