@@ -8,9 +8,15 @@
 
 .contact .service {
     background-color: #f6f3ef;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.contact .service__containers{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
+
 }
 
 .contact .customer_service {
@@ -40,7 +46,6 @@
     font-size: 28px;
     grid-template-rows: 1fr 1fr;
     font-style: italic;
-    margin-left: 500px;
 }
 
 .contact .paragraph_1 {
