@@ -73,14 +73,32 @@
 }
 
 /*Promocode section*/
-  .promo__section {
-    margin-bottom: 20px;
-  }
 
-  .promo__title {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
+.promo__section {
+  margin-bottom: 20px;
+}
+
+.promo__title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.promo__input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.apply__btn {
+  background-color: #3f51b5;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
   /*Payment section*/
   .payment__section {

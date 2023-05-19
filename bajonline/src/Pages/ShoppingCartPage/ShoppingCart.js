@@ -96,7 +96,8 @@ const ShoppingCartPage = () => {
       <div className="right__section">
         <div className="promo__section">
           <h3 className="promo__title">Promo Code</h3>
-
+          <input type="text"className="promo__input" placeholder="Enter promo code"/>
+          <button className="apply__btn">Apply</button>
         </div>
 
         <div className="payment__section">
