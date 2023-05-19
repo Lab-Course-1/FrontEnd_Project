@@ -4,6 +4,21 @@
     grid-template-rows: 1fr;
 }
 
-.product__page .left__part{
-    background-color: red;
+.product__page .left__part {}
+
+.details__list {
+    list-style: none;
+    padding: 0;
+    margin-left: 20px;
+    font-size: 50%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.details__list .button {
+    background-color: rgb(217, 223, 223);
+    color: black;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }

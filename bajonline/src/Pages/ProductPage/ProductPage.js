@@ -1,7 +1,7 @@
-import React from 'react'
-import Navbar from "../Components/Navbar/Navbar"
-import Footer from "../Components/Footer/Footer"
-import "./ProductPage.css"
+import React from 'react';
+import Navbar from "../Components/Navbar/Navbar";
+import Footer from "../Components/Footer/Footer";
+import "./ProductPage.css";
 
 const ProductPage = () => {
     return (
@@ -9,7 +9,26 @@ const ProductPage = () => {
             <Navbar />
             <div className='product__page'>
                 <div className='left__part'>
-                    <h2>Badfnsoidfbiusdfiubiubiusdbfiusbdiufbiusa sfbaiusbfiuasfia dgiudfuabdsiufbbasd isadfubdsaiufsad fisabfuaofbg iaef fdahsaiu</h2>
+                    <ul className='details__list'>
+                        <li>
+                            <h2 className='button'>Description</h2>
+                        </li>
+                        <li>
+                            <h2 className='button'>Material</h2>
+                        </li>
+                        <li>
+                            <h2 className='button'>Pack</h2>
+                        </li>
+                        <li>
+                            <h2 className='button'>Packaging</h2>
+                        </li>
+                        <li>
+                            <h2 className='button'>Product FAQ</h2>
+                        </li>
+                        <li>
+                            <h2 className='button'>Reviews</h2>
+                        </li>
+                    </ul>
                 </div>
 
                 <div className='mid__part'>
@@ -22,11 +41,10 @@ const ProductPage = () => {
                         <p className='product__description'>Albioni paqarizi baba ne shitj baba ne shitj baba ne shitj baba ne shitj</p>
                     </div>
                 </div>
-
             </div>
             <Footer />
         </div>
-    )
-}
+    );
+};
 
-export default ProductPage  
+export default ProductPage;
