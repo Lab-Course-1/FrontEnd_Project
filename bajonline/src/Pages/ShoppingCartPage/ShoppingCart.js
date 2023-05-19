@@ -4,26 +4,27 @@ import Footer from "../Components/Footer/Footer"
 import "./ShoppingCart.css"
 
 const ShoppingCartPage = () => {
+  return (
+    <div className="cart-page">
+      <div className="left-section">
+        <h1 className="cart-title">Shopping Cart</h1>
 
-    const [cartItems, setCartItems] = useState([]);
+      </div>
 
-    const addToCart = (item) => {
-        setCartItems([...cartItems, item]);
-      };
+      <div className="right-section">
+        <div className="promo-section">
+          <h3 className="promo-title">Promo Code</h3>
 
-    const removeFromCart = (index) => {
-        const updatedCartItems = [...cartItems];
-        updatedCartItems.splice(index, 1);
-        setCartItems(updatedCartItems);
-      };
+        </div>
 
-    return (
-        <div>
-         <Navbar />
+        <div className="payment-section">
+          <h3 className="payment-title">Payment</h3>
 
-         <Footer />
+        </div>
+      </div>
+
     </div>
-    )
-}
+  );
+};
 
-export default ShoppingCartPage
+export default ShoppingCartPage;
