@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 4fr 6fr;
     grid-template-rows: 1fr;
+    margin-top: 30px;
 }
 
 .details__list {
@@ -10,6 +11,7 @@
     margin-left: 20px;
     font-size: 50%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: 80px;
 
 }
 
@@ -20,76 +22,83 @@
     border-radius: 10px;
     margin-bottom: 20px;
     transition: background-color 0.3s;
-  }
-  .details__list .button:hover {
+}
+
+.details__list .button:hover {
     background-color: cornsilk;
-  }
+}
+
 .product__description {
-    margin-right: 60px; 
-    margin-top: 20px;
+    margin-right: 60px;
+    margin-top: 30px;
     line-height: 2;
-  }
-  .color__list {
+}
+
+.color__list {
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .color__item {
+}
+
+.color__item {
     margin-right: 10px;
     padding: 5px;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .red {
+}
+
+.red {
     background-color: rgb(217, 223, 223);
-  }
-  
-  .green {
+}
+
+.green {
     background-color: rgb(217, 223, 223);
-  }
-  
-  .brown {
+}
+
+.brown {
     background-color: rgb(217, 223, 223);
-  }
-  .section__divider {
+}
+
+.section__divider {
     margin-right: 50px;
     border: none;
     border-top: 1px solid rgba(255, 0, 0, 0.3);
-  }
-  
-  .color__list {
+    margin-top: 30px;
+}
+
+.color__list {
     display: flex;
     list-style: none;
     padding: 0;
-  }
-  
-  .color__item {
+    margin-top: 30px;
+}
+
+.color__item {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px; 
-    height: 20px; 
-    margin-right: 30px; 
+    width: 80px;
+    height: 20px;
+    margin-right: 30px;
     background-color: bisque;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .color__item:hover {
+}
+
+.color__item:hover {
     background-color: cornsilk;
-  }
-  
-  .color__item.active {
-    background-color: #f00; 
-  }
-  .color__selection {
+}
+
+.color__item.active {
+    background-color: #f00;
+}
+
+.color__selection {
     margin-bottom: 20px;
-  }
-  
-  .add__to__cart {
+}
+
+.add__to__cart {
     background-color: #2c2d2c;
     color: white;
     padding: 15px 30px;
@@ -98,11 +107,14 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 20px;
-  }
-  .add__to__cart:hover {
-    background-color:gray;
+    margin-top: 50px;
+}
+
+.add__to__cart:hover {
+    background-color: gray;
     color: #2c2d2c;
-  }
-  
-  
+}
+.product__png {
+    width: 100%;
+    margin-top: -50px;
+  }  
