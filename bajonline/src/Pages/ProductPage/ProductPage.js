@@ -47,4 +47,8 @@ const ProductPage = () => {
     );
 };
 
+<<<<<<< HEAD
 export default ProductPage;
+=======
+export default ProductPage
+>>>>>>> ef6c1e5a1dd254f170ff37bb59326c0e3c3df6d8

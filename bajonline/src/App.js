@@ -13,6 +13,7 @@ import Reports from './Pages/Admin/Reports/Reports'
 import Analytics from './Pages/Admin/Analytics/Analytics'
 import Users from './Pages/Admin/Users/Users'
 import ProductPage from './Pages/ProductPage/ProductPage'
+import ShoppingCartPage from './Pages/ShoppingCartPage/ShoppingCart'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/admin/dashboards" element={<Dashboards />} exact />
         <Route path="/admin/users" element={<Users />} exact />
         <Route path="/productpage" element={<ProductPage />} exact />
+        <Route path="/shoppingcartpage" element={<ShoppingCartPage />} exact />
 
       </Routes>
     </Router>
