@@ -43,6 +43,52 @@ const ShoppingCartPage = () => {
                 <button className="remove__btn">Remove</button>
               </td>
             </tr>
+            <tr>
+              <td>
+                <div className="product">
+                  <img
+                    src="product2.jpg"
+                    alt="Product 2"
+                    className="product-image"
+                  />
+                  <div className="product__details">
+                    <h3 className="product__name">Product 2</h3>
+                    <p className="product__description">
+                      Description for Product 2
+                    </p>
+                  </div>
+                </div>
+              </td>
+              <td>$15</td>
+              <td>1</td>
+              <td>$15</td>
+              <td>
+                <button className="remove__btn">Remove</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="product">
+                  <img
+                    src="product3.jpg"
+                    alt="Product 3"
+                    className="product-image"
+                  />
+                  <div className="product__details">
+                    <h3 className="product__name">Product 3</h3>
+                    <p className="product__description">
+                      Description for Product 3
+                    </p>
+                  </div>
+                </div>
+              </td>
+              <td>$20</td>
+              <td>1</td>
+              <td>$20</td>
+              <td>
+                <button className="remove__btn">Remove</button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
