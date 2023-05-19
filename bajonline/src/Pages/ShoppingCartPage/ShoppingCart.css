@@ -1,0 +1,143 @@
+.cart__page {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .left__section {
+    flex: 2;
+
+  }
+
+  .right__section {
+    flex: 1;
+    margin-left: 20px;
+    padding-left: 20px;
+  }
+
+  .cart__title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .cart__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+.cart__table th,
+.cart__table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart__table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.remove__btn {
+  background-color: #BC4C34;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+}
+
+.product__image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.product__details {
+  display: flex;
+  flex-direction: column;
+}
+
+.product__name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.product__description {
+  margin-bottom: 5px;
+}
+
+/*Promocode section*/
+
+.promo__section {
+  margin-bottom: 20px;
+}
+
+.promo__title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.promo__input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.apply__btn {
+  background-color: #BC4C34;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+  /*Payment section*/
+  .payment__section {
+    margin-bottom: 20px;
+  }
+
+  .payment__title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .payment__options {
+    margin-bottom: 10px;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .option__label {
+    margin-right: 5px;
+    font-weight: bold;
+  }
+
+  .option__value {
+    font-weight: bold;
+  }
+
+  .continue__btn {
+    background-color: #BC4C34;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    float: right;
+  }
