@@ -5,6 +5,8 @@ import "./ShoppingCart.css"
 
 const ShoppingCartPage = () => {
   return (
+    <>
+    <Navbar />
     <div className="cart__page">
       <div className="left__section">
         <h1 className="cart__title">Shopping Cart</h1>
@@ -23,11 +25,7 @@ const ShoppingCartPage = () => {
             <tr>
               <td>
                 <div className="product">
-                  <img
-                    src="product1.jpg"
-                    alt="Product 1"
-                    className="product__image"
-                  />
+                  <img src="/public/product1.png" alt="Product 1" className="product__image" />
                   <div className="product__details">
                     <h3 className="product__name">Product 1</h3>
                     <p className="product__description">
@@ -121,6 +119,8 @@ const ShoppingCartPage = () => {
       </div>
 
     </div>
+    <Footer />
+    </>
   );
 };
 

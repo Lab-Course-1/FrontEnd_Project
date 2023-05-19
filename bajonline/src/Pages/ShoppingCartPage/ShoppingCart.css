@@ -7,11 +7,13 @@
 
   .left__section {
     flex: 2;
+
   }
 
   .right__section {
     flex: 1;
     margin-left: 20px;
+    padding-left: 20px;
   }
 
   .cart__title {
@@ -38,7 +40,7 @@
 }
 
 .remove__btn {
-  background-color: #ff3f3f;
+  background-color: #BC4C34;
   color: #fff;
   border: none;
   padding: 8px 12px;
@@ -92,7 +94,7 @@
 }
 
 .apply__btn {
-  background-color: #3f51b5;
+  background-color: #BC4C34;
   color: #fff;
   border: none;
   padding: 10px 15px;
@@ -130,7 +132,7 @@
   }
 
   .continue__btn {
-    background-color: #3f51b5;
+    background-color: #BC4C34;
     color: #fff;
     border: none;
     padding: 12px 20px;
