@@ -57,7 +57,7 @@
   .section__divider {
     margin-right: 50px ;
     border: none;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #f00;
   }
   .color__list {
     display: flex;
@@ -89,6 +89,3 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     opacity: 0.6;
   }
-  
-  
-  
