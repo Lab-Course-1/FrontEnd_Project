@@ -32,13 +32,13 @@ const ProductPage = () => {
                 </div>
 
                 <div className='mid__part'>
-                    <h2>Badfnsoidfbiusdfiubiubiusdbfiusbdiufbiusa sfbaiusbfiuasfia dgiudfuabdsiufbbasd isadfubdsaiufsad fisabfuaofbg iaef fdahsaiu</h2>
+                    <img src="/public/product1.png" alt="Product Image" className="product__image" />
                 </div>
 
                 <div className='right__part'>
                     <div className='product__name'>
-                        <h1 className='product__title'>Albion baba ne shitje</h1>
-                        <p className='product__description'>Albioni paqarizi baba ne shitj baba ne shitj baba ne shitj baba ne shitj</p>
+                        <h1 className='product__title'>Name Of Product</h1>
+                        <p className='product__description'>Descriptio of product: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
                     </div>
                 </div>
             </div>
@@ -47,8 +47,4 @@ const ProductPage = () => {
     );
 };
 
-<<<<<<< HEAD
 export default ProductPage;
-=======
-export default ProductPage
->>>>>>> ef6c1e5a1dd254f170ff37bb59326c0e3c3df6d8

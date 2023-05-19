@@ -4,8 +4,6 @@
     grid-template-rows: 1fr;
 }
 
-.product__page .left__part {}
-
 .details__list {
     list-style: none;
     padding: 0;
@@ -22,3 +20,7 @@
     border-radius: 10px;
     margin-bottom: 20px;
 }
+.product__description--adjust {
+    margin-right: 20px; 
+  }
+  
