@@ -5,20 +5,56 @@ import "./ShoppingCart.css"
 
 const ShoppingCartPage = () => {
   return (
-    <div className="cart-page">
-      <div className="left-section">
-        <h1 className="cart-title">Shopping Cart</h1>
+    <div className="cart__page">
+      <div className="left__section">
+        <h1 className="cart__title">Shopping Cart</h1>
 
+        <table className="cart__table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div className="product">
+                  <img
+                    src="product1.jpg"
+                    alt="Product 1"
+                    className="product__image"
+                  />
+                  <div className="product__details">
+                    <h3 className="product__name">Product 1</h3>
+                    <p className="product__description">
+                      Description for Product 1
+                    </p>
+                  </div>
+                </div>
+              </td>
+              <td>$10</td>
+              <td>1</td>
+              <td>$10</td>
+              <td>
+                <button className="remove__btn">Remove</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <div className="right-section">
-        <div className="promo-section">
-          <h3 className="promo-title">Promo Code</h3>
+      <div className="right__section">
+        <div className="promo__section">
+          <h3 className="promo__title">Promo Code</h3>
 
         </div>
 
-        <div className="payment-section">
-          <h3 className="payment-title">Payment</h3>
+        <div className="payment__section">
+          <h3 className="payment__title">Payment</h3>
 
         </div>
       </div>

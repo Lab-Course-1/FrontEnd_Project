@@ -1,38 +1,93 @@
-.cart-page {
+.cart__page {
     display: flex;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
   }
 
-  .left-section {
+  .left__section {
     flex: 2;
   }
 
-  .right-section {
+  .right__section {
     flex: 1;
     margin-left: 20px;
   }
 
-  .cart-title {
+  .cart__title {
     font-size: 24px;
     margin-bottom: 20px;
   }
 
-  .promo-section {
+  .cart__table {
+    width: 100%;
+    border-collapse: collapse;
     margin-bottom: 20px;
   }
 
-  .promo-title {
+.cart__table th,
+.cart__table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart__table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.remove__btn {
+  background-color: #ff3f3f;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+}
+
+.product__image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.product__details {
+  display: flex;
+  flex-direction: column;
+}
+
+.product__name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.product__description {
+  margin-bottom: 5px;
+}
+
+/*Promocode section*/
+  .promo__section {
+    margin-bottom: 20px;
+  }
+
+  .promo__title {
     font-size: 18px;
     margin-bottom: 10px;
   }
 
-  .payment-section {
+  /*Payment section*/
+  .payment__section {
     margin-bottom: 20px;
   }
 
-  .payment-title {
+  .payment__title {
     font-size: 18px;
     margin-bottom: 10px;
   }
