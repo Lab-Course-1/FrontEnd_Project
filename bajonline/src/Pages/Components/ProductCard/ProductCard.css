@@ -1,32 +1,83 @@
 .product__card {
-    width: 330px;
-    height: 520px;
-    background-color: #f6f3ef;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    letter-spacing: 3px;
+  width: 330px;
+  height: 520px;
+  background-color: #f6f3ef;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: 3px;
 }
 
 .product__card .image {
-    margin:10px;
-    padding: 0;
-    min-width: 230px;
-    max-width: 280px;
-    min-height: 280px;
-    max-height: 320px;
-    border-radius: 10px;
-    overflow: hidden;
+  margin: 10px;
+  padding: 0;
+  min-width: 230px;
+  max-width: 280px;
+  min-height: 280px;
+  max-height: 320px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .product__card .product__title {
-    font-family: 'inter';
-    margin: 0;
-    color: #222
+  font-family: "inter";
+  margin: 0;
+  color: #222;
 }
 
 .product__card .product__price {
-    color: #8c4a2e;
-    font-weight: 700;
+  color: #8c4a2e;
+  font-weight: 700;
+}
+
+.product__card .add__to__cart {
+  width: 136px;
+  height: 44px;
+  font-size: 15px;
+  border: 1px solid #bc4c2a;
+  background-color: transparent;
+  margin: 10px auto;
+  color: #bc4c2a;
+  padding: 0;
+  cursor: pointer;
+  font-family: "Poppins";
+}
+
+.product__card .add__to__cart:hover {
+  background-color: #bc4c2a;
+  color: white;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.product__card .buttons {
+  display: flex;
+  gap: 9px;
+  margin: 5px;
+}
+
+.product__card .buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+.product__card .add__to__wishlist {
+  width: 138px;
+  height: 44px;
+  font-size: 15px;
+  border: 1px solid #bc4c2a;
+  background-color: lightblue;
+  margin: 10px auto;
+  color: #bc4c2a;
+  padding: 0;
+  cursor: pointer;
+  font-family: "Poppins";
+}
+
+.product__card .add__to__wishlist:hover {
+  background-color: #bc4c2a;
+  color: white;
+  transition: background-color 0.5s, color 0.5s;
 }

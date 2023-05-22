@@ -1,46 +1,45 @@
 .cart__page {
-    display: flex;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+  display: flex;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  .left__section {
-    flex: 2;
+.cart__page .left__section {
+  flex: 2;
+}
 
-  }
+.cart__page .right__section {
+  flex: 1;
+  margin-left: 20px;
+  padding-left: 20px;
+}
 
-  .right__section {
-    flex: 1;
-    margin-left: 20px;
-    padding-left: 20px;
-  }
+.cart__page .cart__title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 
-  .cart__title {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
+.cart__page .cart__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
 
-  .cart__table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-
-.cart__table th,
-.cart__table td {
+.cart__page .cart__table th,
+.cart__page .cart__table td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ccc;
 }
 
-.cart__table th {
+.cart__page .cart__table th {
   background-color: #f5f5f5;
   font-weight: bold;
 }
 
-.remove__btn {
-  background-color: #BC4C34;
+.cart__page .remove__btn {
+  background-color: #bc4c34;
   color: #fff;
   border: none;
   padding: 8px 12px;
@@ -48,44 +47,44 @@
   cursor: pointer;
 }
 
-.product {
+.cart__page .product {
   display: flex;
   align-items: center;
 }
 
-.product__image {
+.cart__page .product__image {
   width: 60px;
   height: 60px;
   object-fit: cover;
   margin-right: 10px;
 }
 
-.product__details {
+.cart__page .product__details {
   display: flex;
   flex-direction: column;
 }
 
-.product__name {
+.cart__page .product__name {
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.product__description {
+.cart__page .product__description {
   margin-bottom: 5px;
 }
 
 /*Promocode section*/
 
-.promo__section {
+.cart__page .promo__section {
   margin-bottom: 20px;
 }
 
-.promo__title {
+.cart__page .promo__title {
   font-size: 18px;
   margin-bottom: 10px;
 }
 
-.promo__input {
+.cart__page .promo__input {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -93,8 +92,8 @@
   width: 100%;
 }
 
-.apply__btn {
-  background-color: #BC4C34;
+.cart__page .apply__btn {
+  background-color: #bc4c34;
   color: #fff;
   border: none;
   padding: 10px 15px;
@@ -102,42 +101,42 @@
   cursor: pointer;
 }
 
-  /*Payment section*/
-  .payment__section {
-    margin-bottom: 20px;
-  }
+/*Payment section*/
+.cart__page .payment__section {
+  margin-bottom: 20px;
+}
 
-  .payment__title {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
+.cart__page .payment__title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
 
-  .payment__options {
-    margin-bottom: 10px;
-  }
+.cart__page .payment__options {
+  margin-bottom: 10px;
+}
 
-  .option {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-  }
+.cart__page .option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
 
-  .option__label {
-    margin-right: 5px;
-    font-weight: bold;
-  }
+.cart__page .option__label {
+  margin-right: 5px;
+  font-weight: bold;
+}
 
-  .option__value {
-    font-weight: bold;
-  }
+.cart__page .option__value {
+  font-weight: bold;
+}
 
-  .continue__btn {
-    background-color: #BC4C34;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    float: right;
-  }
+.cart__page .continue__btn {
+  background-color: #bc4c34;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  float: right;
+}
