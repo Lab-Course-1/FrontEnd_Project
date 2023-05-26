@@ -14,10 +14,14 @@ import Analytics from './Pages/Admin/Analytics/Analytics'
 import Users from './Pages/Admin/Users/Users'
 import ProductPage from './Pages/ProductPage/ProductPage'
 import ShoppingCartPage from './Pages/ShoppingCartPage/ShoppingCart'
+import { ReactNotifications } from 'react-notifications-component'
 
 function App() {
   return (
+    <>
+    <ReactNotifications/>
     <Router>
+      
       <Routes>
         <Route path="/" element={<Home />} exact />
         <Route path="/shopall" element={<ShopAll />} exact />
@@ -36,6 +40,7 @@ function App() {
         <Route path="/shoppingcartpage" element={<ShoppingCartPage />} exact />
       </Routes>
     </Router>
+    </>
   )
 }
 export default App

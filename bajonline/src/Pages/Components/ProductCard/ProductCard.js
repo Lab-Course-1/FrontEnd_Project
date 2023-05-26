@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ProductCard.css";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 
 const ProductCard = ({ props }) => {
-  const imageUrl =
-    props.imageUrl !== "string" || "" ? props.imageUrl : "Assets/pic1.png";
+  const [imageUrl, setImageUrl] = useState("");
+  useEffect(() => {
+    if (props.imageUrl === "string" || props.imageUrl === "") {
+      setImageUrl("https://i.imgur.com/BlVFcdX.png");
+    } else {
+      setImageUrl(props.imageUrl);
+    }
+  }, [props.imageUrl]);
   const handleAddToCart = () => {
     console.log("added to cart");
   };
@@ -17,12 +23,16 @@ const ProductCard = ({ props }) => {
       <img className="image" src={imageUrl} alt="pencil" />
       <p className="product__title">{props.name}</p>
       <p className="product__price">
-        <i>{props.price}</i>
+        {props.listPrice > props.price && (
+          <i className="price__before">{props.listPrice}€</i>
+        )}
+        <br />
+        <i>{props.price}€</i>
       </p>
       <div className="buttons">
         <button
           type="button"
-          onclick={handleAddToCart}
+          onClick={handleAddToCart}
           className="add__to__cart"
         >
           <AddShoppingCartIcon />
@@ -30,11 +40,11 @@ const ProductCard = ({ props }) => {
         </button>
         <button
           type="button"
-          onclick={handleAddToWishList}
+          onClick={handleAddToWishList}
           className="add__to__wishlist"
         >
           <BookmarkBorderIcon />
-          Add to wishlist
+          Wishlist
         </button>
       </div>
     </div>

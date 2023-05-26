@@ -29,7 +29,7 @@ const SideNav = () => {
                     left: '0',
                 }} />
             </IconButton>
-            <h1>Fondgram</h1>
+            <h1>SmartSupplies</h1>
             <ul>
                 <li>
                     <NavLink to="/admin/dashboards" className={({ isActive }) => isActive ? "active" : ''}>

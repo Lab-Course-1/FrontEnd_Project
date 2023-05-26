@@ -14,12 +14,11 @@ const BestSellers = () => {
           Variables.API_URL + "Product/Products"
         );
         setProducts(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error(error);
       }
     };
-
+    
     fetchProducts();
   }, []);
 
@@ -28,7 +27,7 @@ const BestSellers = () => {
       <h1 className="best__sellers__title">BEST SELLERS</h1>
       <div className="products">
         {products.map((p) => (
-          <ProductCard props={p} />
+          <ProductCard props={p} key={p.id} />
         ))}
       </div>
       <button type="button" className="shop__all">
