@@ -3,6 +3,7 @@ import "./BestSellers.css";
 import ProductCard from "../ProductCard/ProductCard";
 import axios from "axios";
 import { Variables } from "../../../Variables";
+import { NavLink } from "react-router-dom";
 
 const BestSellers = () => {
   const [products, setProducts] = useState([]);
@@ -18,7 +19,7 @@ const BestSellers = () => {
         console.error(error);
       }
     };
-    
+
     fetchProducts();
   }, []);
 
@@ -30,9 +31,11 @@ const BestSellers = () => {
           <ProductCard props={p} key={p.id} />
         ))}
       </div>
-      <button type="button" className="shop__all">
-        Shop All Products
-      </button>
+      <NavLink to="/shopall">
+        <button type="button" className="shop__all">
+          Shop All Products
+        </button>
+      </NavLink>
     </section>
   );
 };

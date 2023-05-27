@@ -8,22 +8,36 @@ import "./ShopAll.css";
 
 const ShopAll = () => {
   const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  let pageSize = 5;
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(
-          Variables.API_URL + "Product/Products"
-        );
-        setProducts(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
     fetchProducts();
   }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get(
+        Variables.API_URL +
+          `Product/Products?page=${currentPage}&pageSize=${pageSize}`
+      );
+      const newProducts = response.data;
+      if (currentPage === 1) {
+        setProducts(newProducts);
+      } else {
+        setProducts((prevProducts) => [...prevProducts, ...newProducts]);
+      }
+      setCurrentPage((prevPage) => prevPage + 1);
+      console.log(currentPage);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleLoadMore = () => {
+    fetchProducts();
+  };
+
   return (
     <>
       <Navbar />
@@ -64,9 +78,18 @@ const ShopAll = () => {
             </div>
           </aside>
           <div className="products">
-            {products.map((p) => (
-              <ProductCard props={p} />
-            ))}
+            <div className="prods">
+              {products.map((p) => (
+                <ProductCard props={p} key={p.id} />
+              ))}
+            </div>
+            <button
+              type="button"
+              className="load__more"
+              onClick={handleLoadMore}
+            >
+              Load More Products
+            </button>
           </div>
         </div>
       </div>
