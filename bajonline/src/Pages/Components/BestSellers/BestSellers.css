@@ -1,6 +1,9 @@
 .bestsellers {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 7%;
 }
 
 .bestsellers .best__sellers__title {
@@ -34,4 +37,10 @@
     background-color: #bc4c2a;
     color: white;
     transition: background-color 0.5s, color 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+    .bestsellers{
+        padding: 0;
+    }
 }

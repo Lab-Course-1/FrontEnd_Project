@@ -117,6 +117,9 @@ nav .bottom__part ul li:hover {
   color: #bc4c2a;
 }
 
+.second__logo {
+  display: none;
+}
 @media screen and (max-width: 900px) {
   nav .upper__part {
     padding-right: 40px;
@@ -130,6 +133,7 @@ nav .bottom__part ul li:hover {
     width: 180px;
     color: #bc4c2a;
   }
+
   .bottom__part.small__screen {
     display: flex;
     flex-direction: column;
@@ -146,6 +150,7 @@ nav .bottom__part ul li:hover {
     z-index: 1;
     transition: 0.5s;
   }
+
   .bottom__part.small__screen ul {
     margin: 0;
     display: flex;
@@ -157,6 +162,7 @@ nav .bottom__part ul li:hover {
     margin: 10px;
     font-size: 21px;
   }
+
   nav .hide__on__small__screen {
     display: none;
   }
@@ -169,5 +175,8 @@ nav .bottom__part ul li:hover {
     top: 0;
     right: 0;
   }
- 
+
+  .second__logo.small__screen { 
+    display: block;
+  }
 }
