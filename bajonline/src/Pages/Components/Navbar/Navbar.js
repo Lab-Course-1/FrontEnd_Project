@@ -11,7 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
 
   return (
