@@ -11,7 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
 
   return (
@@ -39,10 +39,7 @@ const Navbar = () => {
               <TwitterIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
               <LinkedInIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
             </div>
-            <NavLink
-              to="/login"
-              style={{ textDecoration: "none" }}
-            >
+            <NavLink to="/login" style={{ textDecoration: "none" }}>
               <div className="login">
                 <LoginIcon />
                 <p>Log In</p>
@@ -61,9 +58,7 @@ const Navbar = () => {
         >
           <h2
             className={
-              isMobileMenuToggled
-                ? " small__screen "
-                : " hide__on__small__screen"
+              "second__logo" + (isMobileMenuToggled ? " small__screen" : "")
             }
           >
             <i>SmartSupplies.</i>

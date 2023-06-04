@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ProductCard.css";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import AuthorizedAxios from "../../../AuthorizedAxios";
 
 const ProductCard = ({ props }) => {
   const [imageUrl, setImageUrl] = useState("");
@@ -12,12 +13,16 @@ const ProductCard = ({ props }) => {
       setImageUrl(props.imageUrl);
     }
   }, [props.imageUrl]);
+
   const handleAddToCart = () => {
-    console.log("added to cart");
+    AuthorizedAxios.post(`https://localhost:44332/api/ShoppingCart/AddToCart?count=1&productId=${props.id}`)
+
   };
+
   const handleAddToWishList = () => {
     console.log("added to wishlist");
   };
+
   return (
     <div className="product__card">
       <img className="image" src={imageUrl} alt="pencil" />

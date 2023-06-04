@@ -27,7 +27,7 @@
   position: relative;
 }
 
-.contact .customer_service::after {
+/* .contact .customer_service::after {
   content: "";
   display: block;
   width: 50px;
@@ -37,7 +37,7 @@
   bottom: -10px;
   left: 50%;
   transform: translateX(-25%);
-}
+} */
 
 .contact .container_1 {
   color: #bc4c2a;
@@ -60,7 +60,6 @@
   font-size: 28px;
   grid-template-rows: 1fr 1fr;
   font-style: italic;
-  margin-left: 100px;
 }
 
 .contact .paragraph_2 {
@@ -76,7 +75,6 @@
   font-size: 28px;
   grid-template-rows: 1fr 1fr;
   font-style: italic;
-  margin-left: 100px;
 }
 
 .contact .paragraph_3 {

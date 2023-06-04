@@ -7,14 +7,18 @@ import { NavLink } from "react-router-dom";
 
 const BestSellers = () => {
   const [products, setProducts] = useState([]);
+  let currentPage = 1;
+  let pageSize = 6;
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          Variables.API_URL + "Product/Products"
+          Variables.API_URL +
+            `Product/Products?page=${currentPage}&pageSize=${pageSize}`
         );
-        setProducts(response.data);
+        const newProducts = response.data;
+        setProducts(newProducts);
       } catch (error) {
         console.error(error);
       }
