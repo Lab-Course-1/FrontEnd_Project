@@ -32,15 +32,15 @@ const ProductPage = () => {
                 </div>
 
                 <div className='mid__part'>
-                <img src={require("./product1.png")} className='product__png' />
+                    <img src={require("./product1.png")} className='product__png' />
                 </div>
 
                 <div className='right__part'>
                     <div className='product__name'>
                         <h1 className='product__title'>Name of Product</h1>
-                        <p className='product__description'>Description of product: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                        <p className='product__description'>Description of product: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
                     </div>
                     <hr className='section__divider' />
                     <div className='color__selection'>
