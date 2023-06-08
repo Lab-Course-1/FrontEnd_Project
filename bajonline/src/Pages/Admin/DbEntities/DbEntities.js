@@ -27,24 +27,49 @@ const DbEntities = () => {
             <NavLink to='/admin/users'>View Categories</NavLink>
           </div>
           <div className="card">
-            <h4>Orders</h4>
-            <p>Dashboard for all the orders done</p>
-            <a href="">View Orders</a>
+            <h4>CartItems</h4>
+            <p>Dashboard for types of categories</p>
+            <NavLink to='/admin/users'>View Categories</NavLink>
           </div>
           <div className="card">
-            <h4>Drinks</h4>
-            <p>Dashboard for types of drinks</p>
-            <a href="">View Drinks</a>
+            <h4>OrderData</h4>
+            <p>Dashboard for types of categories</p>
+            <NavLink to='/admin/users'>View Categories</NavLink>
           </div>
           <div className="card">
-            <h4>Staf</h4>
-            <p>Dashboard for the staf</p>
-            <a href="">View Staf</a>
+            <h4>AddressDetails</h4>
+            <p>Dashboard for types of categories</p>
+            <NavLink to='/admin/users'>View Categories</NavLink>
           </div>
           <div className="card">
-            <h4>Contact</h4>
-            <p>Dashboard for the contacts</p>
-            <a href="">View Contacts</a>
+            <h4>OrderDetails</h4>
+            <p>Dashboard for types of categories</p>
+            <NavLink to='/admin/users'>View Categories</NavLink>
+          </div>
+          <div className="card">
+            <h4>Products</h4>
+            <p>Dashboard for types of categories</p>
+            <NavLink to='/admin/users'>View Categories</NavLink>
+          </div>
+          <div className="card">
+            <h4>ProductOrderDetails</h4>
+            <p>Dashboard for types of categories</p>
+            <NavLink to='/admin/users'>View Categories</NavLink>
+          </div>
+          <div className="card">
+            <h4>Promotions</h4>
+            <p>Dashboard for types of categories</p>
+            <NavLink to='/admin/users'>View Categories</NavLink>
+          </div>
+          <div className="card">
+            <h4>Review</h4>
+            <p>Dashboard for types of categories</p>
+            <NavLink to='/admin/users'>View Categories</NavLink>
+          </div>
+          <div className="card">
+            <h4>WishListItems</h4>
+            <p>Dashboard for types of categories</p>
+            <NavLink to='/admin/users'>View Categories</NavLink>
           </div>
         </div>
       </div>
