@@ -28,12 +28,12 @@ const DbEntities = () => {
           </div>
           <div className="card">
             <h4>CartItems</h4>
-            <p>Dashboard for types of categories</p>
-            <NavLink to='/admin/users'>View Categories</NavLink>
+            <p>Dashboard for Cart Items</p>
+            <NavLink to='/admin/dbentities/cartitem'>View CartItemsms</NavLink>
           </div>
           <div className="card">
             <h4>OrderData</h4>
-            <p>Dashboard for types of categories</p>
+            <p>Dashboard for OrderData</p>
             <NavLink to='/admin/users'>View Categories</NavLink>
           </div>
           <div className="card">
