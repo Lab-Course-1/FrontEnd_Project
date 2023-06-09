@@ -1,119 +1,129 @@
 .db__entities {
-    font-family: "Open Sans", sans-serif;
-  }
+  font-family: "Open Sans", sans-serif;
+  background-image: linear-gradient(to bottom, #bb9cf4, #e7def8);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 50px;
+}
 
-  .db__entities nav {
-    height: 70px;
-  }
+.db__entities nav {
+  height: 70px;
+}
 
-  .db__entities body {
-    margin: 0;
-    padding: 0;
-  }
+.db__entities body {
+  margin: 0;
+  padding: 0;
+}
 
-  .db__entities nav ul {
-    list-style-type: none;
-    display: flex;
-  }
+.db__entities nav ul {
+  list-style-type: none;
+  display: flex;
+}
 
-  .db__entities nav .active {
-    color: #7d4cdb;
-  }
+.db__entities nav .active {
+  color: #7d4cdb;
+}
 
-  .db__entities nav ul li {
-    padding: 5px 17px;
-    font-size: 18px;
-    margin: 5px;
-    font-weight: 600;
-  }
+.db__entities nav ul li {
+  padding: 5px 17px;
+  font-size: 18px;
+  margin: 5px;
+  font-weight: 600;
+}
 
-  .db__entities nav ul li:hover {
-    color: #7d4cdb;
-  }
+.db__entities nav ul li:hover {
+  color: #7d4cdb;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
 
-  nav ul a {
-    text-decoration: none;
-    color: black;
-  }
+nav ul a {
+  text-decoration: none;
+  color: black;
+}
 
-  .db__entities .container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-  }
+.db__entities .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
 
-  .db__entities .card {
-    width: 340px;
-    height: 240px;
-    background-color: #e8e5f4;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-  }
+.db__entities .card {
+  width: 340px;
+  height: 240px;
+  background-color: #e8e5f4;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
 
-  .db__entities .card:hover {
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  }
+.db__entities .card:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-  .db__entities .card h4 {
-    font-size: 24px;
-    margin: 10px 0 5px;
-  }
+.db__entities .card h4 {
+  font-size: 24px;
+  margin: 10px 0 5px;
+}
 
-  .db__entities .card p {
-    font-size: 16px;
-    margin: 5px 0;
-    color: #333;
-  }
+.db__entities .card p {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #333;
+}
 
-  .db__entities .card a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-    width: 150px;
-    height: 33px;
-    background-color: #7d4cdb;
-    border-radius: 8px;
-    margin-top: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease, padding-top 0.3s ease;
-  }
+.db__entities .card a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  width: 150px;
+  height: 33px;
+  background-color: #7d4cdb;
+  border-radius: 8px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, padding-top 0.3s ease;
+}
 
-  .db__entities .card a:hover {
-    background-color: #6139b8;
-    padding-top: 7px;
-  }
+.db__entities .card a:hover {
+  background-color: #6139b8;
+  padding-top: 7px;
+}
 
-  .db__entities h1 {
-    position: relative;
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
+.db__entities h1 {
+  position: relative;
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
 
-  .db__entities h1::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 3px;
-    background-color: #726bfa;
-    transition: width 0.3s ease;
-  }
+.db__entities h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 3px;
+  background-color: #726bfa;
+  transition: width 0.3s ease;
+}
 
-  .db__entities h1:hover::after {
-    width: 100%;
-  }
+.db__entities h1:hover::after {
+  width: 100%;
+}

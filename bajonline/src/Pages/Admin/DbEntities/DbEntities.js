@@ -29,47 +29,47 @@ const DbEntities = () => {
           <div className="card">
             <h4>CartItems</h4>
             <p>Dashboard for Cart Items</p>
-            <NavLink to='/admin/dbentities/cartitem'>View CartItemsms</NavLink>
+            <NavLink to='/admin/dbentities/cartitem'>View CartItems</NavLink>
           </div>
           <div className="card">
             <h4>OrderData</h4>
-            <p>Dashboard for OrderData</p>
-            <NavLink to='/admin/dbentities/orderdata'>View Categories</NavLink>
+            <p>Dashboard for the data of Orders</p>
+            <NavLink to='/admin/dbentities/orderdata'>View OrderData</NavLink>
           </div>
           <div className="card">
             <h4>AddressDetails</h4>
-            <p>Dashboard for types of categories</p>
-            <NavLink to='/admin/users'>View Categories</NavLink>
+            <p>Dashboard for the address details</p>
+            <NavLink to='/admin/users'>View AddressDetails</NavLink>
           </div>
           <div className="card">
             <h4>OrderDetails</h4>
-            <p>Dashboard for types of categories</p>
-            <NavLink to='/admin/users'>View Categories</NavLink>
+            <p>Dashboard for details of orders</p>
+            <NavLink to='/admin/users'>View OrderDetails</NavLink>
           </div>
           <div className="card">
             <h4>Products</h4>
-            <p>Dashboard for types of categories</p>
-            <NavLink to='/admin/users'>View Categories</NavLink>
+            <p>Dashboard for Products</p>
+            <NavLink to='/admin/users'>View Products</NavLink>
           </div>
           <div className="card">
             <h4>ProductOrderDetails</h4>
-            <p>Dashboard for types of categories</p>
-            <NavLink to='/admin/users'>View Categories</NavLink>
+            <p>Dashboard for Product Order Details</p>
+            <NavLink to='/admin/users'>View ProductOrderDetails</NavLink>
           </div>
           <div className="card">
             <h4>Promotions</h4>
-            <p>Dashboard for types of categories</p>
-            <NavLink to='/admin/users'>View Categories</NavLink>
+            <p>Dashboard for Promotions</p>
+            <NavLink to='/admin/users'>View Promotions</NavLink>
           </div>
           <div className="card">
             <h4>Review</h4>
-            <p>Dashboard for types of categories</p>
-            <NavLink to='/admin/users'>View Categories</NavLink>
+            <p>Dashboard for Reviews</p>
+            <NavLink to='/admin/users'>View Review</NavLink>
           </div>
           <div className="card">
             <h4>WishListItems</h4>
-            <p>Dashboard for types of categories</p>
-            <NavLink to='/admin/users'>View Categories</NavLink>
+            <p>Dashboard for Wish List Items</p>
+            <NavLink to='/admin/users'>View WishListItems</NavLink>
           </div>
         </div>
       </div>
