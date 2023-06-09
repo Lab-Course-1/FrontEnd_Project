@@ -24,7 +24,7 @@ const DbEntities = () => {
           <div className="card">
             <h4>Categories</h4>
             <p>Dashboard for types of categories</p>
-            <NavLink to='/admin/users'>View Categories</NavLink>
+            <NavLink to='/admin/dbentities/categories'>View Categories</NavLink>
           </div>
           <div className="card">
             <h4>CartItems</h4>
