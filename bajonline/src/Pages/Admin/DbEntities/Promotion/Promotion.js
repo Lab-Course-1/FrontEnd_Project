@@ -57,7 +57,7 @@ const Promotions = () => {
       <div className="container">
         <h1>Promotions</h1>
         <div className="add">
-          <a href="./promotions" className="button">
+          <a href="./promotion" className="button">
             Create Promotion
           </a>
         </div>
