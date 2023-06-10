@@ -17,6 +17,7 @@ import Product from "./Pages/Admin/DbEntities/Product/Product";
 import ProductOrderDetails from "./Pages/Admin/DbEntities/ProductOrderDetails/ProductOrderDetails";
 import Promotion from "./Pages/Admin/DbEntities/Promotion/Promotion";
 import Review from "./Pages/Admin/DbEntities/Review/Review";
+import WishListItem from "./Pages/Admin/DbEntities/WishListItem/WishListItem";
 import Dashboards from "./Pages/Admin/Dashboards/Dashboards";
 import Reports from "./Pages/Admin/Reports/Reports";
 import Analytics from "./Pages/Admin/Analytics/Analytics";
@@ -51,6 +52,7 @@ function App() {
           <Route path="/admin/dbentities/productOrderDetails" element={< ProductOrderDetails/>} exact />
           <Route path="/admin/dbentities/promotion" element={< Promotion/>} exact />
           <Route path="/admin/dbentities/review" element={< Review/>} exact />
+          <Route path="/admin/dbentities/wishListItem" element={< WishListItem/>} exact />
           <Route path="/admin/dashboards" element={<Dashboards />} exact />
           <Route path="/admin/users" element={<Users />} exact />
           <Route path="/productpage" element={<ProductPage />} exact />

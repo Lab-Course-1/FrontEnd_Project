@@ -69,7 +69,7 @@ const DbEntities = () => {
           <div className="card">
             <h4>WishListItems</h4>
             <p>Dashboard for Wish List Items</p>
-            <NavLink to='/admin/users'>View WishListItems</NavLink>
+            <NavLink to='/admin/dbentities/wishListItem'>View WishListItems</NavLink>
           </div>
         </div>
       </div>
