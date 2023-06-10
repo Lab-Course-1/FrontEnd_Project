@@ -44,7 +44,7 @@ const DbEntities = () => {
           <div className="card">
             <h4>OrderDetails</h4>
             <p>Dashboard for details of orders</p>
-            <NavLink to='/admin/users'>View OrderDetails</NavLink>
+            <NavLink to='/admin/dbentities/orderdetails'>View OrderDetails</NavLink>
           </div>
           <div className="card">
             <h4>Products</h4>

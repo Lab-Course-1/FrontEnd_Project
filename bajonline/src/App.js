@@ -12,6 +12,7 @@ import Categories from "./Pages/Admin/DbEntities/Categories/Categories";
 import CartItem from "./Pages/Admin/DbEntities/CartItem/CartItem";
 import OrderData from "./Pages/Admin/DbEntities/OrderData/OrderData";
 import AddressDetails from "./Pages/Admin/DbEntities/AddressDetails/AddressDetails";
+import OrderDetails from "./Pages/Admin/DbEntities/OrderDetails/OrderDetails";
 import Dashboards from "./Pages/Admin/Dashboards/Dashboards";
 import Reports from "./Pages/Admin/Reports/Reports";
 import Analytics from "./Pages/Admin/Analytics/Analytics";
@@ -41,6 +42,7 @@ function App() {
           <Route path="/admin/dbentities/cartItem" element={<CartItem />} exact />
           <Route path="/admin/dbentities/orderData" element={<OrderData />} exact />
           <Route path="/admin/dbentities/addressDetails" element={< AddressDetails/>} exact />
+          <Route path="/admin/dbentities/orderDetails" element={< OrderDetails/>} exact />
           <Route path="/admin/dashboards" element={<Dashboards />} exact />
           <Route path="/admin/users" element={<Users />} exact />
           <Route path="/productpage" element={<ProductPage />} exact />
