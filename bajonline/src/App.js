@@ -14,6 +14,7 @@ import OrderData from "./Pages/Admin/DbEntities/OrderData/OrderData";
 import AddressDetails from "./Pages/Admin/DbEntities/AddressDetails/AddressDetails";
 import OrderDetails from "./Pages/Admin/DbEntities/OrderDetails/OrderDetails";
 import Product from "./Pages/Admin/DbEntities/Product/Product";
+import ProductOrderDetails from "./Pages/Admin/DbEntities/ProductOrderDetails/ProductOrderDetails";
 import Dashboards from "./Pages/Admin/Dashboards/Dashboards";
 import Reports from "./Pages/Admin/Reports/Reports";
 import Analytics from "./Pages/Admin/Analytics/Analytics";
@@ -45,6 +46,7 @@ function App() {
           <Route path="/admin/dbentities/addressDetails" element={< AddressDetails/>} exact />
           <Route path="/admin/dbentities/orderDetails" element={< OrderDetails/>} exact />
           <Route path="/admin/dbentities/product" element={< Product/>} exact />
+          <Route path="/admin/dbentities/productOrderDetails" element={< ProductOrderDetails/>} exact />
           <Route path="/admin/dashboards" element={<Dashboards />} exact />
           <Route path="/admin/users" element={<Users />} exact />
           <Route path="/productpage" element={<ProductPage />} exact />
