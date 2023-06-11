@@ -25,11 +25,11 @@ import Users from "./Pages/Admin/Users/Users";
 import ProductPage from "./Pages/ProductPage/ProductPage";
 import ShoppingCartPage from "./Pages/ShoppingCartPage/ShoppingCart";
 import { ReactNotifications } from "react-notifications-component";
-
+import 'react-notifications-component/dist/theme.css'
 function App() {
   return (
     <>
-      {/* <ReactNotifications /> // todo: fix */ }
+      <ReactNotifications /> 
       <Router>
         <Routes>
           <Route path="/" element={<Home />} exact />

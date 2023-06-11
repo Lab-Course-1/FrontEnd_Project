@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import {
+  showSuccessNotification,
+  showWarningNotification,
+  showErrorNotification,
+} from "../../../NotificationUtils";
 import "./Dropdown.css";
 
 const Dropdown = () => {
@@ -11,9 +16,17 @@ const Dropdown = () => {
   const handleItemClick = () => {
     setIsOpen(false);
   };
-  
+
   const logout = () => {
     sessionStorage.removeItem("jwtToken");
+    showSuccessNotification(
+      "You're logged out successfully",
+      "The page will be refreshed",
+      2000
+    );
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   };
 
   return (
@@ -22,11 +35,7 @@ const Dropdown = () => {
         <div className="dropdown-header-title">
           <span>Jeton Sllamniku</span>
         </div>
-        <span
-          className={`dropdown-header-icon ${
-            isOpen ? "open" : ""
-          }`}
-        ></span>
+        <span className={`dropdown-header-icon ${isOpen ? "open" : ""}`}></span>
       </div>
       {isOpen && (
         <ul className="dropdown-menu">
