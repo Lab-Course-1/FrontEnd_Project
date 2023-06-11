@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import SimpleNavbar from '../Navbar/SimpleNavbar';
 import './AddressDetails.css';
 
 const AddressDetails = () => {
@@ -36,30 +36,7 @@ const AddressDetails = () => {
 
   return (
     <div className="addressDetails__entity">
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/" activeClassName="active" exact>
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/shopall" activeClassName="active">
-              Shop All
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact" activeClassName="active">
-              Contact
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/admin/dbentities" activeClassName="active">
-              Db Entities
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+      <SimpleNavbar/>
       <div className="container">
         <h1>Address Details</h1>
         <div className="add">

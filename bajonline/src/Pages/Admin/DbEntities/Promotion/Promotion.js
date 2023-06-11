@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import './Promotion.css';
+import SimpleNavbar from '../Navbar/SimpleNavbar';
 
 const Promotions = () => {
   const [promotions, setPromotions] = useState([
@@ -30,30 +30,7 @@ const Promotions = () => {
 
   return (
     <div className="promotions__entity">
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/" activeClassName="active" exact>
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/shopall" activeClassName="active">
-              Shop All
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact" activeClassName="active">
-              Contact
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/admin/dbentities" activeClassName="active">
-              Db Entities
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+      <SimpleNavbar/>
       <div className="container">
         <h1>Promotions</h1>
         <div className="add">

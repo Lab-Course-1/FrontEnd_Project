@@ -3,33 +3,6 @@
     padding: 20px;
   }
 
-  .categories__entity nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
-  }
-
-  .categories__entity nav ul li {
-    display: inline-block;
-  }
-
-  .categories__entity nav ul li a {
-    color: #333333;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-  }
-
-  .categories__entity nav ul li a:hover,
-  .categories__entity nav ul li a.active {
-    background-color: #7d4cdb;
-    color: #ffffff;
-  }
-
   .categories__entity .container {
     margin-top: 20px;
     background-color: #ffffff;

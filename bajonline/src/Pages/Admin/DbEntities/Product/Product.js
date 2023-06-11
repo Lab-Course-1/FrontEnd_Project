@@ -1,47 +1,47 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import './Product.css';
+import React, { useState } from "react";
+import "./Product.css";
+import SimpleNavbar from "../Navbar/SimpleNavbar";
 
 const Product = () => {
   const [products, setProducts] = useState([
     {
       id: 1,
-      name: 'Product 1',
-      description: 'Produkti i 1 eshte ky',
+      name: "Product 1",
+      description: "Produkti i 1 eshte ky",
       price: 19.99,
       quantityInStock: 10,
-      imageUrl: 'https://example.com/product1.jpg',
+      imageUrl: "https://example.com/product1.jpg",
       stock: 100,
       totalSold: 50,
       listPrice: 24.99,
       categoryId: 1,
-      createdOn: '2023-05-10',
+      createdOn: "2023-05-10",
     },
     {
       id: 2,
-      name: 'Product 2',
-      description: 'Produkti i 2 eshte ky',
+      name: "Product 2",
+      description: "Produkti i 2 eshte ky",
       price: 29.99,
       quantityInStock: 5,
-      imageUrl: 'https://example.com/product2.jpg',
+      imageUrl: "https://example.com/product2.jpg",
       stock: 50,
       totalSold: 20,
       listPrice: 34.99,
       categoryId: 2,
-      createdOn: '2023-06-18',
+      createdOn: "2023-06-18",
     },
     {
       id: 3,
-      name: 'Product 3',
-      description: 'Produkti i 3 eshte ky',
+      name: "Product 3",
+      description: "Produkti i 3 eshte ky",
       price: 9.99,
       quantityInStock: 20,
-      imageUrl: 'https://example.com/product3.jpg',
+      imageUrl: "https://example.com/product3.jpg",
       stock: 200,
       totalSold: 100,
       listPrice: 14.99,
       categoryId: 1,
-      createdOn: '2023-06-05',
+      createdOn: "2023-06-05",
     },
   ]);
 
@@ -52,27 +52,12 @@ const Product = () => {
   };
 
   return (
-    <div className='product__entity'>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to='/' activeClassName='active' exact>Home</NavLink>
-          </li>
-          <li>
-            <NavLink to='/shopall' activeClassName='active'>Shop All</NavLink>
-          </li>
-          <li>
-            <NavLink to='/contact' activeClassName='active'>Contact</NavLink>
-          </li>
-          <li>
-            <NavLink to='/admin/dbentities' activeClassName='active'>Db Entities</NavLink>
-          </li>
-        </ul>
-      </nav>
-      <div className='container'>
+    <div className="product__entity">
+      <SimpleNavbar />
+      <div className="container">
         <h1>Products</h1>
-        <div className='add'>
-          <a href='./products' className='button'>
+        <div className="add">
+          <a href="./products" className="button">
             Create Product
           </a>
         </div>
@@ -90,7 +75,7 @@ const Product = () => {
               <th>List Price</th>
               <th>Category ID</th>
               <th>Created On</th>
-              <th className='change'>Change</th>
+              <th className="change">Change</th>
             </tr>
           </thead>
           <tbody>
@@ -110,8 +95,13 @@ const Product = () => {
                 <td>{product.categoryId}</td>
                 <td>{product.createdOn}</td>
                 <td>
-                  <button className='edit__button btn'>Edit</button>
-                  <button className='delete__button btn' onClick={() => handleDeleteProduct(index)}>Delete</button>
+                  <button className="edit__button btn">Edit</button>
+                  <button
+                    className="delete__button btn"
+                    onClick={() => handleDeleteProduct(index)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

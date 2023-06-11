@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import './Review.css';
+import React, { useState } from "react";
+import "./Review.css";
+import SimpleNavbar from "../Navbar/SimpleNavbar";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([
     {
       id: 1,
-      userId: '1',
+      userId: "1",
       productId: 1,
       rating: 4,
-      reviewComment: 'Great product!',
-      createdOn: '2023-06-01',
+      reviewComment: "Great product!",
+      createdOn: "2023-06-01",
     },
     {
       id: 2,
-      userId: '2',
+      userId: "2",
       productId: 2,
       rating: 5,
-      reviewComment: 'Excellent quality!',
-      createdOn: '2023-06-02',
+      reviewComment: "Excellent quality!",
+      createdOn: "2023-06-02",
     },
     {
       id: 3,
-      userId: '3',
+      userId: "3",
       productId: 3,
       rating: 3,
-      reviewComment: 'Could be better.',
-      createdOn: '2023-06-03',
+      reviewComment: "Could be better.",
+      createdOn: "2023-06-03",
     },
   ]);
 
@@ -37,25 +37,12 @@ const Reviews = () => {
   };
 
   return (
-    <div className='reviews__entity'>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to='/' activeClassName='active' exact>Home </NavLink>
-          </li>
-          <li>
-            <NavLink to='/shopall' activeClassName='active'> Shop All</NavLink>
-          </li>
-          <li><NavLink to='/contact' activeClassName='active'> Contact </NavLink>
-          </li>
-          <li><NavLink to='/admin/dbentities' activeClassName='active'>Db Entities </NavLink>
-          </li>
-        </ul>
-      </nav>
-      <div className='container'>
+    <div className="reviews__entity">
+      <SimpleNavbar />
+      <div className="container">
         <h1>Reviews</h1>
-        <div className='add'>
-          <a href='./review' className='button'>
+        <div className="add">
+          <a href="./review" className="button">
             Create Review
           </a>
         </div>
@@ -68,7 +55,7 @@ const Reviews = () => {
               <th>Rating</th>
               <th>Comment</th>
               <th>Created On</th>
-              <th className='change'>Change</th>
+              <th className="change">Change</th>
             </tr>
           </thead>
           <tbody>
@@ -81,8 +68,13 @@ const Reviews = () => {
                 <td>{review.reviewComment}</td>
                 <td>{review.createdOn}</td>
                 <td>
-                  <button className='edit__button btn'>Edit</button>
-                  <button className='delete__button btn' onClick={() => handleDeleteReview(index)}>Delete</button>
+                  <button className="edit__button btn">Edit</button>
+                  <button
+                    className="delete__button btn"
+                    onClick={() => handleDeleteReview(index)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

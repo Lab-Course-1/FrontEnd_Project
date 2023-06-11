@@ -1,30 +1,31 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import './ProductOrderDetails.css';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import "./ProductOrderDetails.css";
+import SimpleNavbar from "../Navbar/SimpleNavbar";
 
 const ProductOrderDetails = () => {
   const [productOrderDetails, setProductOrderDetails] = useState([
     {
       productId: 1,
-      product: { id: 1, name: 'Product 1' },
-      orderDetailsId: 'OD1',
-      orderDetails: { id: 'OD1', description: 'Order Details 1' },
+      product: { id: 1, name: "Product 1" },
+      orderDetailsId: "OD1",
+      orderDetails: { id: "OD1", description: "Order Details 1" },
       count: 2,
       price: 19.99,
     },
     {
       productId: 2,
-      product: { id: 2, name: 'Product 2' },
-      orderDetailsId: 'OD2',
-      orderDetails: { id: 'OD2', description: 'Order Details 2' },
+      product: { id: 2, name: "Product 2" },
+      orderDetailsId: "OD2",
+      orderDetails: { id: "OD2", description: "Order Details 2" },
       count: 1,
       price: 9.99,
     },
     {
       productId: 3,
-      product: { id: 3, name: 'Product 3' },
-      orderDetailsId: 'OD3',
-      orderDetails: { id: 'OD3', description: 'Order Details 3' },
+      product: { id: 3, name: "Product 3" },
+      orderDetailsId: "OD3",
+      orderDetails: { id: "OD3", description: "Order Details 3" },
       count: 3,
       price: 29.99,
     },
@@ -37,35 +38,12 @@ const ProductOrderDetails = () => {
   };
 
   return (
-    <div className='product-order-details__entity'>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to='/' activeClassName='active' exact>
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/shopall' activeClassName='active'>
-              Shop All
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/contact' activeClassName='active'>
-              Contact
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/admin/dbentities' activeClassName='active'>
-              Db Entities
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-      <div className='container'>
+    <div className="product-order-details__entity">
+      <SimpleNavbar />
+      <div className="container">
         <h1>Product Order Details</h1>
-        <div className='add'>
-          <a href='./productOrderDetails' className='button'>
+        <div className="add">
+          <a href="./productOrderDetails" className="button">
             Create Details
           </a>
         </div>
@@ -78,7 +56,7 @@ const ProductOrderDetails = () => {
               <th>Order Details</th>
               <th>Count</th>
               <th>Price</th>
-              <th className='change'>Change</th>
+              <th className="change">Change</th>
             </tr>
           </thead>
           <tbody>
@@ -91,8 +69,13 @@ const ProductOrderDetails = () => {
                 <td>{details.count}</td>
                 <td>{details.price}</td>
                 <td>
-                  <button className='edit__button btn'>Edit</button>
-                  <button className='delete__button btn' onClick={() => handleDeleteDetails(index)}>Delete</button>
+                  <button className="edit__button btn">Edit</button>
+                  <button
+                    className="delete__button btn"
+                    onClick={() => handleDeleteDetails(index)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

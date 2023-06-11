@@ -1,0 +1,26 @@
+.simple__navbar nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.simple__navbar nav ul li {
+  display: inline-block;
+}
+
+.simple__navbar nav ul li a {
+  color: #333333;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.simple__navbar nav ul li a:hover,
+.simple__navbar nav ul li a.active {
+  background-color: #7d4cdb;
+  color: #ffffff;
+}

@@ -1,32 +1,33 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import './OrderDetails.css';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import "./OrderDetails.css";
+import SimpleNavbar from "../Navbar/SimpleNavbar";
 
 const OrderDetails = () => {
   const [OrderDetails, setOrderDetails] = useState([
     {
-      orderId: '1',
-      orderDate: '2023-06-01',
-      shippingDate: '2023-06-05',
+      orderId: "1",
+      orderDate: "2023-06-01",
+      shippingDate: "2023-06-05",
       orderFinalPrice: 90.0,
-      paymentStatus: 'Paid',
-      userId: '2',
+      paymentStatus: "Paid",
+      userId: "2",
     },
     {
-      orderId: '2',
-      orderDate: '2023-06-02',
-      shippingDate: '2023-06-06',
+      orderId: "2",
+      orderDate: "2023-06-02",
+      shippingDate: "2023-06-06",
       orderFinalPrice: 80.0,
-      paymentStatus: 'Paid',
-      userId: '3',
+      paymentStatus: "Paid",
+      userId: "3",
     },
     {
-      orderId: '3',
-      orderDate: '2023-06-03',
-      shippingDate: '2023-06-07',
+      orderId: "3",
+      orderDate: "2023-06-03",
+      shippingDate: "2023-06-07",
       orderFinalPrice: 95.0,
-      paymentStatus: 'Pending',
-      userId: '4',
+      paymentStatus: "Pending",
+      userId: "4",
     },
   ]);
 
@@ -38,22 +39,7 @@ const OrderDetails = () => {
 
   return (
     <div className="OrderDetails__entity">
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/" activeClassName="active" exact>Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/shopall" activeClassName="active">Shop All</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact" activeClassName="active">Contact</NavLink>
-          </li>
-          <li>
-            <NavLink to="/admin/dbentities" activeClassName="active">Db Entities</NavLink>
-          </li>
-        </ul>
-      </nav>
+      <SimpleNavbar />
       <div className="container">
         <h1>Order Data</h1>
         <div className="add">
@@ -84,7 +70,12 @@ const OrderDetails = () => {
                 <td>{order.userId}</td>
                 <td>
                   <button className="edit__button btn">Edit</button>
-                  <button className="delete__button btn" onClick={() => handleDeleteOrder(index)}>Delete</button>
+                  <button
+                    className="delete__button btn"
+                    onClick={() => handleDeleteOrder(index)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
