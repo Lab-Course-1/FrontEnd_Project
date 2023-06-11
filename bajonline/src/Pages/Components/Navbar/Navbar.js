@@ -8,11 +8,18 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { NavLink } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import Dropdown from "./Dropdown";
 import "./Navbar.css";
+import AuthorizedAxios from "../../../AuthorizedAxios";
 
 const Navbar = () => {
-  const [isAdmin, setIsAdmin] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
+
+  const token = localStorage.getItem("jwtToken");
+  if (token && AuthorizedAxios.get("UserRole") === "Admin") {
+    setIsAdmin(true);
+  }
 
   return (
     <header>
@@ -40,10 +47,15 @@ const Navbar = () => {
               <LinkedInIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
             </div>
             <NavLink to="/login" style={{ textDecoration: "none" }}>
-              <div className="login">
-                <LoginIcon />
-                <p>Log In</p>
-              </div>
+              {token && (
+                <div className="login">
+                  <LoginIcon />
+                  <p>Log In</p>
+                </div>
+              )}
+              {token && 
+                        <Dropdown />
+                      }
             </NavLink>
             <div className="shopping__cart">
               <ShoppingCartIcon />
