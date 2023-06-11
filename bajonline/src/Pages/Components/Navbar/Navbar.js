@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -10,16 +10,34 @@ import { IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Dropdown from "./Dropdown";
 import "./Navbar.css";
-import AuthorizedAxios from "../../../AuthorizedAxios";
+import { Variables } from "../../../Variables";
+import axios from "axios";
 
 const Navbar = () => {
   const [isAdmin, setIsAdmin] = useState(false);
+  const [token, setToken] = useState("");
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
 
-  const token = localStorage.getItem("jwtToken");
-  if (token && AuthorizedAxios.get("UserRole") === "Admin") {
-    setIsAdmin(true);
-  }
+  useEffect(() => {
+    const jwtToken = sessionStorage.getItem("jwtToken");
+    if (jwtToken) {
+      setToken(jwtToken);
+      axios
+        .get(Variables.API_URL + "user/UserRole", {
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+          },
+        })
+        .then((response) => {
+          if (response.data === "Admin") {
+            setIsAdmin(true);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, []);
 
   return (
     <header>
@@ -41,22 +59,42 @@ const Navbar = () => {
           </h1>
           <div className="right__part">
             <div className="social__medias hide__on__small__screen">
-              <FacebookIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
-              <InstagramIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
-              <TwitterIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
-              <LinkedInIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
+              <NavLink
+                to="https://www.facebook.com"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <FacebookIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
+              </NavLink>
+              <NavLink
+                to="https://www.instagram.com/"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <InstagramIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
+              </NavLink>
+
+              <NavLink
+                to="https://twitter.com/home"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <TwitterIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
+              </NavLink>
+
+              <NavLink
+                to="https://www.linkedin.com/feed/"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <LinkedInIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
+              </NavLink>
             </div>
-            <NavLink to="/login" style={{ textDecoration: "none" }}>
-              {token && (
+            {!token && (
+              <NavLink to="/login" style={{ textDecoration: "none" }}>
                 <div className="login">
                   <LoginIcon />
                   <p>Log In</p>
                 </div>
-              )}
-              {token && 
-                        <Dropdown />
-                      }
-            </NavLink>
+              </NavLink>
+            )}
+            {token && <Dropdown />}
             <div className="shopping__cart">
               <ShoppingCartIcon />
               <p>Cart (0)</p>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "./Dropdown.css";
 
 const Dropdown = () => {
@@ -10,6 +10,10 @@ const Dropdown = () => {
 
   const handleItemClick = () => {
     setIsOpen(false);
+  };
+  
+  const logout = () => {
+    sessionStorage.removeItem("jwtToken");
   };
 
   return (
@@ -33,7 +37,7 @@ const Dropdown = () => {
             <span>Settings</span>
           </li>
           <li className="dropdown-item" onClick={handleItemClick}>
-            <span>Log Out</span>
+            <span onClick={logout}>Log Out</span>
           </li>
         </ul>
       )}
