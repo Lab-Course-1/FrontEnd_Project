@@ -5,8 +5,8 @@ export const showSuccessNotification = (title, message, duration) => {
     title: title,
     message: message,
     type: "success",
-    insert: "bottom",
-    container: "bottom-right",
+    insert: "top",
+    container: "top-right",
     animationIn: ["animate__animated animate__fadeIn"], // `animate.css v4` classes
     animationOut: ["animate__animated animate__fadeOut"],
     dismiss: {
@@ -20,8 +20,8 @@ export const showErrorNotification = (title, message, duration) => {
     title: title,
     message: message,
     type: "error",
-    insert: "bottom",
-    container: "bottom-right",
+    insert: "top",
+    container: "top-right",
     animationIn: ["animate__animated animate__fadeIn"], // `animate.css v4` classes
     animationOut: ["animate__animated animate__fadeOut"],
     dismiss: {
@@ -35,8 +35,8 @@ export const showWarningNotification = (title, message, duration) => {
     title: title,
     message: message,
     type: "warning",
-    insert: "bottom",
-    container: "bottom-right",
+    insert: "top",
+    container: "top-right",
     animationIn: ["animate__animated animate__fadeIn"], // `animate.css v4` classes
     animationOut: ["animate__animated animate__fadeOut"],
     dismiss: {
