@@ -4,16 +4,52 @@ import Footer from "../Components/Footer/Footer";
 import ProductCard from "../Components/ProductCard/ProductCard";
 import axios from "axios";
 import { Variables } from "../../Variables";
+import { useLocation } from "react-router-dom";
 import "./ShopAll.css";
 
 const ShopAll = () => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const [searchTerm, setSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  let pageSize = 5;
+  const [noMoreProducts, setNoMoreProducts] = useState(false);
+  let pageSize = 2;
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    console.log(searchTerm);
+    setSearchTerm(queryParams.get("searchTerm"));
+    if (!searchTerm) {
+      fetchProducts();
+    } else {
+      searchProducts(searchTerm);
+    }
+  }, [searchTerm]);
+
+  const searchProducts = async (searchTerm) => {
+    try {
+      console.log("search: " + searchTerm);
+      if (searchTerm) {
+        const response = await axios.get(
+          Variables.API_URL +
+            `Product/SearchProducts?page=${currentPage}&pageSize=${pageSize}&searchTerm=${searchTerm}`
+        );
+        const newProducts = response.data;
+        console.log("length: " + response.data.length);
+        if (response.data.length === 0) {
+          setNoMoreProducts(true);
+        }
+        if (currentPage === 1) {
+          setProducts(newProducts);
+        } else {
+          setProducts((prevProducts) => [...prevProducts, ...newProducts]);
+        }
+        setCurrentPage((prevPage) => prevPage + 1);
+      }
+    } catch (error) {
+      console.log("Error searching for products: ", error);
+    }
+  };
 
   const fetchProducts = async () => {
     try {
@@ -27,15 +63,24 @@ const ShopAll = () => {
       } else {
         setProducts((prevProducts) => [...prevProducts, ...newProducts]);
       }
+      if (response.data.length === 0) {
+        setNoMoreProducts(true);
+      }
       setCurrentPage((prevPage) => prevPage + 1);
-      console.log(currentPage);
     } catch (error) {
       console.error(error);
     }
   };
 
   const handleLoadMore = () => {
-    fetchProducts();
+    if (!searchTerm) {
+      console.log("up");
+      fetchProducts();
+    } else {
+      console.log("downn");
+
+      searchProducts();
+    }
   };
 
   return (
@@ -83,13 +128,16 @@ const ShopAll = () => {
                 <ProductCard props={p} key={p.id} />
               ))}
             </div>
-            <button
-              type="button"
-              className="load__more"
-              onClick={handleLoadMore}
-            >
-              Load More Products
-            </button>
+            {!noMoreProducts && (
+              <button
+                type="button"
+                className="load__more"
+                onClick={handleLoadMore}
+              >
+                Load More Products
+              </button>
+            )}
+            {noMoreProducts && <h3>Reached final page!</h3>}
           </div>
         </div>
       </div>

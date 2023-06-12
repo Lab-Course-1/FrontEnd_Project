@@ -1,0 +1,38 @@
+.slider-container {
+  position: relative;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.slider-container .slider-image {
+  width: 100%;
+  height: auto;
+  max-height: 750px;
+}
+
+.slider-container .slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.slider-container .prev {
+  padding: 10px;
+  left: 10px;
+}
+
+.slider-container .next {
+  padding: 10px;
+
+  right: 10px;
+}
+
+.slider-container .prev:hover,
+.slider-container .next:hover {
+  background-color: rgba(30, 30, 30, 0.2);
+}

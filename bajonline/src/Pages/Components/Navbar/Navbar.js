@@ -1,19 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import LoginIcon from "@mui/icons-material/Login";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { NavLink } from "react-router-dom";
+import { NavLink, UNSAFE_DataRouterStateContext } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import Dropdown from "./Dropdown";
 import "./Navbar.css";
+import { Variables } from "../../../Variables";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const [isAdmin, setIsAdmin] = useState(true);
+  const navigate = useNavigate();
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [token, setToken] = useState("");
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
+  useEffect(() => {
+    const jwtToken = sessionStorage.getItem("jwtToken");
+    if (jwtToken) {
+      setToken(jwtToken);
+      axios
+        .get(Variables.API_URL + "user/UserRole", {
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+          },
+        })
+        .then((response) => {
+          if (response.data === "Admin") {
+            setIsAdmin(true);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, []);
+
+  const handleSearchSubmit = async (event) => {
+    event.preventDefault(); 
+     navigate(`/shopall?searchTerm=${encodeURIComponent(searchTerm)}`);
+  }
   return (
     <header>
       {isAdmin && (
@@ -23,28 +55,58 @@ const Navbar = () => {
       )}
       <nav>
         <div className="upper__part">
-          <input
-            type="text"
-            name="search"
-            className="search"
-            placeholder="Search..."
-          />
+          <form onSubmit={handleSearchSubmit}>
+            <input
+              type="text"
+              name="search"
+              className="search"
+              placeholder="Search..."
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+            />
+            <button type="submit">Search</button>
+          </form>
           <h1 className="logo hide__on__small__screen">
             <i>SmartSupplies.</i>
           </h1>
           <div className="right__part">
             <div className="social__medias hide__on__small__screen">
-              <FacebookIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
-              <InstagramIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
-              <TwitterIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
-              <LinkedInIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
+              <NavLink
+                to="https://www.facebook.com"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <FacebookIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
+              </NavLink>
+              <NavLink
+                to="https://www.instagram.com/"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <InstagramIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
+              </NavLink>
+
+              <NavLink
+                to="https://twitter.com/home"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <TwitterIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
+              </NavLink>
+
+              <NavLink
+                to="https://www.linkedin.com/feed/"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <LinkedInIcon sx={{ fontSize: "23px", padding: "0 5px" }} />
+              </NavLink>
             </div>
-            <NavLink to="/login" style={{ textDecoration: "none" }}>
-              <div className="login">
-                <LoginIcon />
-                <p>Log In</p>
-              </div>
-            </NavLink>
+            {!token && (
+              <NavLink to="/login" style={{ textDecoration: "none" }}>
+                <div className="login">
+                  <LoginIcon />
+                  <p>Log In</p>
+                </div>
+              </NavLink>
+            )}
+            {token && <Dropdown />}
             <div className="shopping__cart">
               <ShoppingCartIcon />
               <p>Cart (0)</p>
