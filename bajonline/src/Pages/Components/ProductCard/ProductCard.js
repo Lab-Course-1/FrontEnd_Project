@@ -2,8 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./ProductCard.css";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import { NavLink } from "react-router-dom";
+import { Variables } from "../../../Variables";
+import axios from "axios";
+import { showWarningNotification } from "../../../NotificationUtils";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ props }) => {
+  const navigate = useNavigate();
   const [imageUrl, setImageUrl] = useState("");
   useEffect(() => {
     if (props.imageUrl === "string" || props.imageUrl === "") {
@@ -13,8 +19,33 @@ const ProductCard = ({ props }) => {
     }
   }, [props.imageUrl]);
 
-  const handleAddToCart = () => {
-    console.log("he")
+  const handleAddToCart = async () => {
+    var token = sessionStorage.getItem("jwtToken");
+    if (!token) {
+      showWarningNotification(
+        "You must be logged in to add to cart!",
+        "You are being redirected to login page",
+        2000
+      );
+      setTimeout(() => {
+        navigate(`/login`);
+      }, 2000);
+      return;
+    }
+    try {
+      const response = await axios.post(
+        Variables.API_URL +
+          `ShoppingCart/AddToCart?count=1&productId=${props.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, 
+          },
+        }
+      );
+      const newProducts = response.data;
+    } catch (error) {
+      console.log("Error: ", error);
+    }
   };
 
   const handleAddToWishList = () => {
@@ -23,7 +54,12 @@ const ProductCard = ({ props }) => {
 
   return (
     <div className="product__card">
-      <img className="image" src={imageUrl} alt="pencil" />
+      <NavLink
+        to={`/productPage?id=${props.id}`}
+        className={({ isActive }) => (isActive ? "active" : "")}
+      >
+        <img className="image" src={imageUrl} alt="pencil" />
+      </NavLink>
       <p className="product__title">{props.name}</p>
       <p className="product__price">
         {props.listPrice > props.price && (
@@ -32,6 +68,7 @@ const ProductCard = ({ props }) => {
         <br />
         <i>{props.price}€</i>
       </p>
+
       <div className="buttons">
         <button
           type="button"

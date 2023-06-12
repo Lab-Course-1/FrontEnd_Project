@@ -1,6 +1,6 @@
 .slider-container {
   position: relative;
-  width: 85%;
+  width: 88%;
   margin: 0 auto;
 }
 
@@ -24,6 +24,24 @@
 .slider-container .prev {
   padding: 10px;
   left: 10px;
+}
+
+.slider-container .slider-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-text {
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
 }
 
 .slider-container .next {

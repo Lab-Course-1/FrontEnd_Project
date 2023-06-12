@@ -10,6 +10,32 @@
   margin: 50px 0;
 }
 
+.shop__all .search {
+  margin: 40px auto;
+  display: block;
+  padding: 0 15px;
+  font-size: 18px;
+  border: 2px solid #bc4c2a;
+  border-radius: 28px;
+  height: 53px;
+  width: 50%;
+  min-width: 330px;
+  color: #bc4c2a;
+  box-sizing: border-box;
+
+}
+
+.shop__all .search:hover,
+.shop__all .search:focus {
+  outline: 0;
+  border-bottom: 3px solid #bc4c2a;
+}
+
+.shop__all .search::placeholder {
+  color: inherit;
+  font-size: 19px;
+}
+
 .shop__all .filters__and__products .filters {
   margin-right: 15px;
 }
@@ -60,7 +86,7 @@
   color: #bc4c2a;
   background-color: transparent;
   cursor: pointer;
-  margin: 15px 0;
+  margin: 30px 0;
   box-shadow: 0 0 3px;
 }
 

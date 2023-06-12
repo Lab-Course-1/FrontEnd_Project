@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./Register.css";
+import { useNavigate } from "react-router-dom";
 import { Variables } from "../../Variables";
 import axios from "axios";
 import SimpleNavbar from "../Admin/DbEntities/Navbar/SimpleNavbar";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -32,9 +34,27 @@ const Register = () => {
         password: password,
       });
       const token = response.data.token;
-      console.log("token: " + token);
+      if (token) {
+        sessionStorage.setItem("jwtToken", token);
+        navigate("/");
+        var userInfo = await getUserInfo();
+        sessionStorage.setItem("usersName", userInfo.firstName);
+        sessionStorage.setItem("usersLastName", userInfo.lastName);
+        sessionStorage.setItem("usersEmail", userInfo.email);
+      }
+    } catch (error) {}
+  };
+
+  const getUserInfo = async () => {
+    try {
+      const userInfo = await axios.get(Variables.API_URL + "user/UserInfo", {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+        },
+      });
+      return userInfo.data;
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 

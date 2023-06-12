@@ -9,9 +9,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <div>
-        <Slider />
-      </div>
+      <Slider />
       <BestSellers />
       <Footer />
     </div>

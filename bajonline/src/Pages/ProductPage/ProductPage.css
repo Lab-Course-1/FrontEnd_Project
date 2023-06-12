@@ -1,20 +1,31 @@
 .product__page {
   display: grid;
-  grid-template-columns: 1fr 4fr 6fr;
+  grid-template-columns: 2fr 3fr 7fr;
   grid-template-rows: 1fr;
-  margin-top: 30px;
+  gap: 30px;
+  margin: 30px 0;
 }
 
-.details__list {
+.product__page .details__list {
   list-style: none;
   padding: 0;
   margin-left: 20px;
-  font-size: 50%;
+  font-size: 55%;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   margin-top: 80px;
 }
 
-.details__list .button {
+.product__page .product__picture {
+  min-width: 250px;
+  max-width: 350px;
+  min-height: 320px;
+  max-height: 440px;
+  margin: 10px;
+  margin-top: 15px;
+  object-fit: cover;
+}
+
+.product__page .details__list .button {
   background-color: white;
   color: black;
   padding: 5px 10px;
@@ -23,43 +34,43 @@
   transition: background-color 0.3s;
 }
 
-.details__list .button:hover {
+.product__page .details__list .button:hover {
   background-color: cornsilk;
 }
 
-.product__description {
+.product__page .product__description {
   margin-right: 60px;
   margin-top: 30px;
   line-height: 2;
 }
 
-.color__list {
+.product__page .color__list {
   display: flex;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.color__item {
+.product__page .color__item {
   margin-right: 10px;
   padding: 5px;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.red {
+.product__page .red {
   background-color: rgb(217, 223, 223);
 }
 
-.green {
+.product__page .green {
   background-color: rgb(217, 223, 223);
 }
 
-.brown {
+.product__page .brown {
   background-color: rgb(217, 223, 223);
 }
 
-.section__divider {
+.product__page .section__divider {
   margin-right: 50px;
   border: none;
   border-top: 1px solid rgba(255, 0, 0, 0.3);
@@ -73,7 +84,7 @@
   margin-top: 30px;
 }
 
-.color__item {
+.product__page .color__item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,19 +96,19 @@
   transition: background-color 0.3s;
 }
 
-.color__item:hover {
+.product__page .color__item:hover {
   background-color: cornsilk;
 }
 
-.color__item.active {
+.product__page .color__item.active {
   background-color: #f00;
 }
 
-.color__selection {
+.product__page .color__selection {
   margin-bottom: 20px;
 }
 
-.add__to__cart {
+.product__page .add__to__cart {
   background-color: #2c2d2c;
   color: white;
   padding: 15px 30px;
@@ -109,11 +120,11 @@
   margin-top: 50px;
 }
 
-.add__to__cart:hover {
+.product__page .add__to__cart:hover {
   background-color: gray;
   color: #2c2d2c;
 }
-.product__png {
+.product__page .product__png {
   width: 100%;
   margin-top: -50px;
 }

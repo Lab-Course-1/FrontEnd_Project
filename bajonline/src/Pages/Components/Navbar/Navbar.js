@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect} from "react";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import LoginIcon from "@mui/icons-material/Login";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { NavLink, UNSAFE_DataRouterStateContext } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Dropdown from "./Dropdown";
@@ -43,9 +43,9 @@ const Navbar = () => {
   }, []);
 
   const handleSearchSubmit = async (event) => {
-    event.preventDefault(); 
-     navigate(`/shopall?searchTerm=${encodeURIComponent(searchTerm)}`);
-  }
+    event.preventDefault();
+    navigate(`/shopall?searchTerm=${encodeURIComponent(searchTerm)}`);
+  };
   return (
     <header>
       {isAdmin && (
@@ -64,7 +64,6 @@ const Navbar = () => {
               value={searchTerm}
               onChange={(event) => setSearchTerm(event.target.value)}
             />
-            <button type="submit">Search</button>
           </form>
           <h1 className="logo hide__on__small__screen">
             <i>SmartSupplies.</i>

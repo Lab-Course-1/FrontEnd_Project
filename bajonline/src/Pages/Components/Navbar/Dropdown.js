@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import {
-  showSuccessNotification,
-  showWarningNotification,
-  showErrorNotification,
-} from "../../../NotificationUtils";
+import { showSuccessNotification } from "../../../NotificationUtils";
 import "./Dropdown.css";
 
 const Dropdown = () => {
@@ -18,7 +14,7 @@ const Dropdown = () => {
   };
 
   const logout = () => {
-    sessionStorage.removeItem("jwtToken");
+    sessionStorage.clear()
     showSuccessNotification(
       "You're logged out successfully",
       "The page will be refreshed",
@@ -33,7 +29,9 @@ const Dropdown = () => {
     <div className="dropdown-container">
       <div className="dropdown-header" onClick={toggleDropdown}>
         <div className="dropdown-header-title">
-          <span>{`${sessionStorage.getItem("usersName")} ${sessionStorage.getItem("usersLastName")}`}</span>
+          <span>{`${sessionStorage.getItem(
+            "usersName"
+          )} ${sessionStorage.getItem("usersLastName")}`}</span>
         </div>
         <span className={`dropdown-header-icon ${isOpen ? "open" : ""}`}></span>
       </div>

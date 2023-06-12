@@ -4,6 +4,8 @@ import "./Login.css";
 import { Variables } from "../../Variables";
 import { useNavigate } from "react-router-dom";
 import SimpleNavbar from "../Admin/DbEntities/Navbar/SimpleNavbar";
+import { showSuccessNotification, showErrorNotification } from "../../NotificationUtils";
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,7 +22,13 @@ const Login = () => {
       const token = response.data.token;
       if (token) {
         sessionStorage.setItem("jwtToken", token);
+        showSuccessNotification(
+          "You're logged in successfully",
+          "Happy buy!",
+          2000
+        );
         navigate("/");
+        
         var userInfo = await getUserInfo();
         sessionStorage.setItem("usersName", userInfo.firstName)
         sessionStorage.setItem("usersLastName", userInfo.lastName)

@@ -7,14 +7,14 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 16px;
-    background-color: #555;
+    background-color: #777;
     border-radius: 10px;
     color: white;
     cursor: pointer;
 }
 
 .dropdown-container .dropdown-header:hover {
-    background-color: #444;
+    background-color: #666;
 }
 
 

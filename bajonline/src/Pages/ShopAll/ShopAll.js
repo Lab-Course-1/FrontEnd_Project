@@ -11,31 +11,31 @@ const ShopAll = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const [searchTerm, setSearchTerm] = useState("");
+  const [inSearchTerm, setInSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [noMoreProducts, setNoMoreProducts] = useState(false);
-  let pageSize = 2;
+  let pageSize = 10;
 
   useEffect(() => {
-    console.log(searchTerm);
-    setSearchTerm(queryParams.get("searchTerm"));
-    if (!searchTerm) {
-      fetchProducts();
+    var search = queryParams.get("searchTerm");
+    if (search) {
+      setSearchTerm(search);
+      searchProducts(search);
     } else {
-      searchProducts(searchTerm);
+      setSearchTerm("");
+      fetchProducts();
     }
-  }, [searchTerm]);
+  }, [location]);
 
   const searchProducts = async (searchTerm) => {
     try {
-      console.log("search: " + searchTerm);
       if (searchTerm) {
         const response = await axios.get(
           Variables.API_URL +
             `Product/SearchProducts?page=${currentPage}&pageSize=${pageSize}&searchTerm=${searchTerm}`
         );
         const newProducts = response.data;
-        console.log("length: " + response.data.length);
         if (response.data.length === 0) {
           setNoMoreProducts(true);
         }
@@ -77,16 +77,33 @@ const ShopAll = () => {
       console.log("up");
       fetchProducts();
     } else {
-      console.log("downn");
-
-      searchProducts();
+      searchProducts(searchTerm);
     }
   };
 
+  const handleSearch = async (event) => {
+    const value = event.target.value;
+
+    setInSearchTerm(value);
+    const response = await axios.get(
+      Variables.API_URL +
+        `Product/SearchProducts?page=1&pageSize=${pageSize}&searchTerm=${inSearchTerm}`
+    );
+    const newProducts = response.data;
+    setProducts(newProducts);
+  };
   return (
     <>
       <Navbar />
       <div className="shop__all">
+        <input
+          type="text"
+          name="search"
+          className="search"
+          placeholder="Search..."
+          value={inSearchTerm}
+          onChange={handleSearch}
+        />
         <h1 className="title">SHOP ALL</h1>
         <div className="filters__and__products">
           <aside className="filters">
