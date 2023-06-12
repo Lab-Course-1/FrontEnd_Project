@@ -21,11 +21,28 @@ const Login = () => {
       if (token) {
         sessionStorage.setItem("jwtToken", token);
         navigate("/");
+        var userInfo = await getUserInfo();
+        sessionStorage.setItem("usersName", userInfo.firstName)
+        sessionStorage.setItem("usersLastName", userInfo.lastName)
+        sessionStorage.setItem("usersEmail", userInfo.email)
       }
     } catch (error) {
       console.error(error);
     }
   };
+
+  const getUserInfo = async () => {
+    try {
+      const userInfo = await axios.get(Variables.API_URL + "user/UserInfo", {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+        },
+      })
+      return userInfo.data;
+    }catch (error){
+      console.log(error)
+    }
+  }
   return (
     <div className="login__container">
       <SimpleNavbar />

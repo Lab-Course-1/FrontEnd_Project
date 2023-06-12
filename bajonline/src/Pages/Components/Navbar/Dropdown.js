@@ -33,7 +33,7 @@ const Dropdown = () => {
     <div className="dropdown-container">
       <div className="dropdown-header" onClick={toggleDropdown}>
         <div className="dropdown-header-title">
-          <span>Jeton Sllamniku</span>
+          <span>{`${sessionStorage.getItem("usersName")} ${sessionStorage.getItem("usersLastName")}`}</span>
         </div>
         <span className={`dropdown-header-icon ${isOpen ? "open" : ""}`}></span>
       </div>
