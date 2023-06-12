@@ -14,23 +14,19 @@ const Slider = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextSlide = () => {
-    const newIndex = (currentImageIndex + 1) % sliderImages.length;
-    console.log("left");
-    setCurrentImageIndex(newIndex);
+    const newIndex = (currentImageIndex - 1 + sliderImages.length) % sliderImages.length;
+  setCurrentImageIndex(newIndex);
   };
 
   const prevSlide = () => {
-    const newIndex =
-      (currentImageIndex - 1 + sliderImages.length) % sliderImages.length;
-    console.log("right");
+    const newIndex = (currentImageIndex - 1 + sliderImages.length) % sliderImages.length;
     setCurrentImageIndex(newIndex);
+    console.log('click')
   };
 
   return (
     <div className="slider-container">
-      <button className="slider-btn prev" onClick={prevSlide}>
-        &#10094;
-      </button>
+     
       <img
         src={
           process.env.PUBLIC_URL + "/images/" + sliderImages[currentImageIndex]
@@ -38,6 +34,12 @@ const Slider = () => {
         alt="Slider"
         className="slider-image"
       />
+      <div className="slider-overlay">
+        <h2 className="slider-text">Best products are here!</h2>
+      </div>
+       <button className="slider-btn prev" onClick={prevSlide}>
+        &#10094;
+      </button>
       <button className="slider-btn next" onClick={nextSlide}>
         &#10095;
       </button>
