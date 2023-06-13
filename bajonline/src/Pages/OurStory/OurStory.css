@@ -1,36 +1,182 @@
-.our-story-container {
-    padding: 40px;
+.separator {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    margin: 0;
+  }
+
+  .our-story {
     text-align: center;
   }
 
-  .background-color {
-    position: relative;
-    background-color: #bc4c34;
-    height: 400px;
+  .title-container {
+    margin-top: 50px;
   }
 
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .title {
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+  .title:hover {
+    color: #bc4c34;
+  }
+
+  .rectangle {
+    display: flex;
+    background-color: #e99f8e;
+    padding: 20px;
+    margin-top: 50px;
     width: 100%;
-    height: 100%;
-    background-color: rgba(150, 112, 112, 0.5);
+    height: 300px;
   }
 
-  .our-story-title {
-    font-size: 48px;
+  .text-container {
+    width: 60%;
+    text-align: left;
+    align-self: flex-start;
+    margin-right: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 40px;
+  }
+
+  .text {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
     color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
   }
 
-  .our-story-content {
-    font-size: 18px;
-    line-height: 1.6;
+  .rectangle-image {
+    width: 450px;
+    height: 250px;
+    background-image: url(./Images/Lap.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-right: 50px;
+    margin-top: 150px;
+  }
+
+  .history-container {
+    margin-top: 50px;
+    text-align: left;
+  }
+
+  .history-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #bc4c34;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-left: 15%;
+  }
+
+  .line {
+    width: 150px;
+    height: 3px;
+    background-color: #bc4c34;
+    margin-top: -15px;
+    margin-bottom: 20px;
+    margin-left: 15%;
+  }
+
+  .history-text {
+    font-size: 24px;
     color: #333;
+    margin-left: 15%;
+    margin-right: 15%;
     margin-top: 40px;
+  }
+
+  .big-picture-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .big-picture-container {
+    width: 100%;
+    height: 500px;
+    background-image: url(./Images/Pic.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-top: 40px;
+  }
+
+  .values-container {
+    margin-top: 50px;
+    text-align: left;
+  }
+
+  .values-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #bc4c34;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-left: 15%;
+  }
+
+  .values-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 15%;
+  }
+
+  .guidelines-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  .guideline {
+    width: 45%;
+    margin-bottom: 40px;
+  }
+
+  .guideline-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .guideline-text {
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+  }
+
+  .team-container {
+    background-color: black;
+    padding: 50px 0;
+    color: white;
+  }
+
+  .team-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(136, 135, 135);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-left: 15%;
+  }
+
+  .line-white {
+    width: 150px;
+    height: 3px;
+    background-color: white;
+    margin-top: -15px;
+    margin-bottom: 20px;
+    margin-left: 15%;
+  }
+
+  .team-subtitle {
+    font-size: 18px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 15%;
   }
