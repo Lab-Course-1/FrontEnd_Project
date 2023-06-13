@@ -5,7 +5,11 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import { NavLink } from "react-router-dom";
 import { Variables } from "../../../Variables";
 import axios from "axios";
-import { showWarningNotification } from "../../../NotificationUtils";
+import {
+  showErrorNotification,
+  showSuccessNotification,
+  showWarningNotification,
+} from "../../../NotificationUtils";
 import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ props }) => {
@@ -36,15 +40,29 @@ const ProductCard = ({ props }) => {
       const response = await axios.post(
         Variables.API_URL +
           `ShoppingCart/AddToCart?count=1&productId=${props.id}`,
+        null,
         {
           headers: {
-            Authorization: `Bearer ${token}`, 
+            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+            "Content-Type": "application/json",
           },
         }
       );
-      const newProducts = response.data;
+      if (response.data === "Product is added to card!") {
+        showSuccessNotification(
+          response.data,
+          "",
+          2000
+        );
+      } else {
+        showWarningNotification(
+          response.data, 
+          "", 
+          2000
+        )
+      }
     } catch (error) {
-      console.log("Error: ", error);
+      console.log("Product couldn't be added to card", error);
     }
   };
 
@@ -60,6 +78,7 @@ const ProductCard = ({ props }) => {
       >
         <img className="image" src={imageUrl} alt="pencil" />
       </NavLink>
+      {props.stock <= 0 && <h4 className="not__in__stock">Not in stock</h4>}
       <p className="product__title">{props.name}</p>
       <p className="product__price">
         {props.listPrice > props.price && (

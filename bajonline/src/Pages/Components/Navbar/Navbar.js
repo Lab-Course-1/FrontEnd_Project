@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -20,6 +20,7 @@ const Navbar = () => {
   const [token, setToken] = useState("");
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [productsInCart, setProductsInCart] = useState(0);
 
   useEffect(() => {
     const jwtToken = sessionStorage.getItem("jwtToken");
@@ -40,8 +41,27 @@ const Navbar = () => {
           console.error(error);
         });
     }
+    numberOfProductsInCart();
   }, []);
 
+  const numberOfProductsInCart = async () => {
+    try {
+      const response = await axios.get(
+        Variables.API_URL + "ShoppingCart/NumberOfProducts",
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+          },
+        }
+      );
+      const numberOfProducts = response.data;
+      if (numberOfProducts > 0) {
+        setProductsInCart(numberOfProducts);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleSearchSubmit = async (event) => {
     event.preventDefault();
     navigate(`/shopall?searchTerm=${encodeURIComponent(searchTerm)}`);
@@ -106,10 +126,12 @@ const Navbar = () => {
               </NavLink>
             )}
             {token && <Dropdown />}
-            <div className="shopping__cart">
-              <ShoppingCartIcon />
-              <p>Cart (0)</p>
-            </div>
+            <NavLink to="/shoppingCartPage" style={{ textDecoration: "none", color: "inherit" }}>
+              <div className="shopping__cart">
+                <ShoppingCartIcon />
+                <p>Cart ({productsInCart})</p>
+              </div>
+            </NavLink>
           </div>
         </div>
         <div
