@@ -71,14 +71,68 @@ const OurStory = () => {
         </div>
       </div>
 
-      <div className="team-container">
-        <h4 className="team-title">Meet Our Team</h4>
-        <div className="line-white"></div>
-        <p className="team-subtitle">
-          Meet multi-talented people who are passionate about their jobs in the field of ecommerce website.
-        </p>
-        {/* Add your team member components or details here */}
-      </div>
+        <div className="team-container">
+            <h4 className="team-title">Meet Our Team</h4>
+            <div className="line-white"></div>
+            <p className="team-subtitle">Meet our multi-talented team members who are passionate about their jobs in the field of ecommerce website:</p>
+
+        <div className="team-members">
+            <div className="team-member">
+                <div className="member-photo member1"></div>
+                <h5 className="member-name">Albion Paçarizi</h5>
+                <p className="member-job">Ecommerce Manager</p>
+            </div>
+            <div className="team-member">
+                <div className="member-photo member2"></div>
+                <h5 className="member-name">Bledion Krasniqi</h5>
+                <p className="member-job">Content Writer</p>
+            </div>
+            <div className="team-member">
+                <div className="member-photo member3"></div>
+                <h5 className="member-name">Jeton Sllamniku</h5>
+                <p className="member-job">Product Manager</p>
+            </div>
+            <div className="team-member">
+                <div className="member-photo member4"></div>
+                <h5 className="member-name">Jeton Sllamniku</h5>
+                <p className="member-job">Ceo of SmartSupplies</p>
+            </div>
+            <div className="team-member">
+                <div className="member-photo member5"></div>
+                <h5 className="member-name">Albion Paçarizi</h5>
+                <p className="member-job">Digital Marketer</p>
+            </div>
+            <div className="team-member">
+                <div className="member-photo member6"></div>
+                <h5 className="member-name">Bledion Krasniqi</h5>
+                <p className="member-job">Data Analyst</p>
+            </div>
+            </div>
+            </div>
+
+            <div className="trusted-companies-container">
+            <h4 className="trusted-companies-title">Trusted with more than 100 Companies since 2012</h4>
+            <div className="trusted-companies-photos">
+                <div className="company-photo company1"></div>
+                <div className="company-photo company2"></div>
+                <div className="company-photo company3"></div>
+                <div className="company-photo company4"></div>
+                <div className="company-photo company5"></div>
+                <div className="company-photo company6"></div>
+            </div>
+            <div className="additional-photos-container">
+                <div className="additional-photo additional1"></div>
+                <div className="additional-photo additional2"></div>
+                <div className="additional-photo additional3"></div>
+                <div className="additional-quote">
+                <p><span>"</span>Empowering Minds, Inspiring Success: Fueling Education and Office Excellence<span>"</span></p>
+                </div>
+            </div>
+            <hr className="separator-line" />
+            </div>
+
+
+
 
       <Footer />
     </>
