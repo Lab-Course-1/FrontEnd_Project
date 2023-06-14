@@ -29,7 +29,7 @@ import 'react-notifications-component/dist/theme.css'
 function App() {
   return (
     <>
-      <ReactNotifications /> 
+      <ReactNotifications />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} exact />
