@@ -16,7 +16,7 @@ const ShopAll = () => {
   const [noMoreProducts, setNoMoreProducts] = useState(false);
   const [minPrice, setMinPrice] = useState(1);
   const [maxPrice, setMaxPrice] = useState(1);
-  let pageSize = 10;
+  let pageSize = 12;
 
   useEffect(() => {
     var search = queryParams.get("searchTerm");
@@ -25,7 +25,7 @@ const ShopAll = () => {
       product.classList.add('removed');
     });
     setTimeout(() => {
-      if (search) {
+      if (search && search !== "") {
         setSearchTerm(search);
         searchProducts(search);
       } else {
@@ -42,7 +42,7 @@ const ShopAll = () => {
 
   const searchProducts = async (searchTerm) => {
     try {
-      if (searchTerm) {
+      if (searchTerm && searchTerm.trim() !== "") {
         const response = await axios.get(
           Variables.API_URL + `Product/SearchProducts?page=${currentPage}&pageSize=${pageSize}&searchTerm=${searchTerm}`
         );
@@ -79,10 +79,6 @@ const ShopAll = () => {
     } catch (error) {
       console.error(error);
     }
-  };
-
-  const handleLoadMore = () => {
-     
   };
 
   const handleMinPriceChange = async (event) => {
@@ -126,12 +122,14 @@ const ShopAll = () => {
   const handleSearch = async (event) => {
     const value = event.target.value;
     setSearchTerm(value);
-    const response = await axios.get(
-      Variables.API_URL +
-      `Product/SearchProducts?page=1&pageSize=${pageSize}&searchTerm=${value}`
-    );
-    const newProducts = response.data;
-    setProducts(newProducts);
+    if (value && value.trim() !== "") {
+      const response = await axios.get(
+        Variables.API_URL +
+        `Product/SearchProducts?page=1&pageSize=${pageSize}&searchTerm=${value}`
+      );
+      const newProducts = response.data;
+      setProducts(newProducts);
+    }
   };
 
   return (
@@ -186,7 +184,8 @@ const ShopAll = () => {
           <div className="products">
             <div className="prods">
               {products.map((p) => (
-                <ProductCard props={p} key={p.id} />
+                <ProductCard product={p} key={p.id} isWishlist={false} />
+
               ))}
             </div>
             {!noMoreProducts && (

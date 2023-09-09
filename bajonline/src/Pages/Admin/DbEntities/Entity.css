@@ -63,8 +63,17 @@
   font-weight: 600;
 }
 
+
 .entity__container tr:nth-child(even) {
   background-color: #f7f7f7;
+}
+
+.entity__container tr:nth-child(even):hover {
+  background-color: #ddd;
+}
+
+.entity__container tr:nth-child(odd):hover {
+  background-color: #eee;
 }
 
 .entity__container .btn {

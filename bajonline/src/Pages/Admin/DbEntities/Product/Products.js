@@ -5,7 +5,7 @@ import axios from "axios";
 import "../Entity.css";
 import SimpleNavbar from "../Navbar/SimpleNavbar";
 
-const Product = () => {
+const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [productList, setProductList] = useState([]);
   const [noMoreProducts, setNoMoreProducts] = useState(false);
@@ -135,4 +135,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Products;

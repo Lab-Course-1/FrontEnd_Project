@@ -32,7 +32,7 @@ const BestSellers = () => {
       <h1 className="best__sellers__title">BEST SELLERS</h1>
       <div className="products">
         {products.map((p) => (
-          <ProductCard props={p} key={p.id} />
+          <ProductCard product={p} key={p.id} isWishlist={false}/>
         ))}
       </div>
       <NavLink to="/shopall">

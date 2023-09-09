@@ -61,3 +61,14 @@
 .add__container input[type="submit"]:hover {
   background-color: #27ae60;
 }
+
+
+.add__container .go__back {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.add__container .go__back:hover{
+  color: darkred;
+  cursor:pointer;
+}

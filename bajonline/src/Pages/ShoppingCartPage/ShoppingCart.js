@@ -20,7 +20,7 @@ const ShoppingCartPage = () => {
   }, []);
 
   const getCartContent = () => {
-    if (!sessionStorage.getItem("jwtToken")){
+    if (!sessionStorage.getItem("jwtToken")) {
       showWarningNotification("You must be logged in to check shopping cart!", "You're going to be redirected!", 2500);
       setTimeout(() => {
         navigate(`/login`);
@@ -46,7 +46,7 @@ const ShoppingCartPage = () => {
     try {
       const response = await axios.post(
         Variables.API_URL +
-          `ShoppingCart/DecreaseQuantityForProduct?shoppingCartItemId=${itemId}`,
+        `ShoppingCart/DecreaseQuantityForProduct?shoppingCartItemId=${itemId}`,
         null,
         {
           headers: {
@@ -79,7 +79,7 @@ const ShoppingCartPage = () => {
     try {
       const response = await axios.post(
         Variables.API_URL +
-          `ShoppingCart/IncreaseQuantityForProduct?shoppingCartItemId=${itemId}`,
+        `ShoppingCart/IncreaseQuantityForProduct?shoppingCartItemId=${itemId}`,
         null,
         {
           headers: {
@@ -97,7 +97,7 @@ const ShoppingCartPage = () => {
     try {
       const response = await axios.delete(
         Variables.API_URL +
-          `ShoppingCart/RemoveFromCart?shoppingCartItemId=${itemId}`,
+        `ShoppingCart/RemoveFromCart?shoppingCartItemId=${itemId}`,
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
@@ -142,7 +142,7 @@ const ShoppingCartPage = () => {
                         <img
                           src={
                             item.productImage !== "" &&
-                            item.productImage !== "string"
+                              item.productImage !== "string"
                               ? item.productImage
                               : "https://i.imgur.com/BlVFcdX.png"
                           }
@@ -197,7 +197,7 @@ const ShoppingCartPage = () => {
           ) : (
             <p>Loading cart content...</p>
           )}
-          <button className="remove__all__items" onClick={removeAllItems}>
+          <button disabled={cartItems.length <= 0} className="remove__all__items" onClick={removeAllItems}>
             Remove All
           </button>
         </div>

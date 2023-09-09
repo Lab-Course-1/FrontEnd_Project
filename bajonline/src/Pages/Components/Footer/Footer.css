@@ -48,7 +48,7 @@ footer .email__div h2 {
   margin-bottom: 10px;
 }
 
-footer .email {
+footer .email__div .email {
   margin: 10px 0;
   display: block;
   border: none;
@@ -56,11 +56,11 @@ footer .email {
   border-bottom: 1px solid #ba4e34;
 }
 
-footer .email:focus {
+footer .email__div .email:focus {
   outline: 0;
 }
 
-footer .email:hover {
+footer .email__div .email:hover {
   border-bottom: 2px solid #ba4e34;
   transition: border-bottom 0.4s;
 }

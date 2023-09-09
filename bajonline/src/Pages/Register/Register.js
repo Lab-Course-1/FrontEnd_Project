@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Variables } from "../../Variables";
 import axios from "axios";
 import SimpleNavbar from "../Admin/DbEntities/Navbar/SimpleNavbar";
+import { showSuccessNotification, showErrorNotification, showWarningNotification } from "../../NotificationUtils";
+
 
 const Register = () => {
   const navigate = useNavigate();
@@ -17,11 +19,41 @@ const Register = () => {
   const [password, setPassword] = useState("");
 
   const handleRegister = async (event) => {
-    if (email !== confirmEmail) {
-      console.log("email and confirm email are not the same");
-      //todo - make dynamic
-    }
     event.preventDefault();
+
+    const firstNameRegex = /^[A-Z][a-z]{2,30}$/;
+    const lastNameRegex = /^[A-Z][a-z]{2,30}$/;
+    const emailRegex = /^[A-Za-z0-9]+@[a-zA-Z-]+\.(com|net|edu)$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.!?@#$%&]).{6,20}$/;
+
+    const errors = [];
+
+    if (!firstNameRegex.test(firstName)) {
+      errors.push("Please provide a valid first name!");
+    }
+
+    if (!lastNameRegex.test(lastName)) {
+      errors.push("Please provide a valid last name!");
+    }
+
+    if (!emailRegex.test(email)) {
+      errors.push("Please provide a valid email!");
+    }
+
+    if (email !== confirmEmail) {
+      errors.push("Email doesn't match with confirm email!");
+    }
+
+    if (!passwordRegex.test(password.trim())) {
+      alert(password)
+      errors.push("Please provide a password with 6+ characters, including upper, lowercase, and special characters!");
+    }
+    if (errors.length > 0 ){
+      document.querySelector("p.error").innerHTML = errors[0];
+      return;
+    }else {
+      document.querySelector("p.error").innerHTML = "";
+    }
 
     try {
       const response = await axios.post(Variables.API_URL + "user/register", {
@@ -33,16 +65,22 @@ const Register = () => {
         userName: userName,
         password: password,
       });
-      const token = response.data.token;
-      if (token) {
+      if (response.status === 200) {
+        const token = response.data.token;
         sessionStorage.setItem("jwtToken", token);
         navigate("/");
         var userInfo = await getUserInfo();
         sessionStorage.setItem("usersName", userInfo.firstName);
         sessionStorage.setItem("usersLastName", userInfo.lastName);
         sessionStorage.setItem("usersEmail", userInfo.email);
+        showSuccessNotification("You're registered successfully", "", 2000)
       }
-    } catch (error) {}
+    } catch (error) {
+      var response = error.response.data;
+      response.errors.forEach(error => {
+        showWarningNotification(error, "", 2000)
+      });
+    }
   };
 
   const getUserInfo = async () => {
@@ -54,7 +92,10 @@ const Register = () => {
       });
       return userInfo.data;
     } catch (error) {
-      console.log(error);
+      var response = error.response.data;
+      response.errors.foreach(error => {
+        showErrorNotification(error, "", 2000)
+      })
     }
   };
 
@@ -139,6 +180,7 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+
             <button
               type="submit"
               className="register__button"

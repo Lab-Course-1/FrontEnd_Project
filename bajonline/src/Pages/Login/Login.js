@@ -4,7 +4,7 @@ import "./Login.css";
 import { Variables } from "../../Variables";
 import { useNavigate } from "react-router-dom";
 import SimpleNavbar from "../Admin/DbEntities/Navbar/SimpleNavbar";
-import { showSuccessNotification, showErrorNotification } from "../../NotificationUtils";
+import { showSuccessNotification, showErrorNotification, showWarningNotification } from "../../NotificationUtils";
 
 
 const Login = () => {
@@ -14,28 +14,50 @@ const Login = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
+    const userNameRegex = /^[A-Za-z]+$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.!?@#$%&]).{6,20}$/;
+    const errors = [];
+
+    if (!userNameRegex.test(userName)) {
+      errors.push("Please provide a valid username!");
+    }
+
+    if (!passwordRegex.test(password)) {
+      errors.push("Please provide a password with 6+ characters, including upper, lowercase, and special characters!");
+    }
+
+    if (errors.length > 0) {
+      document.querySelector("p.error").innerHTML = errors[0];
+      return;
+    }else {
+      document.querySelector("p.error").innerHTML = "";
+    }
+
     try {
       const response = await axios.post(Variables.API_URL + "user/login", {
         userName: userName,
         password: password,
       });
-      const token = response.data.token;
-      if (token) {
+
+      if (response.status === 200) {
+        const token = response.data.token;
         sessionStorage.setItem("jwtToken", token);
+        navigate("/");
+        var userInfo = await getUserInfo();
+        sessionStorage.setItem("usersName", userInfo.firstName)
+        sessionStorage.setItem("usersLastName", userInfo.lastName)
+        sessionStorage.setItem("usersEmail", userInfo.email)
         showSuccessNotification(
           "You're logged in successfully",
           "Happy buy!",
           2000
         );
-        navigate("/");
-        
-        var userInfo = await getUserInfo();
-        sessionStorage.setItem("usersName", userInfo.firstName)
-        sessionStorage.setItem("usersLastName", userInfo.lastName)
-        sessionStorage.setItem("usersEmail", userInfo.email)
       }
     } catch (error) {
-      console.error(error);
+      var response = error.response.data;
+      response.errors.forEach(error => {
+        showWarningNotification(error, "", 2000)
+      });
     }
   };
 
@@ -47,8 +69,11 @@ const Login = () => {
         },
       })
       return userInfo.data;
-    }catch (error){
-      console.log(error)
+    } catch (error) {
+      var response = error.response.data;
+      response.errors.foreach(error => {
+        showWarningNotification(error, "", 2000)
+      })
     }
   }
   return (

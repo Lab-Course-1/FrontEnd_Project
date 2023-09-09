@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -30,7 +29,7 @@ const Dropdown = () => {
     <div className="dropdown-container">
       <div className="dropdown-header" onClick={toggleDropdown}>
         <div className="dropdown-header-title">
-          <span>{`${sessionStorage.getItem("usersName") != null ? sessionStorage.getItem("usersName") : ""} ${sessionStorage.getItem("usersLastName") != null ? sessionStorage.getItem("usersLastName") : ""}`}</span>
+          <span>{`${sessionStorage.getItem("usersName") != null ? sessionStorage.getItem("usersName") : ""} ${sessionStorage.getItem("usersLastName") != null && window.innerWidth > 810 ? sessionStorage.getItem("usersLastName") : ""}`}</span>
         </div>
         <span className={`dropdown-header-icon ${isOpen ? "open" : ""}`}></span>
       </div>

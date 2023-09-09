@@ -1,3 +1,35 @@
-.wishlist__title {
-    text-align: center;
+.wishlist {
+  background-color: rgb(233, 239, 241);
+  padding: 2% 7%;
+}
+.wishlist .wishlist__title {
+  text-align: center;
+}
+
+.products {
+  padding: 8px;
+  min-height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.products p {
+  font-size: 19px;
+}
+
+.wishlist .remove__all__items {
+  display: block;
+  margin: 25px auto;
+  width: 200px;
+  height: 42px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #d62929;
+  color: white;
+}
+
+.wishlist .remove__all__items:hover {
+  cursor: pointer;
+  background-color: #c50000;
 }

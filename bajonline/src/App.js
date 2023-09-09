@@ -14,7 +14,9 @@ import CartItem from "./Pages/Admin/DbEntities/CartItem/CartItem";
 import OrderData from "./Pages/Admin/DbEntities/OrderData/OrderData";
 import AddressDetails from "./Pages/Admin/DbEntities/AddressDetails/AddressDetails";
 import OrderDetails from "./Pages/Admin/DbEntities/OrderDetails/OrderDetails";
-import Product from "./Pages/Admin/DbEntities/Product/Product";
+import Products from "./Pages/Admin/DbEntities/Product/Products";
+import AddProduct from "./Pages/Admin/DbEntities/Product/AddProduct";
+import EditProduct from "./Pages/Admin/DbEntities/Product/EditProduct";
 import ProductOrderDetails from "./Pages/Admin/DbEntities/ProductOrderDetails/ProductOrderDetails";
 import Promotion from "./Pages/Admin/DbEntities/Promotion/Promotion";
 import Review from "./Pages/Admin/DbEntities/Review/Review";
@@ -23,6 +25,8 @@ import Dashboards from "./Pages/Admin/Dashboards/Dashboards";
 import Reports from "./Pages/Admin/Reports/Reports";
 import Analytics from "./Pages/Admin/Analytics/Analytics";
 import Users from "./Pages/Admin/Users/Users";
+import AddUser from "./Pages/Admin/Users/AddUser";
+import EditUser from "./Pages/Admin/Users/EditUser";
 import ProductPage from "./Pages/ProductPage/ProductPage";
 import ShoppingCartPage from "./Pages/ShoppingCartPage/ShoppingCart";
 import WishList from "./Pages/WishList/WishList";
@@ -31,8 +35,7 @@ import React, { useState } from 'react';
 import { ReactNotifications } from "react-notifications-component";
 import { AppContext } from "./AppContext"
 import 'react-notifications-component/dist/theme.css'
-import AddProduct from "./Pages/Admin/DbEntities/Product/AddProduct";
-import EditProduct from "./Pages/Admin/DbEntities/Product/EditProduct";
+
 
 
 function App() {
@@ -59,16 +62,18 @@ function App() {
             <Route path="/admin/dbentities/orderData" element={<OrderData />} exact />
             <Route path="/admin/dbentities/addressDetails" element={< AddressDetails />} exact />
             <Route path="/admin/dbentities/orderDetails" element={< OrderDetails />} exact />
-            <Route path="/admin/dbentities/product" element={< Product />} exact />
+            <Route path="/admin/dbentities/products" element={< Products />} exact />
             <Route path="/admin/dbentities/addproduct" element={<AddProduct />} />
             <Route path="/admin/dbentities/editproduct/:id" element={<EditProduct />} />
+            <Route path="/admin/users" element={<Users />} exact />
+            <Route path="/admin/adduser" element={<AddUser />} />
+            <Route path="/admin/edituser/:id" element={<EditUser />} />
             <Route path="/admin/dbentities/productOrderDetails" element={< ProductOrderDetails />} exact />
             <Route path="/admin/dbentities/promotion" element={< Promotion />} exact />
             <Route path="/admin/dbentities/review" element={< Review />} exact />
             <Route path="/admin/dbentities/wishListItem" element={< WishListItem />} exact />
             <Route path="/admin/dashboards" element={<Dashboards />} exact />
             <Route path="/orderModal" element={<OrderModal />} exact />
-            <Route path="/admin/users" element={<Users />} exact />
             <Route path="/productpage" element={<ProductPage />} exact />
             <Route path="/shoppingcartpage" element={<ShoppingCartPage />} exact />
             <Route path="/wishlist" element={<WishList />} exact />

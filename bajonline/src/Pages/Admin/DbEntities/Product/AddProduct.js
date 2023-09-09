@@ -1,31 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../Form.css";
+import { Variables } from "../../../../Variables";
+import "../AddEntity.css";
 import { useNavigate } from "react-router-dom";
+import { showSuccessNotification, showWarningNotification } from "../../../../NotificationUtils";
+
 
 const AddProduct = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [listPrice, setListPrice] = useState("");
-  const [price, setPrice] = useState("");
-  const [stock, setStock] = useState("");
+  const [listPrice, setListPrice] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [stock, setStock] = useState(0);
   const [imageUrl, setImageUrl] = useState("");
   const [categoryId, setCategoryId] = useState("");
+  const [categories, setCategories] = useState([])
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  const fetchCategories = async () => {
+    try {
+      const response = await axios.get(Variables.API_URL + `Category/Categories`,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+          },
+        }
+      );
+      setCategories(response.data);
+    } catch (error) {
+    }
+  }
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     try {
-      const response = await axios.post(
-        "https://localhost:44332/Product/Product",
+      const response = await axios.post(Variables.API_URL + `Product/Product`,
         {
           name,
           description,
           listPrice,
           price,
-          stock, 
-          imageUrl, 
+          stock,
+          imageUrl,
           categoryId
         },
         {
@@ -34,15 +55,17 @@ const AddProduct = () => {
           },
         }
       );
-      console.log("Product added:", response.data);
-      navigate(`/admin/dbentities/ndertesat`);
+      showSuccessNotification("Product is added successfully!", "", 2000)
+      setTimeout(() => { navigate(-1) }, 2000);
+
     } catch (error) {
-      console.error("Error adding ndertesa:", error);
+      showWarningNotification("Error while adding product!", "", 2000)
     }
   };
 
   return (
     <div className="add__container">
+      <p className="go__back" onClick={() => { navigate(-1) }}>Go back</p>
       <h2>Add Product</h2>
       <form onSubmit={handleSubmit}>
         <label>
@@ -111,18 +134,16 @@ const AddProduct = () => {
             id="image_url"
             placeholder="image_url"
             onChange={(e) => setImageUrl(e.target.value)}
-            required
           />
           <label>
-            Category Id
-            <input
-              type="number"
-              name="categoryId"
-              id="categoryId"
-              placeholder="Category Id"
-              onChange={(e) => setCategoryId(e.target.value)}
-              required
-            />
+            Category
+            <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)}>
+              {categories.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
           </label>
         </label>
         <input type="submit" name="addEntity" value="Add Product" />
