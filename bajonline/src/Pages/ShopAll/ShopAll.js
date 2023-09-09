@@ -11,29 +11,40 @@ const ShopAll = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const [searchTerm, setSearchTerm] = useState("");
-  const [inSearchTerm, setInSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [noMoreProducts, setNoMoreProducts] = useState(false);
+  const [minPrice, setMinPrice] = useState(1);
+  const [maxPrice, setMaxPrice] = useState(1);
   let pageSize = 10;
 
   useEffect(() => {
     var search = queryParams.get("searchTerm");
-    if (search) {
-      setSearchTerm(search);
-      searchProducts(search);
-    } else {
-      setSearchTerm("");
-      fetchProducts();
-    }
-  }, [location]);
+    const existingProducts = document.querySelectorAll('.product__card');
+    existingProducts.forEach((product) => {
+      product.classList.add('removed');
+    });
+    setTimeout(() => {
+      if (search) {
+        setSearchTerm(search);
+        searchProducts(search);
+      } else {
+        setSearchTerm("");
+        fetchProducts();
+      }
+      existingProducts.forEach((product) => {
+        product.classList.remove('removed');
+      });
+    }, 350)
+
+
+  }, [location, currentPage]);
 
   const searchProducts = async (searchTerm) => {
     try {
       if (searchTerm) {
         const response = await axios.get(
-          Variables.API_URL +
-            `Product/SearchProducts?page=${currentPage}&pageSize=${pageSize}&searchTerm=${searchTerm}`
+          Variables.API_URL + `Product/SearchProducts?page=${currentPage}&pageSize=${pageSize}&searchTerm=${searchTerm}`
         );
         const newProducts = response.data;
         if (response.data.length === 0) {
@@ -44,7 +55,6 @@ const ShopAll = () => {
         } else {
           setProducts((prevProducts) => [...prevProducts, ...newProducts]);
         }
-        setCurrentPage((prevPage) => prevPage + 1);
       }
     } catch (error) {
       console.log("Error searching for products: ", error);
@@ -55,7 +65,7 @@ const ShopAll = () => {
     try {
       const response = await axios.get(
         Variables.API_URL +
-          `Product/Products?page=${currentPage}&pageSize=${pageSize}`
+        `Product/Products?page=${currentPage}&pageSize=${pageSize}`
       );
       const newProducts = response.data;
       if (currentPage === 1) {
@@ -66,32 +76,64 @@ const ShopAll = () => {
       if (response.data.length === 0) {
         setNoMoreProducts(true);
       }
-      setCurrentPage((prevPage) => prevPage + 1);
     } catch (error) {
       console.error(error);
     }
   };
 
   const handleLoadMore = () => {
-    if (!searchTerm) {
-      console.log("up");
-      fetchProducts();
-    } else {
-      searchProducts(searchTerm);
-    }
+     
   };
+
+  const handleMinPriceChange = async (event) => {
+    const value = event.target.value;
+    if (value === undefined || value.trim() === "") {
+      return;
+    }
+    setMinPrice(value);
+
+    const response = await axios.get(
+      Variables.API_URL +
+      `Product/FilterProducts?minPrice=${value}&maxPrice=${maxPrice}&page=${currentPage}&pageSize=${pageSize}`
+    );
+    const newProducts = response.data;
+    if (currentPage === 1) {
+      setProducts(newProducts);
+    } else {
+      setProducts((prevProducts) => [...prevProducts, ...newProducts]);
+    }
+    if (response.data.length === 0) {
+      setNoMoreProducts(true);
+    }
+  }
+  const handleMaxPriceChange = async (event) => {
+    setMaxPrice(event.target.value);
+    const response = await axios.get(
+      Variables.API_URL +
+      `Product/FilterProducts?minPrice=${minPrice}&maxPrice=${event.target.value}&page=${currentPage}&pageSize=${pageSize}`
+    );
+    const newProducts = response.data;
+    if (currentPage === 1) {
+      setProducts(newProducts);
+    } else {
+      setProducts((prevProducts) => [...prevProducts, ...newProducts]);
+    }
+    if (response.data.length === 0) {
+      setNoMoreProducts(true);
+    }
+  }
 
   const handleSearch = async (event) => {
     const value = event.target.value;
-
-    setInSearchTerm(value);
+    setSearchTerm(value);
     const response = await axios.get(
       Variables.API_URL +
-        `Product/SearchProducts?page=1&pageSize=${pageSize}&searchTerm=${inSearchTerm}`
+      `Product/SearchProducts?page=1&pageSize=${pageSize}&searchTerm=${value}`
     );
     const newProducts = response.data;
     setProducts(newProducts);
   };
+
   return (
     <>
       <Navbar />
@@ -101,7 +143,7 @@ const ShopAll = () => {
           name="search"
           className="search"
           placeholder="Search..."
-          value={inSearchTerm}
+          value={searchTerm}
           onChange={handleSearch}
         />
         <h1 className="title">SHOP ALL</h1>
@@ -129,6 +171,7 @@ const ShopAll = () => {
                 type="number"
                 name="from"
                 placeholder="2"
+                onChange={handleMinPriceChange}
               />
               <p>to</p>
               <input
@@ -136,6 +179,7 @@ const ShopAll = () => {
                 type="number"
                 name="to"
                 placeholder="102"
+                onChange={handleMaxPriceChange}
               />
             </div>
           </aside>
@@ -149,7 +193,7 @@ const ShopAll = () => {
               <button
                 type="button"
                 className="load__more"
-                onClick={handleLoadMore}
+                onClick={() => setCurrentPage((prevPage) => prevPage + 1)}
               >
                 Load More Products
               </button>

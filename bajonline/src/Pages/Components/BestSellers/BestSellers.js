@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 const BestSellers = () => {
   const [products, setProducts] = useState([]);
   let currentPage = 1;
-  let pageSize = 6;
+  let pageSize = 8;
 
   useEffect(() => {
     const fetchProducts = async () => {

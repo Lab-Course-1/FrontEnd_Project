@@ -4,10 +4,16 @@ import Footer from "../Components/Footer/Footer";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { Variables } from "../../Variables";
+import { useNavigate } from "react-router-dom";
+import {
+  showSuccessNotification,
+  showWarningNotification,
+} from "../../NotificationUtils";
 
 import "./ProductPage.css";
 
 const ProductPage = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const [productId, setProductId] = useState(0);
@@ -51,6 +57,49 @@ const ProductPage = () => {
       }
     } catch (error) {
       console.log("Error: ", error);
+    }
+  };
+
+  const handleAddToCart = async () => {
+    var token = sessionStorage.getItem("jwtToken");
+    if (!token) {
+      showWarningNotification(
+        "You must be logged in to add to cart!",
+        "You are being redirected to login page",
+        2000
+      );
+      setTimeout(() => {
+        navigate(`/login`);
+      }, 2000);
+      return;
+    }
+    try {
+      const response = await axios.post(
+        Variables.API_URL +
+        `ShoppingCart/AddToCart?count=1&productId=${productId}`,
+        null,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.data === "Product is added to card!") {
+        showSuccessNotification(
+          response.data,
+          "",
+          2000
+        );
+      } else {
+        showWarningNotification(
+          response.data,
+          "",
+          2000
+        )
+      }
+    } catch (error) {
+      console.log("Product couldn't be added to card", error);
     }
   };
 
@@ -105,7 +154,7 @@ const ProductPage = () => {
             <h2>{price} €</h2>
           </section>
           <hr className="section__divider" />
-          <button type="button" className="add__to__cart">
+          <button type="button" className="add__to__cart" onClick={handleAddToCart}>
             Add to Your Cart
           </button>
         </div>

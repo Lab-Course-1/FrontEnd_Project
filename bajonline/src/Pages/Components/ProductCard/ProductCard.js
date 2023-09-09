@@ -6,7 +6,6 @@ import { NavLink } from "react-router-dom";
 import { Variables } from "../../../Variables";
 import axios from "axios";
 import {
-  showErrorNotification,
   showSuccessNotification,
   showWarningNotification,
 } from "../../../NotificationUtils";
@@ -39,7 +38,7 @@ const ProductCard = ({ props }) => {
     try {
       const response = await axios.post(
         Variables.API_URL +
-          `ShoppingCart/AddToCart?count=1&productId=${props.id}`,
+        `ShoppingCart/AddToCart?count=1&productId=${props.id}`,
         null,
         {
           headers: {
@@ -56,8 +55,8 @@ const ProductCard = ({ props }) => {
         );
       } else {
         showWarningNotification(
-          response.data, 
-          "", 
+          response.data,
+          "",
           2000
         )
       }
@@ -66,8 +65,47 @@ const ProductCard = ({ props }) => {
     }
   };
 
-  const handleAddToWishList = () => {
-    console.log("added to wishlist");
+  const handleAddToWishList = async () => {
+    var token = sessionStorage.getItem("jwtToken");
+    if (!token) {
+      showWarningNotification(
+        "You must be logged in to add to cart!",
+        "You are being redirected to login page",
+        2000
+      );
+      setTimeout(() => {
+        navigate(`/login`);
+      }, 2000);
+      return;
+    }
+    try {
+      const response = await axios.post(
+        Variables.API_URL +
+        `WishList/AddToWishList?productId=${props.id}`,
+        null,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.data === "Added to wishlist!") {
+        showSuccessNotification(
+          response.data,
+          "",
+          2000
+        );
+      } else {
+        showWarningNotification(
+          response.data,
+          "",
+          2000
+        )
+      }
+    } catch (error) {
+      console.log("Product couldn't be added to wishlist", error);
+    }
   };
 
   return (

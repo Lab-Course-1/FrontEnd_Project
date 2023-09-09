@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { showSuccessNotification } from "../../../NotificationUtils";
 import "./Dropdown.css";
+import { NavLink } from "react-router-dom";
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,9 +30,7 @@ const Dropdown = () => {
     <div className="dropdown-container">
       <div className="dropdown-header" onClick={toggleDropdown}>
         <div className="dropdown-header-title">
-          <span>{`${sessionStorage.getItem(
-            "usersName"
-          )} ${sessionStorage.getItem("usersLastName")}`}</span>
+          <span>{`${sessionStorage.getItem("usersName") != null ? sessionStorage.getItem("usersName") : ""} ${sessionStorage.getItem("usersLastName") != null ? sessionStorage.getItem("usersLastName") : ""}`}</span>
         </div>
         <span className={`dropdown-header-icon ${isOpen ? "open" : ""}`}></span>
       </div>
@@ -41,7 +40,12 @@ const Dropdown = () => {
             <span>Profile</span>
           </li>
           <li className="dropdown-item" onClick={handleItemClick}>
-            <span>Settings</span>
+            <NavLink
+              to="/wishlist"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <span >Wishlist</span>
+            </NavLink>
           </li>
           <li className="dropdown-item" onClick={handleItemClick}>
             <span onClick={logout}>Log Out</span>

@@ -113,6 +113,10 @@ nav .bottom__part ul li {
   cursor: pointer;
 }
 
+nav .bottom__part ul li a {
+  padding: 5px;
+}
+
 nav .bottom__part ul li:hover {
   color: #bc4c2a;
 }

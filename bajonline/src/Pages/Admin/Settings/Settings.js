@@ -1,11 +1,11 @@
 import React from 'react';
 import './Settings.css';
-import SideNav from '../Components/SideNav/SideNav';
+import Navbar from '../../Components/Navbar/Navbar';
 
 const Settings = () => {
   return (
     <div>
-      <SideNav />
+      <Navbar />
       <div className='profile__page'>
         <div className='left__part'>
           <div className='general__info'>

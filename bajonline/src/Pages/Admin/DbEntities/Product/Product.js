@@ -1,114 +1,137 @@
-import React, { useState } from "react";
-import "./Product.css";
+import React, { useState, useEffect } from "react";
+import { Variables } from "../../../../Variables";
+import axios from "axios";
+
+import "../Entity.css";
 import SimpleNavbar from "../Navbar/SimpleNavbar";
 
 const Product = () => {
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      name: "Product 1",
-      description: "Produkti i 1 eshte ky",
-      price: 19.99,
-      quantityInStock: 10,
-      imageUrl: "https://example.com/product1.jpg",
-      stock: 100,
-      totalSold: 50,
-      listPrice: 24.99,
-      categoryId: 1,
-      createdOn: "2023-05-10",
-    },
-    {
-      id: 2,
-      name: "Product 2",
-      description: "Produkti i 2 eshte ky",
-      price: 29.99,
-      quantityInStock: 5,
-      imageUrl: "https://example.com/product2.jpg",
-      stock: 50,
-      totalSold: 20,
-      listPrice: 34.99,
-      categoryId: 2,
-      createdOn: "2023-06-18",
-    },
-    {
-      id: 3,
-      name: "Product 3",
-      description: "Produkti i 3 eshte ky",
-      price: 9.99,
-      quantityInStock: 20,
-      imageUrl: "https://example.com/product3.jpg",
-      stock: 200,
-      totalSold: 100,
-      listPrice: 14.99,
-      categoryId: 1,
-      createdOn: "2023-06-05",
-    },
-  ]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productList, setProductList] = useState([]);
+  const [noMoreProducts, setNoMoreProducts] = useState(false);
 
-  const handleDeleteProduct = (index) => {
-    const updatedProducts = [...products];
-    updatedProducts.splice(index, 1);
-    setProducts(updatedProducts);
+  useEffect(() => {
+    getProductList();
+  }, []);
+
+  const getProductList = async () => {
+    try {
+      const response = await axios.get(
+        Variables.API_URL + `Product/Products?page=${currentPage}&pageSize=10`,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+          },
+        }
+      );
+      const newProducts = response.data;
+      if (newProducts.length === 0) {
+        setNoMoreProducts(true);
+      }
+      if (currentPage === 1) {
+        setProductList(newProducts);
+      } else {
+        setProductList((prevProducts) => [...prevProducts, ...newProducts]);
+      }
+      setCurrentPage((prevPage) => prevPage + 1);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDeleteProduct = async (id) => {
+    try {
+      const response = await axios.delete(
+        Variables.API_URL + `Product/Product?id=${id}`
+      );
+      setProductList((prevProducts) =>
+        prevProducts.filter((product) => product.id !== id)
+      );
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
   };
 
   return (
-    <div className="product__entity">
+    <>
       <SimpleNavbar />
-      <div className="container">
+      <div className="entity__container">
         <h1>Products</h1>
         <div className="add">
-          <a href="./products" className="button">
+          <a href="AddProduct" className="button">
             Create Product
           </a>
         </div>
+
         <table>
           <thead>
             <tr>
               <th>ID</th>
               <th>Name</th>
               <th>Description</th>
+              <th>List Price</th>
               <th>Price</th>
-              <th>Quantity in Stock</th>
               <th>Image</th>
               <th>Stock</th>
               <th>Total Sold</th>
-              <th>List Price</th>
               <th>Category ID</th>
               <th>Created On</th>
               <th className="change">Change</th>
             </tr>
           </thead>
           <tbody>
-            {products.map((product, index) => (
-              <tr key={index}>
-                <td>{product.id}</td>
-                <td>{product.name}</td>
-                <td>{product.description}</td>
-                <td>{product.price}</td>
-                <td>{product.quantityInStock}</td>
-                <td>
-                  <img src={product.imageUrl} alt={product.name} />
-                </td>
-                <td>{product.stock}</td>
-                <td>{product.totalSold}</td>
-                <td>{product.listPrice}</td>
-                <td>{product.categoryId}</td>
-                <td>{product.createdOn}</td>
-                <td>
-                  <button className="edit__button btn">Edit</button>
-                  <button
-                    className="delete__button btn"
-                    onClick={() => handleDeleteProduct(index)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {productList.length > 0 &&
+              productList.map((product) => (
+                <tr key={product.id}>
+                  <td>{product.id}</td>
+                  <td>{product.name}</td>
+                  <td>{product.description}</td>
+                  <td>{product.listPrice}</td>
+                  <td>{product.price}</td>
+                  <td>
+                    <img
+                      className="row__image"
+                      src={
+                        product.imageUrl !== ""
+                          ? product.imageUrl
+                          : "https://i.imgur.com/BlVFcdX.png"
+                      }
+                      alt={product.name}
+                    />
+                  </td>
+                  <td>{product.stock}</td>
+                  <td>{product.totalSold}</td>
+                  <td>{product.categoryId}</td>
+                  <td>{product.createdOn}</td>
+                  <td>
+                    <a
+                      href={`editproduct/${product.id}`}
+                      className="edit__button btn"
+                    >
+                      Edit
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteProduct(product.id)}
+                      className="delete__button btn"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
+        {!noMoreProducts && (
+          <button type="button" className="load__more" onClick={getProductList}>
+            Load More
+          </button>
+        )}
+        {noMoreProducts && (
+          <h3 className="reached__final__page">Reached final page!</h3>
+        )}
       </div>
-    </div>
+    </>
   );
 };
 

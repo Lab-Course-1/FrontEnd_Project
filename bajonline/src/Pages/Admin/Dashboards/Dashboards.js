@@ -1,13 +1,65 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SideNav from "../Components/SideNav/SideNav";
 import StatisticCard from "../Components/StatisticCard/StatisticCard";
 import RecentOrders from "../Components/RecentOrders/RecentOrders";
+import axios from "axios";
+import { Variables } from "../../../Variables";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import "./Dashboards.css";
 import RecentUpdates from "../Components/RecentUpdates/RecentUpdates";
 import SimpleAnalytics from "../Components/SimpleAnalytics/SimpleAnalytics";
 const Dashboards = () => {
+  const [sales, setSales] = useState(0);
+  const [newCustomers, setNewCustomers] = useState(0);
+  const [orders, setOrders] = useState(0);
+  useEffect(() => {
+    getTotalSales();
+    numberOfNewCustomers();
+    numberOfOrders();
+  }, []);
+
+
+  const getTotalSales = async () => {
+    try {
+      const response = await axios.get(Variables.API_URL + `statistics/GetTotalSales?sinceNumberOfDays=${7}`, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+        },
+      })
+      setSales(response.data)
+    }catch (error){
+      console.log(error)
+    }
+  }
+
+  const numberOfNewCustomers = async () => {
+    try {
+      const response = await axios.get(Variables.API_URL + `statistics/NewCustomers?sinceNumberOfDays=${7}`, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+        },
+      })
+      setNewCustomers(response.data)
+    }catch (error){
+      console.log(error)
+    }
+  }
+
+
+  const numberOfOrders = async () => {
+    try {
+      const response = await axios.get(Variables.API_URL + `statistics/NumberOfOrders?sinceNumberOfDays=${7}`, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+        },
+      })
+      setOrders(response.data)
+    }catch (error){
+      console.log(error)
+    }
+  }
+
   const StyledNavLink = styled(NavLink)`
     display: block;
     width: 100%;
@@ -16,26 +68,27 @@ const Dashboards = () => {
     margin: 10px 0;
     font-weight: 700;
   `;
-  let postsStat = {
+
+  let salesStat = {
     icon: "analytics",
-    mainText: "Number of posts",
+    mainText: "Number of sales",
     percentage: 81,
-    stat: 25024,
-    date: "Last 24 hours",
+    stat: sales,
+    date: "Last 7 days",
   };
-  let commentsStat = {
+  let customersStat = {
     icon: "bar_chart",
-    mainText: "Number of comments",
+    mainText: "New customers",
     percentage: 60,
-    stat: 24000,
-    date: "Last 24 hours",
+    stat: newCustomers,
+    date: "Last 7 days",
   };
-  let likesStat = {
+  let ordersStat = {
     icon: "thumb_up",
-    mainText: "Number of likes",
+    mainText: "Number of orders",
     percentage: 42,
-    stat: 212222,
-    date: "Last 24 hours",
+    stat: orders,
+    date: "Last 7 days",
   };
   return (
     <div className="dashboards">
@@ -43,9 +96,9 @@ const Dashboards = () => {
       <div className="statistics">
         <h1 className="title">Dashboard</h1>
         <div className="cards">
-          <StatisticCard props={postsStat} />
-          <StatisticCard props={commentsStat} />
-          <StatisticCard props={likesStat} />
+          <StatisticCard props={salesStat} />
+          <StatisticCard props={customersStat} />
+          <StatisticCard props={ordersStat} />
         </div>
         <div className="hide__md">
           <p className="recent__orders__title">Recent orders</p>
@@ -56,9 +109,7 @@ const Dashboards = () => {
       <div>
         <p className="current__user">
           Hey,{" "}
-          <strong>{`${sessionStorage.getItem(
-            "usersName"
-          )} ${sessionStorage.getItem("usersLastName")}`}</strong>
+          <strong>{`${sessionStorage.getItem("usersName") != null ? sessionStorage.getItem("usersName") : ""} ${sessionStorage.getItem("usersLastName") != null ? sessionStorage.getItem("usersLastName") : ""}`}</strong>
         </p>
         <div>
           <p className="recent__updates__title">Recent Updates</p>

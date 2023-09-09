@@ -45,9 +45,13 @@ const Navbar = () => {
   }, []);
 
   const numberOfProductsInCart = async () => {
+    if (!sessionStorage.getItem("jwtToken")){
+      return;
+    }
+
     try {
       const response = await axios.get(
-        Variables.API_URL + "ShoppingCart/NumberOfProducts",
+        Variables.API_URL + "ShoppingCart/NumberOfProducts", 
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
@@ -66,6 +70,7 @@ const Navbar = () => {
     event.preventDefault();
     navigate(`/shopall?searchTerm=${encodeURIComponent(searchTerm)}`);
   };
+  
   return (
     <header>
       {isAdmin && (
@@ -126,7 +131,10 @@ const Navbar = () => {
               </NavLink>
             )}
             {token && <Dropdown />}
-            <NavLink to="/shoppingCartPage" style={{ textDecoration: "none", color: "inherit" }}>
+            <NavLink
+              to="/shoppingCartPage"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <div className="shopping__cart">
                 <ShoppingCartIcon />
                 <p>Cart ({productsInCart})</p>
@@ -172,16 +180,7 @@ const Navbar = () => {
                   : " hide__on__small__screen"
               }
             >
-              Our Story
-            </li>
-            <li
-              className={
-                isMobileMenuToggled
-                  ? " small__screen "
-                  : " hide__on__small__screen"
-              }
-            >
-              Our Craft
+              <NavLink to="/ourstory">Our Story</NavLink>
             </li>
             <li
               className={

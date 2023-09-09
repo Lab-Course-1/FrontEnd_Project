@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar/Navbar";
 import axios from "axios";
 import { Variables } from "../../Variables";
 import Footer from "../Components/Footer/Footer";
+import { useNavigate } from "react-router-dom";
 import {
   showSuccessNotification,
   showWarningNotification,
@@ -12,12 +13,20 @@ import "./ShoppingCart.css";
 const ShoppingCartPage = () => {
   const [cartContent, setCartContent] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getCartContent();
   }, []);
 
   const getCartContent = () => {
+    if (!sessionStorage.getItem("jwtToken")){
+      showWarningNotification("You must be logged in to check shopping cart!", "You're going to be redirected!", 2500);
+      setTimeout(() => {
+        navigate(`/login`);
+      }, 2500);
+      return;
+    }
     axios
       .get(Variables.API_URL + "ShoppingCart/ShoppingCartContent", {
         headers: {
@@ -167,11 +176,11 @@ const ShoppingCartPage = () => {
                         onClick={() =>
                           handleDecreaseItemQuantity(item.shoppingCartItemId)
                         }
-                        disabled={item.quantity === 1}
+                        disabled={item.shopingCartProductCount === 1}
                       >
                         -
                       </button>
-                      {item.quantity}
+                      {item.shopingCartProductCount}
                       <button
                         className="increase__item__quantity"
                         onClick={() =>
