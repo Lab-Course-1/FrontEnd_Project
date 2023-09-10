@@ -1,0 +1,8 @@
+.home__image {
+    width: 90%;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 12px;
+    cursor: pointer;
+}

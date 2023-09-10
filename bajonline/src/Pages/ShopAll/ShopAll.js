@@ -16,6 +16,8 @@ const ShopAll = () => {
   const [noMoreProducts, setNoMoreProducts] = useState(false);
   const [minPrice, setMinPrice] = useState(1);
   const [maxPrice, setMaxPrice] = useState(1);
+  const [categories, setCategories] = useState([])
+  const [categoryId, setCategoryId] = useState("");
   let pageSize = 12;
 
   useEffect(() => {
@@ -36,9 +38,25 @@ const ShopAll = () => {
         product.classList.remove('removed');
       });
     }, 350)
-
-
   }, [location, currentPage]);
+
+  useEffect(() => {
+    fetchCategories();
+  }, [])
+
+  const fetchCategories = async () => {
+    try {
+      const response = await axios.get(Variables.API_URL + `Category/Categories`,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+          },
+        }
+      );
+      setCategories(response.data);
+    } catch (error) {
+    }
+  }
 
   const searchProducts = async (searchTerm) => {
     try {
@@ -90,7 +108,7 @@ const ShopAll = () => {
 
     const response = await axios.get(
       Variables.API_URL +
-      `Product/FilterProducts?minPrice=${value}&maxPrice=${maxPrice}&page=${currentPage}&pageSize=${pageSize}`
+      `Product/FilterProducts?minPrice=${value > 1 ? value : 1}&maxPrice=${maxPrice > 1 ? maxPrice : 10000}&page=${currentPage}&pageSize=${pageSize}`
     );
     const newProducts = response.data;
     if (currentPage === 1) {
@@ -106,7 +124,7 @@ const ShopAll = () => {
     setMaxPrice(event.target.value);
     const response = await axios.get(
       Variables.API_URL +
-      `Product/FilterProducts?minPrice=${minPrice}&maxPrice=${event.target.value}&page=${currentPage}&pageSize=${pageSize}`
+      `Product/FilterProducts?minPrice=${minPrice > 1 ? minPrice : 1}&maxPrice=${event.target.value > 1 ? event.target.value : 10000}&page=${currentPage}&pageSize=${pageSize}`
     );
     const newProducts = response.data;
     if (currentPage === 1) {
@@ -132,6 +150,23 @@ const ShopAll = () => {
     }
   };
 
+  const handleCategorySelect = async (category) => {
+    setCategoryId(category.Id);
+    const response = await axios.get(
+      Variables.API_URL +
+      `Product/FilterProducts?minPrice=${minPrice > 1 ? minPrice : 1}&maxPrice=${maxPrice > 1 ? maxPrice : 10000}&categoryId=${category.id}&page=${currentPage}&pageSize=${pageSize}`
+    );
+    const newProducts = response.data;
+    if (currentPage === 1) {
+      setProducts(newProducts);
+    } else {
+      setProducts((prevProducts) => [...prevProducts, ...newProducts]);
+    }
+    if (response.data.length === 0) {
+      setNoMoreProducts(true);
+    }
+  }
+
   return (
     <>
       <Navbar />
@@ -153,13 +188,16 @@ const ShopAll = () => {
               <p>Category</p>
               <h3>All</h3>
               <ul>
-                <li>PhoneCases</li>
-                <li>Mini Leather</li>
-                <li>Leather Belts</li>
-                <li>Best SELLERS</li>
-                <li></li>
+                {categories.map((category) => (
+                  <li
+                    key={category.id}
+                    onClick={() => handleCategorySelect(category)}
+                    className={category.id === categoryId ? 'selected' : ''}
+                  >
+                    {category.name}
+                  </li>
+                ))}
               </ul>
-              <p></p>
             </div>
             <hr />
             <div className="price">
