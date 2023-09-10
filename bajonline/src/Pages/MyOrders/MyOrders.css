@@ -1,0 +1,138 @@
+.my__orders {
+  background-color: #666;
+  font-family: "Open Sans", sans-serif;
+  margin: 40px 0;
+  padding: 1% 5%;
+}
+
+.my__orders .add {
+  width: 180px;
+  height: 40px;
+  background-color: #ffc515;
+  margin: 10px 0;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding-top: 7px;
+}
+
+.my__orders .add a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.my__orders .row__image {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.my__orders h1 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.my__orders form {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.my__orders table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.my__orders th,
+.my__orders td {
+  text-align: left;
+  padding: 12px 15px;
+}
+
+.my__orders th {
+  background-color: black;
+  color: #ffc515;
+  font-weight: 600;
+}
+.my__orders tr {
+    background-color: #bbb;
+}
+
+.my__orders tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+.my__orders tr:nth-child(even):hover {
+  background-color: #ddd;
+}
+
+.my__orders tr:nth-child(odd):hover {
+  background-color: #eee;
+}
+
+.my__orders .btn {
+  margin-right: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.my__orders .change {
+  min-width: 180px;
+}
+
+.my__orders .delete__button {
+  color: #f55555;
+  background-color: #fff;
+  border: 1px solid #f55555;
+  cursor: pointer;
+}
+
+.my__orders .delete__button:hover {
+  color: #fff;
+  background-color: #f55050;
+}
+
+.my__orders .edit__button {
+  width: 55px;
+  height: 27px;
+  color: #3384aa;
+  background-color: #fff;
+  border: 1px solid #3384aa;
+}
+
+.my__orders .edit__button:hover {
+  color: #fff;
+  background-color: #3c84ab;
+}
+
+.my__orders .load__more {
+  width: 180px;
+  height: 35px;
+  border: 2px solid black;
+  color: black;
+  background-color: #ffc515;
+  cursor: pointer;
+  margin: 30px 0;
+  box-shadow: 0 0 3px;
+  font-weight: 700;
+  display: block;
+  margin: 15px auto;
+}
+
+.my__orders .load__more:hover {
+  background-color: orange;
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.my__orders .reached__final__page {
+  text-align: center;
+}
