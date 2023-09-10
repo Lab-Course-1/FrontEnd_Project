@@ -5,6 +5,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import ReportIcon from "@mui/icons-material/Report";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LogoutIcon from "@mui/icons-material/Logout";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -66,6 +67,15 @@ const SideNav = () => {
           >
             <PersonOutlineIcon sx={{ fontSize: "29px" }} />
             Users
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/admin/orders"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            <AttachMoneyIcon sx={{ fontSize: "29px" }} />
+            Orders
           </NavLink>
         </li>
         <li>

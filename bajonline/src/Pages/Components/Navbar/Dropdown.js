@@ -36,7 +36,12 @@ const Dropdown = () => {
       {isOpen && (
         <ul className="dropdown-menu">
           <li className="dropdown-item" onClick={handleItemClick}>
-            <span>Profile</span>
+            <NavLink
+              to="/profile"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <span>Profile</span>
+            </NavLink>
           </li>
           <li className="dropdown-item" onClick={handleItemClick}>
             <NavLink

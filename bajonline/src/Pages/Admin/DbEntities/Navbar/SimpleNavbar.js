@@ -8,22 +8,22 @@ const SimpleNavbar = () => {
       <nav>
         <ul>
           <li>
-            <NavLink to="/">
+            <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/shopall" >
+            <NavLink to="/shopall" className={({ isActive }) => (isActive ? "active" : "")}>
               Shop All
             </NavLink>
           </li>
           <li>
-            <NavLink to="/contact" >
+            <NavLink to="/contact" className={({ isActive }) => (isActive ? "active" : "")} >
               Contact
             </NavLink>
           </li>
           <li>
-            <NavLink to="/admin/dbentities" >
+            <NavLink to="/admin/dbentities" className={({ isActive }) => (isActive ? "active" : "")}>
               Db Entities
             </NavLink>
           </li>

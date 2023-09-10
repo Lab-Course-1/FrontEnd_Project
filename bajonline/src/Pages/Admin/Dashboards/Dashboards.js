@@ -72,21 +72,21 @@ const Dashboards = () => {
   let salesStat = {
     icon: "analytics",
     mainText: "Number of sales",
-    percentage: 81,
+    percentage: Math.round(sales/500 * 100),
     stat: sales,
     date: "Last 7 days",
   };
   let customersStat = {
     icon: "bar_chart",
     mainText: "New customers",
-    percentage: 60,
+    percentage: Math.round(newCustomers/20 * 100),
     stat: newCustomers,
     date: "Last 7 days",
   };
   let ordersStat = {
     icon: "thumb_up",
     mainText: "Number of orders",
-    percentage: 42,
+    percentage: Math.round(orders/20 * 100),
     stat: orders,
     date: "Last 7 days",
   };
@@ -103,7 +103,7 @@ const Dashboards = () => {
         <div className="hide__md">
           <p className="recent__orders__title">Recent orders</p>
           <RecentOrders />
-          <StyledNavLink to="/">Show All</StyledNavLink>
+          <StyledNavLink to="/admin/orders">Show All</StyledNavLink>
         </div>
       </div>
       <div>

@@ -38,10 +38,10 @@ const RecommendedProductSlider = () => {
                 dynamicHeight={false}
                 showArrows={true}
                 showStatus={false}
-                centerMode={true} 
+                centerMode={true}
                 autoPlay={true}
                 interval={3000}
-                infiniteLoop={true} 
+                infiniteLoop={true}
                 centerSlidePercentage={25}>
                 {recommendedProducts.map((product) => (
                     <ProductCard product={product} key={product.id} isWishlist={false} />
