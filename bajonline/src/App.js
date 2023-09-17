@@ -34,6 +34,7 @@ import WishList from "./Pages/WishList/WishList";
 import OrderModal from "./Pages/OrderModal/OrderModal";
 import React, { useState } from 'react';
 import MyOrders from "./Pages/MyOrders/MyOrders";
+import CreateOrder from "./Pages/Admin/CreateOrder/CreateOrder";
 import { ReactNotifications } from "react-notifications-component";
 import { AppContext } from "./AppContext"
 import 'react-notifications-component/dist/theme.css'
@@ -63,6 +64,7 @@ function App() {
             <Route path="/admin/dbentities/cartItem" element={<CartItem />} exact />
             <Route path="/admin/dbentities/orderData" element={<OrderData />} exact />
             <Route path="/admin/dbentities/addressDetails" element={< AddressDetails />} exact />
+            <Route path="/create-order" element={<CreateOrder />} exact />
             <Route path="/admin/dbentities/orderDetails" element={< OrderDetails />} exact />
             <Route path="/admin/dbentities/products" element={< Products />} exact />
             <Route path="/admin/dbentities/addproduct" element={<AddProduct />} />

@@ -42,7 +42,7 @@ const Navbar = () => {
         });
     }
     numberOfProductsInCart();
-  }, []);
+  }, [productsInCart]);
 
   const numberOfProductsInCart = async () => {
     if (!sessionStorage.getItem("jwtToken")){

@@ -73,7 +73,7 @@ const Dashboards = () => {
     icon: "analytics",
     mainText: "Number of sales",
     percentage: Math.round(sales/500 * 100),
-    stat: sales,
+    stat: sales + "€",
     date: "Last 7 days",
   };
   let customersStat = {

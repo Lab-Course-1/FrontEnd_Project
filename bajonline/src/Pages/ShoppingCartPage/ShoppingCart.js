@@ -11,6 +11,7 @@ import {
 import "./ShoppingCart.css";
 
 const ShoppingCartPage = () => {
+  const [promotion, setPromotion] = useState("");
   const [cartContent, setCartContent] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
@@ -115,6 +116,11 @@ const ShoppingCartPage = () => {
       console.log(error);
     }
   };
+
+  const handlePromotionApply = () => {
+    sessionStorage.setItem("promotion", promotion);
+  }
+
   return (
     <>
       <Navbar />
@@ -209,8 +215,9 @@ const ShoppingCartPage = () => {
               type="text"
               className="promo__input"
               placeholder="Enter promo code"
+              onChange={(e) => setPromotion(e.target.value)}
             />
-            <button className="apply__btn">Apply</button>
+            <button className="apply__btn" onClick={handlePromotionApply}>Apply</button>
           </div>
 
           <div className="payment__section">
@@ -229,7 +236,9 @@ const ShoppingCartPage = () => {
                 <span className="option__value">{cartContent.cartTotal} €</span>
               </div>
             </div>
-            <button className="continue__btn">Continue</button>
+            <a href="/create-order">
+              <button className="continue__btn">Continue</button>
+            </a>
           </div>
         </div>
       </div>
