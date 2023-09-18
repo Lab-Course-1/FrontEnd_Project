@@ -12,9 +12,8 @@ import ProfileSettings  from "./Pages/ProfileSettings/ProfileSettings";
 import DbEntities from "./Pages/Admin/DbEntities/DbEntities";
 import Categories from "./Pages/Admin/DbEntities/Categories/Categories";
 import CartItem from "./Pages/Admin/DbEntities/CartItem/CartItem";
-import OrderData from "./Pages/Admin/DbEntities/OrderData/OrderData";
 import AddressDetails from "./Pages/Admin/DbEntities/AddressDetails/AddressDetails";
-import OrderDetails from "./Pages/Admin/DbEntities/OrderDetails/OrderDetails";
+import OrderDetails from "./Pages/Admin/OrderDetails/OrderDetails";
 import Products from "./Pages/Admin/DbEntities/Product/Products";
 import AddProduct from "./Pages/Admin/DbEntities/Product/AddProduct";
 import EditProduct from "./Pages/Admin/DbEntities/Product/EditProduct";
@@ -33,6 +32,7 @@ import ShoppingCartPage from "./Pages/ShoppingCartPage/ShoppingCart";
 import WishList from "./Pages/WishList/WishList";
 import OrderModal from "./Pages/OrderModal/OrderModal";
 import React, { useState } from 'react';
+import Orders from "./Pages/Admin/Orders/Orders";
 import MyOrders from "./Pages/MyOrders/MyOrders";
 import CreateOrder from "./Pages/Admin/CreateOrder/CreateOrder";
 import { ReactNotifications } from "react-notifications-component";
@@ -62,10 +62,10 @@ function App() {
             <Route path="/admin/dbentities" element={<DbEntities />} exact />
             <Route path="/admin/dbentities/categories" element={<Categories />} exact />
             <Route path="/admin/dbentities/cartItem" element={<CartItem />} exact />
-            <Route path="/admin/dbentities/orderData" element={<OrderData />} exact />
             <Route path="/admin/dbentities/addressDetails" element={< AddressDetails />} exact />
             <Route path="/create-order" element={<CreateOrder />} exact />
-            <Route path="/admin/dbentities/orderDetails" element={< OrderDetails />} exact />
+            <Route path="/admin/orders" element={<Orders />} exact />
+            <Route path="/admin/order-details/:id" element={< OrderDetails />} />
             <Route path="/admin/dbentities/products" element={< Products />} exact />
             <Route path="/admin/dbentities/addproduct" element={<AddProduct />} />
             <Route path="/admin/dbentities/editproduct/:id" element={<EditProduct />} />
@@ -83,6 +83,7 @@ function App() {
             <Route path="/productpage" element={<ProductPage />} exact />
             <Route path="/shoppingcartpage" element={<ShoppingCartPage />} exact />
             <Route path="/wishlist" element={<WishList />} exact />
+            
           </Routes>
         </Router>
       </AppContext.Provider>

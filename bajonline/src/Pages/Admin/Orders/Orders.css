@@ -1,0 +1,89 @@
+.orders {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    gap: 30px;
+    background-color: #e8eaed;
+    padding: 12px;
+}
+
+
+.orders__table {}
+
+.orders__table table {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid lightblue;
+
+}
+
+.orders__table tr:hover {
+    background-color: lightblue;
+}
+
+.orders__table table td,
+.orders__table table th {
+    border: none;
+    font-size: 17px;
+    height: 45px;
+    box-shadow: 0 1px 2px rgba(132, 139, 200, 0.5);
+}
+
+.orders__table table tr:nth-child(odd) {
+    border: none;
+    background-color: #eee;
+    border: 3px solid black;
+}
+
+.orders__table table th {
+    background-color: white;
+    box-shadow: inset 0 0 1rem rgba(132, 139, 200, 0.2);
+
+}
+
+.orders__table table th:hover {
+    box-shadow: 0 0 1rem rgba(132, 139, 200, 0.3);
+
+}
+
+.orders__table table .details__button {
+    width: 73px;
+    height: 25px;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+.orders__table table .details__button:hover {
+    background-color: #2980ff;
+}
+
+.orders__table .load__more {
+    width: 180px;
+    height: 35px;
+    border: 2px solid black;
+    color: black;
+    background-color: #ffc515;
+    cursor: pointer;
+    margin: 30px 0;
+    box-shadow: 0 0 3px;
+    font-weight: 700;
+    display: block;
+    margin: 15px auto;
+}
+
+.orders__table .load__more:hover {
+    background-color: orange;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.orders__table .reached__final__page {
+    text-align: center;
+}

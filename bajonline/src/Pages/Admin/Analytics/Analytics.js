@@ -5,6 +5,7 @@ const Analytics = () => {
   return (
     <div className="analytics">
         <SideNav/>
+        <p>Coming soon...</p>
     </div>
   )
 }

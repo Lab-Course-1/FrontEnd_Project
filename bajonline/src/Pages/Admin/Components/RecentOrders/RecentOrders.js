@@ -5,9 +5,7 @@ import axios from 'axios';
 
 const RecentOrders = () => {
     const [recentOrders, setRecentOrders] = useState([]);
-    const handleDetailsClick = function (orderId) {
-        //todo:redirect to the order with that specific id
-    }
+
     useEffect(() => {
         getRecentOrders()
     }, [])
@@ -42,8 +40,11 @@ const RecentOrders = () => {
                         <tr key={order.orderId} className='table__row'>
                             <td>{order.orderId}</td>
                             <td>{order.orderPrice} €</td>
-                            <td style={{ fontWeight: 700, color: order.orderStatus === 'Completed' ? '#097969' : (order.orderStatus === 'Approved' ? '#FDDA0D' : 'blue') }}>{order.orderStatus}</td>
-                            <td><input type='button' value='Details' className='details__button' onClick={handleDetailsClick(order.id)} /></td>
+                            <td style={{ fontWeight: 700, color: order.orderStatus === 'Completed' ? '#097969' : (order.orderStatus === 'Verified' ? '#FDDA0D' : 'blue') }}>{order.orderStatus}</td>
+                            <td><a
+                                href={`order-details/${order.orderId}`}
+                                className="edit__button btn"
+                            ><input type='button' value='Details' className='details__button' /></a></td>
                         </tr>
                     ))}
                 </tbody>

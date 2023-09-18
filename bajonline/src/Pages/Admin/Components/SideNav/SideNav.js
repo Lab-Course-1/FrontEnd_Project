@@ -49,7 +49,13 @@ const SideNav = () => {
           }}
         />
       </IconButton>
-      <h1>SmartSupplies</h1>
+      <NavLink
+        to="/"
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <h1>SmartSupplies</h1>
+      </NavLink>
+
       <ul>
         <li>
           <NavLink
@@ -94,15 +100,6 @@ const SideNav = () => {
           >
             <ReportIcon sx={{ fontSize: "29px" }} />
             Reports
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/admin/messages"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            <MailOutlineIcon sx={{ fontSize: "29px" }} />
-            Messages
           </NavLink>
         </li>
         <li>

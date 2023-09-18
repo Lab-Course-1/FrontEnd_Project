@@ -7,8 +7,8 @@ const Reports = () => {
 
     <div className='reports'>
       <SideNav />
-
-      Reports</div>
+      <p>Coming soon...</p>
+    </div>
 
 
   )
