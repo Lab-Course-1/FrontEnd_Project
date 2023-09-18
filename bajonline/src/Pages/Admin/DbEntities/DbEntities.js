@@ -29,7 +29,7 @@ const DbEntities = () => {
             <p>Dashboard for users</p>
             <NavLink to="/admin/users">View Users</NavLink>
           </div>
-          <div className="card">
+          {/* <div className="card">
             <h4>Ndertesat</h4>
             <p>Dashboard for Ndertesat</p>
             <NavLink to="/admin/dbentities/ndertesat">View Ndertesat</NavLink>
@@ -38,7 +38,7 @@ const DbEntities = () => {
             <h4>Apartamentit</h4>
             <p>Dashboard for Apartamentit</p>
             <NavLink to="/admin/dbentities/ndertesat">View Apartamentit</NavLink>
-          </div>
+          </div> */}
           <div className="card">
             <h4>Categories</h4>
             <p>Dashboard for types of categories</p>
