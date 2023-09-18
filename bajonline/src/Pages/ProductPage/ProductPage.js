@@ -165,149 +165,150 @@ const ProductPage = () => {
   };
 
   return (
-    <div>
-      <Navbar />
+    <div className="background__productpage">
+  <Navbar />
 
-      <div className="product__page">
-        <div className="product__content">
-          <div className="left__container">
-            <img src={imageUrl} className="product__picture" alt="product" />
-          </div>
-
-          <div className="right__container">
-            <div className="product__name">
-              <h1 className="product__title">{productName}</h1>
-            </div>
-            <hr className="section__divider" />
-
-            <div className="product__details">
-              <div className="detail__item">
-                <NumbersIcon />
-                <div>
-                  <strong>Product Number:</strong>
-                </div>
-                <span>{productId}</span>
-              </div>
-              <div className="detail__item">
-                <DoneIcon />
-                <div>
-                  <strong>Stock:</strong>
-                </div>
-                <span>{stock}</span>
-              </div>
-              <div className="detail__item">
-                <WarehouseIcon />
-                <div>
-                  <strong>Furniture:</strong>
-                </div>
-                <span>SmartSupplies</span>
-              </div>
-              <div className="detail__item">
-                <LocalShippingIcon />
-                <div>
-                  <strong>Transport:</strong>
-                </div>
-                <span>
-                  Free <img src={mikmik} alt="DHL Logo" />
-                </span>
-              </div>
-              <div className="detail__item">
-                <CategoryIcon />
-                <div>
-                  <strong>Category:</strong>
-                </div>
-                <span>{categoryName}</span>
-              </div>
-            </div>
-
-            <hr className="section__divider" />
-            <section className="price__section">
-              <h2>{price} €</h2>
-              <div className="button__container">
-                <button
-                  type="button"
-                  className="add__to__cart"
-                  onClick={handleAddToCart}
-                >
-                  Add to Your Cart
-                </button>
-                <button
-                  type="button"
-                  className="add__to__wishlist"
-                  id="add__to__wishlistProduct"
-                  onClick={handleAddToWishlist}
-                >
-                  Add to Wishlist
-                </button>
-              </div>
-            </section>
-          </div>
-        </div>
+  <div className="product__page__productpage">
+    <div className="product__content__productpage">
+      <div className="left__container__productpage">
+        <img src={imageUrl} className="product__picture__productpage" alt="product" />
       </div>
 
-      <div className="product__description">
-        <h2>Description</h2>
-        <p className="product__description-text">{description}</p>
-      </div>
-
-      <div className="card__container">
-        <div className="card">
-          <div className="card__icon">
-            <InsightsIcon />
-          </div>
-          <h3 className="card__title">
-            Latest <span>products</span>
-          </h3>
-          <p className="card__text">
-            Stay ahead of the curve with SmartSupplies' constantly updated
-            product selection.
-          </p>
+      <div className="right__container__productpage">
+        <div className="product__name__productpage">
+          <h1 className="product__title__productpage">{productName}</h1>
         </div>
+        <hr className="section__divider__productpage" />
 
-        <div className="card">
-          <div className="card__icon">
-            <GppGoodIcon />
+        <div className="product__details__productpage">
+          <div className="detail__item__productpage">
+            <NumbersIcon />
+            <div>
+              <strong>Product Number:</strong>
+            </div>
+            <span>{productId}</span>
           </div>
-          <h3 className="card__title">
-            Secure <span>payment</span>
-          </h3>
-          <p className="card__text">
-            Shop with peace of mind, knowing your payments are protected through
-            secure options.
-          </p>
-        </div>
-
-        <div className="card">
-          <div className="card__icon">
-            <AssignmentTurnedInIcon />
+          <div className="detail__item__productpage">
+            <DoneIcon />
+            <div>
+              <strong>Stock:</strong>
+            </div>
+            <span>{stock}</span>
           </div>
-          <h3 className="card__title">
-            Certified <span>products</span>
-          </h3>
-          <p className="card__text">
-            Quality you can trust: explore our range of certified school and
-            office essentials.
-          </p>
-        </div>
-
-        <div className="card">
-          <div className="card__icon">
+          <div className="detail__item__productpage">
+            <WarehouseIcon />
+            <div>
+              <strong>Furniture:</strong>
+            </div>
+            <span>SmartSupplies</span>
+          </div>
+          <div className="detail__item__productpage">
             <LocalShippingIcon />
+            <div>
+              <strong>Transport:</strong>
+            </div>
+            <span>
+              Free <img src={mikmik} alt="DHL Logo" />
+            </span>
           </div>
-          <h3 className="card__title">
-            Fast <span>post</span>
-          </h3>
-          <p className="card__text">
-            Need it now? Count on SmartSupplies for speedy post and reliable
-            delivery services.
-          </p>
+          <div className="detail__item__productpage">
+            <CategoryIcon />
+            <div>
+              <strong>Category:</strong>
+            </div>
+            <span>{categoryName}</span>
+          </div>
         </div>
+
+        <hr className="section__divider__productpage" />
+        <section className="price__section__productpage">
+          <h2>{price} €</h2>
+          <div className="button__container__productpage">
+            <button
+              type="button"
+              className="add__to__cart__productpage"
+              onClick={handleAddToCart}
+            >
+              Add to Your Cart
+            </button>
+            <button
+              type="button"
+              className="add__to__wishlist__productpage"
+              id="add__to__wishlistProduct__productpage"
+              onClick={handleAddToWishlist}
+            >
+              Add to Wishlist
+            </button>
+          </div>
+        </section>
       </div>
-
-      <hr />
-
-      <Footer />
     </div>
+  </div>
+
+  <div className="product__description__productpage">
+    <h2>Description</h2>
+    <p className="product__description-text__productpage">{description}</p>
+  </div>
+
+  <div className="card__container__productpage">
+    <div className="card__productpage">
+      <div className="card__icon__productpage">
+        <InsightsIcon />
+      </div>
+      <h3 className="card__title__productpage">
+        Latest <span>products</span>
+      </h3>
+      <p className="card__text__productpage">
+        Stay ahead of the curve with SmartSupplies' constantly updated
+        product selection.
+      </p>
+    </div>
+
+    <div className="card__productpage">
+      <div className="card__icon__productpage">
+        <GppGoodIcon />
+      </div>
+      <h3 className="card__title__productpage">
+        Secure <span>payment</span>
+      </h3>
+      <p className="card__text__productpage">
+        Shop with peace of mind, knowing your payments are protected through
+        secure options.
+      </p>
+    </div>
+
+    <div className="card__productpage">
+      <div className="card__icon__productpage">
+        <AssignmentTurnedInIcon />
+      </div>
+      <h3 className="card__title__productpage">
+        Certified <span>products</span>
+      </h3>
+      <p className="card__text__productpage">
+        Quality you can trust: explore our range of certified school and
+        office essentials.
+      </p>
+    </div>
+
+    <div className="card__productpage">
+      <div className="card__icon__productpage">
+        <LocalShippingIcon />
+      </div>
+      <h3 className="card__title__productpage">
+        Fast <span>post</span>
+      </h3>
+      <p className="card__text__productpage">
+        Need it now? Count on SmartSupplies for speedy post and reliable
+        delivery services.
+      </p>
+    </div>
+  </div>
+
+  <hr />
+
+  <Footer />
+</div>
+
   );
 };
 
