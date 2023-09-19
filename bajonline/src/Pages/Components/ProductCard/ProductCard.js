@@ -161,7 +161,7 @@ const ProductCard = ( props ) => {
       </NavLink>
       {product.stock <= 0 && <h4 className="not__in__stock">Not in stock</h4>}
       <p className="product__title">{product.name}</p>
-      <p className="product__price">
+      <p className="product__price" style={product.stock <= 0 ? { margin: "7px 0" } : {}} >
         {product.listPrice > product.price && (
           <i className="price__before">{product.listPrice}€</i>
         )}
