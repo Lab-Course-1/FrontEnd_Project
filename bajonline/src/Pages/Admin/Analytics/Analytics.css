@@ -3,3 +3,22 @@
     display: flex;
     gap: 30px;
 }
+
+.analytics .title {
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.analytics .date {
+    margin: 0;
+}
+
+.analytics .cards {
+    display: block;
+    width: 1000px;
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    place-items: center;
+    gap: 30px;
+    box-sizing: border-box;
+}

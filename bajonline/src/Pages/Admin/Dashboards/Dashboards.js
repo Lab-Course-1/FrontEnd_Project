@@ -90,6 +90,7 @@ const Dashboards = () => {
     stat: orders,
     date: "Last 7 days",
   };
+  
   return (
     <div className="dashboards">
       <SideNav />
