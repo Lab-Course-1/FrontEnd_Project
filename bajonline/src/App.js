@@ -28,6 +28,7 @@ import AddUser from "./Pages/Admin/Users/AddUser";
 import EditUser from "./Pages/Admin/Users/EditUser";
 import ProductPage from "./Pages/ProductPage/ProductPage";
 import ShoppingCartPage from "./Pages/ShoppingCartPage/ShoppingCart";
+import Completed from "./Pages/CompletedPage/Completed";
 import WishList from "./Pages/WishList/WishList";
 import OrderModal from "./Pages/OrderModal/OrderModal";
 import React, { useState } from 'react';
@@ -84,12 +85,13 @@ function App() {
             <Route path="/orderModal" element={<OrderModal />} exact />
             <Route path="/productpage" element={<ProductPage />} exact />
             <Route path="/shoppingcartpage" element={<ShoppingCartPage />} exact />
+            <Route path="/completed" element={<Completed />} exact />
             <Route path="/wishlist" element={<WishList />} exact />
             <Route path="/admin/users" element={<Users />} exact />
             <Route path="/admin/adduser" element={<AddUser />} />
             <Route path="/admin/edituser/:id" element={<EditUser />} />
             {/* Entities */}
-            
+
             <Route path="/admin/dbentities/apartamenti57646s" element={<Apartamenti57646s />} />
             <Route path="/admin/dbentities/addapartamenti57646" element={<AddApartamenti57646 />} />
             <Route path="/admin/dbentities/editapartamenti57646/:id" element={<EditApartamenti57646 />} />

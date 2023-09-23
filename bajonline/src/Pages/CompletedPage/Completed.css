@@ -1,0 +1,116 @@
+/* Add this CSS to your existing styles */
+.completed__background {
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+  }
+
+  .completed__container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: white;
+  }
+
+  .completed__container h2 {
+    display: flex;
+    align-items: flex-start;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .completed__continer__seperated {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 100px;
+  }
+
+  /* Left Box */
+  .completed__leftbox {
+    flex: 1; /* Wider than taller */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+
+  .completed__leftbox img {
+    max-width: 100px;
+  }
+
+  .completed__leftbox p {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+
+  .completed__rightbox {
+    flex: 1;
+    display: flex;
+    max-width: 300px;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    margin-left: 20px;
+  }
+
+  .completed__rightbox h3 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .completed__detilsproduct__rightpart {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .completed__logo__left {
+    margin-right: 10px;
+  }
+
+  .completed__details__right p {
+    margin: 0;
+  }
+
+  .completed__links {
+    margin-top: 10px;
+  }
+
+  .completed__links a {
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 10px;
+  }
+
+  .completed__continer__seperated  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  /* Style the button on hover */
+  .completed__continer__seperated button:hover {
+    background-color: #0056b3;
+  }
