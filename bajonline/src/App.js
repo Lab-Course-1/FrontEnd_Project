@@ -8,7 +8,7 @@ import Oops from "./Pages/Components/Oops/Oops";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import Settings from "./Pages/Admin/Settings/Settings"; // Admin settings
-import ProfileSettings  from "./Pages/ProfileSettings/ProfileSettings";
+import ProfileSettings from "./Pages/ProfileSettings/ProfileSettings";
 import DbEntities from "./Pages/Admin/DbEntities/DbEntities";
 import Categories from "./Pages/Admin/DbEntities/Categories/Categories";
 import CartItem from "./Pages/Admin/DbEntities/CartItem/CartItem";
@@ -19,7 +19,6 @@ import AddProduct from "./Pages/Admin/DbEntities/Product/AddProduct";
 import EditProduct from "./Pages/Admin/DbEntities/Product/EditProduct";
 import ProductOrderDetails from "./Pages/Admin/DbEntities/ProductOrderDetails/ProductOrderDetails";
 import Promotion from "./Pages/Admin/DbEntities/Promotion/Promotion";
-import Review from "./Pages/Admin/DbEntities/Review/Review";
 import WishListItem from "./Pages/Admin/DbEntities/WishListItem/WishListItem";
 import Dashboards from "./Pages/Admin/Dashboards/Dashboards";
 import Reports from "./Pages/Admin/Reports/Reports";
@@ -38,7 +37,14 @@ import CreateOrder from "./Pages/Admin/CreateOrder/CreateOrder";
 import { ReactNotifications } from "react-notifications-component";
 import { AppContext } from "./AppContext"
 import 'react-notifications-component/dist/theme.css'
+// DbEntities
+import Apartamenti57646s from "./Pages/Admin/DbEntities/Apartamenti57646s/Apartamenti57646s";
+import AddApartamenti57646 from "./Pages/Admin/DbEntities/Apartamenti57646s/AddApartamenti57646"
+import EditApartamenti57646 from "./Pages/Admin/DbEntities/Apartamenti57646s/EditApartamenti57646";
 
+import Ndertesa57646s from "./Pages/Admin/DbEntities/Ndertesa57646s/Ndertesa57646s";
+import AddNdertesa57646 from "./Pages/Admin/DbEntities/Ndertesa57646s/AddNdertesa57646"
+import EditNdertesa57646 from "./Pages/Admin/DbEntities/Ndertesa57646s/EditNdertesa57646";
 
 
 function App() {
@@ -69,12 +75,8 @@ function App() {
             <Route path="/admin/dbentities/products" element={< Products />} exact />
             <Route path="/admin/dbentities/addproduct" element={<AddProduct />} />
             <Route path="/admin/dbentities/editproduct/:id" element={<EditProduct />} />
-            <Route path="/admin/users" element={<Users />} exact />
-            <Route path="/admin/adduser" element={<AddUser />} />
-            <Route path="/admin/edituser/:id" element={<EditUser />} />
             <Route path="/admin/dbentities/productOrderDetails" element={< ProductOrderDetails />} exact />
             <Route path="/admin/dbentities/promotion" element={< Promotion />} exact />
-            <Route path="/admin/dbentities/review" element={< Review />} exact />
             <Route path="/admin/dbentities/wishListItem" element={< WishListItem />} exact />
             <Route path="/admin/dashboards" element={<Dashboards />} exact />
             <Route path="/profile" element={<ProfileSettings />} exact />
@@ -83,7 +85,19 @@ function App() {
             <Route path="/productpage" element={<ProductPage />} exact />
             <Route path="/shoppingcartpage" element={<ShoppingCartPage />} exact />
             <Route path="/wishlist" element={<WishList />} exact />
+            <Route path="/admin/users" element={<Users />} exact />
+            <Route path="/admin/adduser" element={<AddUser />} />
+            <Route path="/admin/edituser/:id" element={<EditUser />} />
+            {/* Entities */}
             
+            <Route path="/admin/dbentities/apartamenti57646s" element={<Apartamenti57646s />} />
+            <Route path="/admin/dbentities/addapartamenti57646" element={<AddApartamenti57646 />} />
+            <Route path="/admin/dbentities/editapartamenti57646/:id" element={<EditApartamenti57646 />} />
+
+            <Route path="/admin/dbentities/ndertesa57646s" element={<Ndertesa57646s />}  />
+            <Route path="/admin/dbentities/addndertesa57646" element={<AddNdertesa57646 />} />
+            <Route path="/admin/dbentities/editndertesa57646/:id" element={<EditNdertesa57646 />} />
+
           </Routes>
         </Router>
       </AppContext.Provider>

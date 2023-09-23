@@ -77,7 +77,7 @@ const CreateOrder = () => {
             console.log(data)
             if (response.status === 200) {
                 showSuccessNotification(response.data, "", 2000)
-                navigate("/")
+                setTimeout(() => {navigate("/")}, 2000)
             }
         } catch (error) {
             showWarningNotification("Order couldn't be created, please try again!", "", 2000)

@@ -1,8 +1,17 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./DbEntities.css";
+import { showWarningNotification } from "../../../NotificationUtils";
 
 const DbEntities = () => {
+  var navigate = useNavigate();
+  useEffect(() => {
+    const jwtToken = sessionStorage.getItem("jwtToken");
+    if (!jwtToken) {
+      showWarningNotification("You must be admin to view this page", "You'll be redirected", 2000)
+      navigate("/login")
+    }
+  }, [])
   return (
     <div className="db__entities">
       <nav>
@@ -29,16 +38,17 @@ const DbEntities = () => {
             <p>Dashboard for users</p>
             <NavLink to="/admin/users">View Users</NavLink>
           </div>
-          {/* <div className="card">
-            <h4>Ndertesat</h4>
-            <p>Dashboard for Ndertesat</p>
-            <NavLink to="/admin/dbentities/ndertesat">View Ndertesat</NavLink>
+
+          <div className="card">
+            <h4>Apartamenti57646</h4>
+            <p>Dashboard for types of apartamenti57646s</p>
+            <NavLink to="/admin/dbentities/apartamenti57646s">View Categories</NavLink>
           </div>
           <div className="card">
-            <h4>Apartamentit</h4>
-            <p>Dashboard for Apartamentit</p>
-            <NavLink to="/admin/dbentities/ndertesat">View Apartamentit</NavLink>
-          </div> */}
+            <h4>Ndertesa57646</h4>
+            <p>Dashboard for types of ndertesa57646</p>
+            <NavLink to="/admin/dbentities/ndertesa57646s">View Categories</NavLink>
+          </div>
           <div className="card">
             <h4>Categories</h4>
             <p>Dashboard for types of categories</p>
@@ -48,18 +58,6 @@ const DbEntities = () => {
             <h4>CartItems</h4>
             <p>Dashboard for Cart Items</p>
             <NavLink to="/admin/dbentities/cartitem">View CartItems</NavLink>
-          </div>
-          <div className="card">
-            <h4>OrderData</h4>
-            <p>Dashboard for the data of Orders</p>
-            <NavLink to="/admin/dbentities/orderdata">View OrderData</NavLink>
-          </div>
-          <div className="card">
-            <h4>AddressDetails</h4>
-            <p>Dashboard for the address details</p>
-            <NavLink to="/admin/dbentities/addressdetails">
-              View AddressDetails
-            </NavLink>
           </div>
           <div className="card">
             <h4>OrderDetails</h4>
@@ -84,11 +82,6 @@ const DbEntities = () => {
             <h4>Promotions</h4>
             <p>Dashboard for Promotions</p>
             <NavLink to="/admin/dbentities/promotion">View Promotions</NavLink>
-          </div>
-          <div className="card">
-            <h4>Review</h4>
-            <p>Dashboard for Reviews</p>
-            <NavLink to="/admin/dbentities/review">View Review</NavLink>
           </div>
           <div className="card">
             <h4>WishListItems</h4>

@@ -39,7 +39,7 @@ const RecentOrders = () => {
                     {recentOrders.map(order => (
                         <tr key={order.orderId} className='table__row'>
                             <td>{order.orderId}</td>
-                            <td>{order.orderPrice} €</td>
+                            <td>{order.orderFinalPrice} €</td>
                             <td style={{ fontWeight: 700, color: order.orderStatus === 'Completed' ? '#097969' : (order.orderStatus === 'Verified' ? '#FDDA0D' : 'blue') }}>{order.orderStatus}</td>
                             <td><a
                                 href={`order-details/${order.orderId}`}
