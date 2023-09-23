@@ -30,7 +30,9 @@ const AddProduct = () => {
           },
         }
       );
-
+      if (response.data.length >= 1){
+        setCategoryId(response.data[0].id)
+      }
       setCategories(response.data);
     } catch (error) {
     }
@@ -38,7 +40,6 @@ const AddProduct = () => {
 
 
   const handleSubmit = async (event) => {
-    let categoryId = categories.length === 1 ? categories[0].id : categoryId
     event.preventDefault();
     try {
       const response = await axios.post(Variables.API_URL + `Product/Product`,
@@ -49,7 +50,7 @@ const AddProduct = () => {
           price,
           stock,
           imageUrl,
-          categoryId : categoryId
+          categoryId 
         },
         {
           headers: {

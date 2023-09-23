@@ -145,7 +145,8 @@
 .card__container__productpage {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 25px;
+  padding: 35px;
 }
 
 .card__productpage {

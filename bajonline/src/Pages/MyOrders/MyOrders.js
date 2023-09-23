@@ -25,7 +25,6 @@ const MyOrders = () => {
                 }
             );
             const newOrders = response.data;
-            console.log(newOrders)
             if (newOrders.length === 0) {
                 setNoMoreOrders(true);
             }

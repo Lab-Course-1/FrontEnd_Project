@@ -9,7 +9,7 @@ const StatisticCard = ({ props }) => {
     <div className='statistic__card' title='More Info'>
       <div className='left__part'>
         <div className='logo__container'>
-          <span class="material-symbols-outlined">
+          <span className="material-symbols-outlined">
             {props.icon}
           </span>
         </div>

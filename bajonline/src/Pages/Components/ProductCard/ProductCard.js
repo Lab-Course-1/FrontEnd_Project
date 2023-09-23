@@ -11,7 +11,7 @@ import {
 } from "../../../NotificationUtils";
 import { useNavigate } from "react-router-dom";
 
-const ProductCard = ( props ) => {
+const ProductCard = (props) => {
   const { product, isWishlist } = props;
   const navigate = useNavigate();
   const [imageUrl, setImageUrl] = useState("");
@@ -48,7 +48,7 @@ const ProductCard = ( props ) => {
           },
         }
       );
-      if (response.data === "Product is added to card!") {
+      if (response.status === 200) {
         showSuccessNotification(
           response.data,
           "",
@@ -62,7 +62,12 @@ const ProductCard = ( props ) => {
         )
       }
     } catch (error) {
-      console.log("Product couldn't be added to card", error);
+      var response = error.response.data;
+      showWarningNotification(
+        response,
+        "",
+        2000
+      )
     }
   };
 
@@ -139,7 +144,7 @@ const ProductCard = ( props ) => {
           "Page will be refreshed!",
           2000
         );
-        setTimeout(()=>{window.location.reload(true)}, 2000)
+        setTimeout(() => { window.location.reload(true) }, 2000)
       } else {
         showWarningNotification(
           response.data,
@@ -182,7 +187,7 @@ const ProductCard = ( props ) => {
         <button
           type="button"
           title={!isWishlist ? "Add product to wishlist" : "Remove product from wishlist"}
-          onClick={!isWishlist ? handleAddToWishList : handleRemoveFromWishlist  }
+          onClick={!isWishlist ? handleAddToWishList : handleRemoveFromWishlist}
           className="add__to__wishlist"
         >
           <BookmarkBorderIcon />

@@ -113,10 +113,6 @@ const SimpleAnalytics = () => {
     }
 
     const calculatePercentages = () => {
-        console.log("adsfasdf")
-        console.log(yesterdayOrders)
-        console.log(dayBeforeYesterdayOrders)
-
         setOrdersPercentage((yesterdayOrders - dayBeforeYesterdayOrders) / (dayBeforeYesterdayOrders * 100))
         setCustomersPercentage((yesterdayCustomers - dayBeforeYesterdayCustomers) / (dayBeforeYesterdayCustomers * 100))
         setProductsPercentage((yesterdayProducts - dayBeforeYesterdayProducts) / (dayBeforeYesterdayProducts * 100))

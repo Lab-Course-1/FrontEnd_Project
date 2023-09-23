@@ -41,11 +41,11 @@ const Ndertesat = () => {
   return (
     <>
     <SimpleNavbar/>
-    <div class="container">
+    <div className="container">
       <h1>Reviews</h1>
 
-      <div class="add">
-        <a href="AddNdertesa" class="button">
+      <div className="add">
+        <a href="AddNdertesa" className="button">
           Create Review
         </a>
       </div>
@@ -56,7 +56,7 @@ const Ndertesat = () => {
             <th>ID</th>
             <th>Name</th>
             <th>Price</th>
-            <th class="change">Change</th>
+            <th className="change">Change</th>
           </tr>
         </thead>
         <tbody>
@@ -67,13 +67,13 @@ const Ndertesat = () => {
             <td>
               <a
                 href="editndertesa"
-                class="edit__button btn"
+                className="edit__button btn"
               >
                 Edit
               </a>
               <a
                 href="deleteReview.php?id=<?php echo $row['id']; ?>"
-                class="delete__button btn"
+                className="delete__button btn"
               >
                 Delete
               </a>

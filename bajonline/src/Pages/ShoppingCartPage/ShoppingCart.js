@@ -14,6 +14,7 @@ const ShoppingCartPage = () => {
   const [promotion, setPromotion] = useState("");
   const [cartContent, setCartContent] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [priceAfterPromotion, setPriceAfterPromotion] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -117,8 +118,25 @@ const ShoppingCartPage = () => {
     }
   };
 
-  const handlePromotionApply = () => {
-    sessionStorage.setItem("promotion", promotion);
+  const handlePromotionApply = async () => {
+    try {
+      const response = await axios.get(Variables.API_URL + `Order/CheckPromoCode?promoCode=${promotion}&orderTotal=${cartContent.cartTotal}`,
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+          },
+        }
+      );
+      if (response.status === 200) {
+        document.querySelector(".cart__page .success").innerText = response.data.message;
+        sessionStorage.setItem("promotion", promotion);
+        sessionStorage.setItem("priceAfterPromotion", response.data.orderTotal);
+        setPriceAfterPromotion(response.data.orderTotal)
+      }
+    } catch (error) {
+      var response = error.response.data;
+      document.querySelector(".cart__page .error").innerText = response;
+    }
   }
 
   return (
@@ -217,6 +235,8 @@ const ShoppingCartPage = () => {
               placeholder="Enter promo code"
               onChange={(e) => setPromotion(e.target.value)}
             />
+            <p className='error'></p>
+            <p className='success'></p>
             <button className="apply__btn" onClick={handlePromotionApply}>Apply</button>
           </div>
 
@@ -231,10 +251,14 @@ const ShoppingCartPage = () => {
                 <span className="option__label">Duke përfshirë zbritjen:</span>
                 <span className="option__value">{0} €</span>
               </div>
-              <div className="option">
+              {priceAfterPromotion <= 0 && <div className="option">
                 <span className="option__label">Gjithsej çmimi:</span>
                 <span className="option__value">{cartContent.cartTotal} €</span>
-              </div>
+              </div>}
+              {priceAfterPromotion > 0 && <div className="option">
+                <span className="option__label">Pas promocionit:</span>
+                <span className="option__value">{priceAfterPromotion} €</span>
+              </div>}
             </div>
             <a href="/create-order">
               <button className="continue__btn">Continue</button>

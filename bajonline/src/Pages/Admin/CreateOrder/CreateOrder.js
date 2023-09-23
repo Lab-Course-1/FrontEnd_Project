@@ -20,13 +20,19 @@ const CreateOrder = () => {
     const [postalCode, setPostalCode] = useState('');
     const [email, setEmail] = useState('');
     const [promotion, setPromotion] = useState("")
+    const [priceAfterPromotion, setPriceAfterPromotion] = useState(0);
 
     useEffect(() => {
         if (!sessionStorage.getItem("jwtToken")) {
             showWarningNotification("You must be logged in to create order", "You're being redirected to login!", 2000)
             setTimeout(() => { navigate("/login") }, 2000);
         }
-        setPromotion(sessionStorage.getItem("promotion"))
+        var promoCode = sessionStorage.getItem("promotion")
+
+        if (promoCode) {
+            setPromotion(sessionStorage.getItem("promotion"))
+            setPriceAfterPromotion(sessionStorage.getItem("priceAfterPromotion"))
+        }
         getCartContent();
     }, [])
 
@@ -46,7 +52,7 @@ const CreateOrder = () => {
     };
 
     const handleSubmit = async (event) => {
-        if (phoneNumber.length === 0 || name.length === 0 || streetAddress.length === 0 || city.length === 0 || country.length === 0 || email.length === 0){
+        if (phoneNumber.length === 0 || name.length === 0 || streetAddress.length === 0 || city.length === 0 || country.length === 0 || email.length === 0) {
             showWarningNotification("Please fill all fields!", "Enter valid data.", 2000)
             return;
         }
@@ -69,8 +75,9 @@ const CreateOrder = () => {
                 })
             var data = response.data;
             console.log(data)
-            if (response.status === 200){
+            if (response.status === 200) {
                 showSuccessNotification(response.data, "", 2000)
+                navigate("/")
             }
         } catch (error) {
             showWarningNotification("Order couldn't be created, please try again!", "", 2000)
@@ -181,17 +188,21 @@ const CreateOrder = () => {
                         <h2>Order Details</h2>
                     </div>
                     <div className="option">
-                        <span className="option__label">Nëntotali: </span>
+                        <span className="option__label">Nëntotali:</span>
                         <span className="option__value">{cartContent.cartTotal} €</span>
                     </div>
                     <div className="option">
-                        <span className="option__label">Duke përfshirë zbritjen: </span>
+                        <span className="option__label">Duke përfshirë zbritjen:</span>
                         <span className="option__value">{0} €</span>
                     </div>
-                    <div className="option">
-                        <span className="option__label">Gjithsej çmimi: </span>
+                    {priceAfterPromotion <= 0 && <div className="option">
+                        <span className="option__label">Gjithsej çmimi:</span>
                         <span className="option__value">{cartContent.cartTotal} €</span>
-                    </div>
+                    </div>}
+                    {priceAfterPromotion > 0 && <div className="option">
+                        <span className="option__label">Pas promocionit:</span>
+                        <span className="option__value">{priceAfterPromotion} €</span>
+                    </div>}
                     <div>
                         <button type="submit" title="Create order" onClick={handleSubmit} className="button">
                             Create Order

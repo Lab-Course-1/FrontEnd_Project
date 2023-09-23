@@ -6,7 +6,7 @@
 .simple__analytics .analytic {
     padding: 10px;
     display: grid;
-    grid-template-columns: 2fr 6fr 2fr 2fr;
+    grid-template-columns: 2fr 6fr 1fr 2fr;
     background-color: white;
     margin: 12px 7px;
     border-radius: 12px;

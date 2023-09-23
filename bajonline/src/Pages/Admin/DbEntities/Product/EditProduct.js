@@ -152,7 +152,7 @@ const EditProduct = () => {
             </select>
           </label>
         </label>
-        <input type="submit" name="addEntity" value="Edit Product" />
+        <input type="submit" name="editEntity" value="Edit Product" />
       </form>
     </div>
   );

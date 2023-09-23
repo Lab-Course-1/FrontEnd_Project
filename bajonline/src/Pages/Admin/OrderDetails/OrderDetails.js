@@ -20,6 +20,7 @@ const OrderDetails = () => {
   const handleStatusChange = async () => {
     if (newStatus == order.orderStatus) {
       showWarningNotification("The status must be different from how it was", "", 2000)
+      return;
     }
     const response = await axios.post(Variables.API_URL + `Order/ChangeOrderStatus?orderId=${id}&status=${newStatus}`, null, {
       headers: {

@@ -18,7 +18,7 @@ const ShopAll = () => {
   const [maxPrice, setMaxPrice] = useState(1);
   const [categories, setCategories] = useState([])
   const [categoryId, setCategoryId] = useState("");
-  let pageSize = 12;
+  let pageSize = 9;
 
   useEffect(() => {
     var search = queryParams.get("searchTerm");
@@ -122,6 +122,10 @@ const ShopAll = () => {
   }
   const handleMaxPriceChange = async (event) => {
     setMaxPrice(event.target.value);
+    const parsedValue = parseFloat(event.target.value);
+    if (isNaN(parsedValue) || parsedValue < minPrice){
+      return;
+    }
     const response = await axios.get(
       Variables.API_URL +
       `Product/FilterProducts?minPrice=${minPrice > 1 ? minPrice : 1}&maxPrice=${event.target.value > 1 ? event.target.value : 10000}&page=${currentPage}&pageSize=${pageSize}`
