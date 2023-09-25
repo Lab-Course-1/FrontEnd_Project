@@ -1,116 +1,78 @@
-/* Add this CSS to your existing styles */
-.completed__background {
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-  }
+.completed__container {
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+  padding: 12px;
+  gap: 30px;
+}
 
-  .completed__container {
-    display: flex;
-    flex-direction: column;
-    margin: 10px auto;
-    max-width: 400px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    background-color: white;
-  }
+.completed__container .left__side {
+  margin: 30px 0;
+  margin-left: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .completed__container h2 {
-    display: flex;
-    align-items: flex-start;
-    color: #333;
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
+.completed__container .left__side img.celebration {
+  width: 200px;
+}
 
-  .completed__container__seperated {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 20px 100px;
-  }
+.completed__container .right__side {
+  margin: 30px 0;
+  padding: 12px;
+  background-color: #fafafa;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  /* Left Box */
-  .completed__leftbox {
-    flex: 1; /* Wider than taller */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 100px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-  }
+.completed__container .right__side .product__row {
+  display: flex;
+  margin: 3px;
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+}
 
-  .completed__leftbox img {
-    max-width: 100px;
-  }
+.completed__container .right__side .product__row img {
+  width: 120px;
+  min-height: 40px;
+  max-height: 64px;
+  object-fit: cover;
+  align-self: flex-start;
+}
 
-  .completed__leftbox p {
-    margin-top: 10px;
-    text-align: center;
-  }
+.completed__container .right__side .content {
+  display: flex;
+  flex-direction: column;
+}
 
+.completed__container .right__side .content h3 {
+  margin: 2px 5px;
+}
 
-  .completed__rightbox {
-    flex: 1;
-    display: flex;
-    max-width: 300px;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    margin-left: 20px;
-  }
+.completed__container .right__side .content p {
+  margin: 0 5px;
+  color: #666;
+}
+.custom-button {
+  width: 110px; /* Adjust width as needed */
+  height: 37px;
+  margin: 15px 5px;
+  font-size: 16px;
+  border: 1px solid #bc4c2a;
+  background-color: transparent;
+  border-radius: 2px;
+  display: inline;
+  color: #bc4c2a;
+  cursor: pointer;
+  font-family: "Poppins";
+  transition: background-color 0.4s, color 0.5s;
+}
 
-  .completed__rightbox h3 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  .completed__detilsproduct__rightpart {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 10px;
-  }
-
-  .completed__logo__left {
-    margin-right: 10px;
-  }
-
-  .completed__details__right p {
-    margin: 0;
-  }
-
-  .completed__links {
-    margin-top: 10px;
-  }
-
-  .completed__links a {
-    text-decoration: none;
-    color: #007bff;
-    margin-right: 10px;
-  }
-
-  .completed__container__seperated  button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 20px;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-
-  /* Style the button on hover */
-  .completed__container__seperated button:hover {
-    background-color: #0056b3;
-  }
+.custom-button:hover {
+  background-color: #bc4c2a;
+  color: white;
+  transition: background-color 0.4s, color 0.5s;
+}

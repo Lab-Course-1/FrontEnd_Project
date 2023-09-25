@@ -5,11 +5,12 @@ import Celebration from "./Assets/celebrationgif.gif";
 import axios from "axios";
 import { Variables } from "../../Variables";
 import "./Completed.css";
+import { NavLink } from "react-router-dom";
 
 const Completed = () => {
-  const [justCreatedOrder, setJustCreatedOrder] = useState("");
+  const [products, setProducts] = useState("");
 
-  useEffect(() => { 
+  useEffect(() => {
     getJustCreatedOrder();
   }, [])
 
@@ -24,7 +25,7 @@ const Completed = () => {
         }
       );
       if (response.status === 200) {
-        setJustCreatedOrder(response.data)
+        setProducts(response.data[0].productOrderDetails)
       }
     } catch (error) {
       console.log(error);
@@ -34,40 +35,34 @@ const Completed = () => {
   return (
     <div>
       <Navbar />
-      <div className="completed__background">
-
-        <div className="completed__container">
+      <div className="completed__container">
+        <div className="left__side">
+          <h2>Thank you for the order!</h2>
+          <img className='celebration' src={Celebration} alt="celebration gif" />
           <p>The order is completed successfully.</p>
-          <img src={Celebration} alt="celebration gif" />
         </div>
-        <div className="completed__container__seperated">
-          <div className="completed__leftbox">
-            <h2>Thank you for the order!!!</h2>
+        <aside className="right__side">
+          <h4>
+            Bought products: ({products.length})
+          </h4>
+          {products.length > 0 && products.map(p =>
+            <div key={p.product.id} className="product__row">
+              <img src={p.product.imageUrl} alt="Product" />
+              <div className="content">
+                <h3>{p.product.name}</h3>
+                <p>{p.product.price} €</p>
+              </div>
+            </div>)
+          }
+          <div>
+            <NavLink to="/my-orders" style={{ textDecoration: "none", color: "inherit" }} className={({ isActive }) => (isActive ? "active" : "")}>
+              <button type='button' className="custom-button">My orders</button>
+            </NavLink>
+            <NavLink to="/" style={{ textDecoration: "none", color: "inherit" }} className={({ isActive }) => (isActive ? "active" : "")}>
+              <button type='button' className="custom-button">Continue</button>
+            </NavLink>
           </div>
-
-          <div className="completed__rightbox">
-            <h3>Products {/*Number of product for the order like (1) for*/}</h3>
-            <hr />
-            <div className="completed__detilsproduct__rightpart">
-              <div className="completed__logo__left">
-                {/*here need to be the photo of the product*/}
-              </div>
-              <div className="completed__details__right">
-                <p>{/*ProductName in dynamically form*/}</p>
-                <p>{/*ProductPrice in dynamically form*/}</p>
-
-              </div>
-            </div>
-            <div>
-              <div className="completed__links">
-                <hr />
-                <a href="" alt="product-details" className="productdetails__link">ProductDetails</a>
-                <a href="" alt="product-details" className="productdetails__link">Orders</a>
-              </div>
-            </div>
-            <button className="continue__button">Continue</button>
-          </div>
-        </div>
+        </aside>
       </div>
       <Footer />
     </div>
