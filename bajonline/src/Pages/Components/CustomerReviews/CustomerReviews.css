@@ -1,0 +1,50 @@
+.customer__reviews .reached__final__page {
+    text-align: center;
+}
+
+.customer__reviews {
+    background-color: #f7f7f7;
+    padding: 20px 5%;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.customer__reviews .review {
+    margin-bottom: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.customer__reviews .rating {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.customer__reviews .comment {
+    margin-top: 10px;
+    color: #555;
+}
+
+.customer__reviews .load__more {
+    width: 180px;
+    height: 35px;
+    color: white;
+    border: none;
+    background-color: #ffc515;
+    cursor: pointer;
+    margin: 30px 0;
+    box-shadow: 0 0 3px;
+    font-weight: 700;
+    display: block;
+    margin: 15px auto;
+}
+
+.customer__reviews .load__more:hover {
+    background-color: orange;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}

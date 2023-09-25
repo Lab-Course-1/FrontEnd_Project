@@ -1,37 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { Variables } from "../../../../Variables";
 import axios from "axios";
-
 import "../Entity.css";
 import SimpleNavbar from "../Navbar/SimpleNavbar";
 
-const Categories = () => {
+const Promotions = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [categoryList, setCategoryList] = useState([]);
-  const [noMoreCategories, setNoMoreCategories] = useState(false);
+  const [promotionList, setPromotionList] = useState([]);
+  const [noMorePromotions, setNoMorePromotions] = useState(false);
 
   useEffect(() => {
-    getCategoryList();
+    getPromotionList();
   }, []);
 
-  const getCategoryList = async () => {
+  const getPromotionList = async () => {
     try {
       const response = await axios.get(
-        Variables.API_URL + `Category/Categories?page=${currentPage}&pageSize=10`,
+        Variables.API_URL + `Promotion/Promotions?page=${currentPage}&pageSize=10`,
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
           },
         }
       );
-      const newCategories = response.data;
-      if (newCategories.length === 0) {
-        setNoMoreCategories(true);
+      const newPromotions = response.data;
+      if (newPromotions.length === 0) {
+        setNoMorePromotions(true);
       }
       if (currentPage === 1) {
-        setCategoryList(newCategories);
+        setPromotionList(newPromotions);
       } else {
-        setCategoryList((prevCategories) => [...prevCategories, ...newCategories]);
+        setPromotionList((prevPromotions) => [...prevPromotions, ...newPromotions]);
       }
       setCurrentPage((prevPage) => prevPage + 1);
     } catch (error) {
@@ -39,20 +38,20 @@ const Categories = () => {
     }
   };
 
-  const handleDeleteCategory = async (id) => {
+  const handleDeletePromotion = async (id) => {
     try {
       const response = await axios.delete(
-        Variables.API_URL + `Category/Category?id=${id}`, {
+        Variables.API_URL + `Promotion/Promotion?id=${id}`, {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
         },
       }
       );
-      setCategoryList((prevCategories) =>
-        prevCategories.filter((category) => category.id !== id)
+      setPromotionList((prevPromotions) =>
+        prevPromotions.filter((promotion) => promotion.id !== id)
       );
     } catch (error) {
-      console.error("Error deleting category:", error);
+      console.error("Error deleting promotion:", error);
     }
   };
 
@@ -60,10 +59,10 @@ const Categories = () => {
     <>
       <SimpleNavbar />
       <div className="entity__container">
-        <h1>Categories</h1>
+        <h1>Promotions</h1>
         <div className="add">
-          <a href="AddCategory" className="button">
-            Create Category
+          <a href="AddPromotion" className="button">
+            Create Promotion
           </a>
         </div>
         <table>
@@ -71,29 +70,31 @@ const Categories = () => {
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>Description</th>
-              <th>Created On</th>
+              <th>Start date</th>
+              <th>End date</th>
+              <th>Discount amount</th>
               <th className="change">Change</th>
             </tr>
           </thead>
           <tbody>
-            {categoryList.length > 0 &&
-              categoryList.map((category) => (
-                <tr key={category.id}>
-                  <td>{category.id}</td>
-                  <td>{category.name}</td>
-                  <td>{category.description}</td>
-                  <td>{category.createdOn}</td>
+            {promotionList.length > 0 &&
+              promotionList.map((promotion) => (
+                <tr key={promotion.id}>
+                  <td>{promotion.id}</td>
+                  <td>{promotion.name}</td>
+                  <td>{promotion.startDate}</td>
+                  <td>{promotion.endDate}</td>
+                  <td>{promotion.discountAmount}</td>
                   <td>
                     <a
-                      href={`editcategory/${category.id}`}
+                      href={`editpromotion/${promotion.id}`}
                       className="edit__button btn"
                     >
                       Edit
                     </a>
                     <button
                       type="button"
-                      onClick={() => handleDeleteCategory(category.id)}
+                      onClick={() => handleDeletePromotion(promotion.id)}
                       className="delete__button btn"
                     >
                       Delete
@@ -103,12 +104,12 @@ const Categories = () => {
               ))}
           </tbody>
         </table>
-        {!noMoreCategories && (
-          <button type="button" className="load__more" onClick={getCategoryList}>
+        {!noMorePromotions && (
+          <button type="button" className="load__more" onClick={getPromotionList}>
             Load More
           </button>
         )}
-        {noMoreCategories && (
+        {noMorePromotions && (
           <h3 className="reached__final__page">Reached final page!</h3>
         )}
       </div>
@@ -116,4 +117,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default Promotions;

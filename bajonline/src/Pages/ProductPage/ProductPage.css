@@ -181,3 +181,60 @@
 .card__text__productpage {
   color: #666;
 }
+
+
+.background__productpage .review {
+  padding: 30px 5%;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.background__productpage .review .rating,
+.background__productpage .review .comment {
+  margin-bottom: 15px;
+}
+
+.background__productpage .review .rating label,
+.background__productpage .review .comment label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.background__productpage .review select,
+.background__productpage .review textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.background__productpage .review .submit-button {
+  width: 150px;
+  height: 37px;
+  margin: 15px 5px;
+  font-size: 16px;
+  border: 1px solid #bc4c2a;
+  background-color: transparent;
+  border-radius: 2px;
+  display: inline;
+  color: #bc4c2a;
+  cursor: pointer;
+  font-family: "Poppins";
+  transition: background-color 0.4s, color 0.5s;
+}
+
+
+.background__productpage .review .submit-button:hover {
+  background-color: #bc4c2a;
+  color: white;
+  transition: background-color 0.4s, color 0.5s;
+}
+
+
+.background__productpage .review .submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

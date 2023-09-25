@@ -18,7 +18,6 @@ import Products from "./Pages/Admin/DbEntities/Product/Products";
 import AddProduct from "./Pages/Admin/DbEntities/Product/AddProduct";
 import EditProduct from "./Pages/Admin/DbEntities/Product/EditProduct";
 import ProductOrderDetails from "./Pages/Admin/DbEntities/ProductOrderDetails/ProductOrderDetails";
-import Promotion from "./Pages/Admin/DbEntities/Promotion/Promotion";
 import WishListItem from "./Pages/Admin/DbEntities/WishListItem/WishListItem";
 import Dashboards from "./Pages/Admin/Dashboards/Dashboards";
 import Reports from "./Pages/Admin/Reports/Reports";
@@ -46,7 +45,14 @@ import EditApartamenti57646 from "./Pages/Admin/DbEntities/Apartamenti57646s/Edi
 import Ndertesa57646s from "./Pages/Admin/DbEntities/Ndertesa57646s/Ndertesa57646s";
 import AddNdertesa57646 from "./Pages/Admin/DbEntities/Ndertesa57646s/AddNdertesa57646"
 import EditNdertesa57646 from "./Pages/Admin/DbEntities/Ndertesa57646s/EditNdertesa57646";
-
+import AddCategory from "./Pages/Admin/DbEntities/Categories/AddCategory";
+import EditCategory from "./Pages/Admin/DbEntities/Categories/EditCategory";
+import Reviews from "./Pages/Admin/DbEntities/Reviews/Reviews";
+import AddReview from "./Pages/Admin/DbEntities/Reviews/AddReview";
+import EditReview from "./Pages/Admin/DbEntities/Reviews/EditReview";
+import Promotions from "./Pages/Admin/DbEntities/Promotion/Promotions";
+import AddPromotion from "./Pages/Admin/DbEntities/Promotion/AddPromotion";
+import EditPromotion from "./Pages/Admin/DbEntities/Promotion/EditPromotion";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -68,6 +74,14 @@ function App() {
             <Route path="/admin/analytics" element={<Analytics />} exact />
             <Route path="/admin/dbentities" element={<DbEntities />} exact />
             <Route path="/admin/dbentities/categories" element={<Categories />} exact />
+            <Route path="/admin/dbentities/addcategory" element={<AddCategory />} exact />
+            <Route path="/admin/dbentities/editcategory/:id" element={<EditCategory />} />
+            <Route path="/admin/dbentities/reviews" element={<Reviews />} exact />
+            <Route path="/admin/dbentities/addreview" element={<AddReview />} exact />
+            <Route path="/admin/dbentities/editreview/:id" element={<EditReview />} />
+            <Route path="/admin/dbentities/promotions" element={<Promotions />} exact />
+            <Route path="/admin/dbentities/addpromotion" element={<AddPromotion />} exact />
+            <Route path="/admin/dbentities/editpromotion/:id" element={<EditPromotion />} />
             <Route path="/admin/dbentities/cartItem" element={<CartItem />} exact />
             <Route path="/admin/dbentities/addressDetails" element={< AddressDetails />} exact />
             <Route path="/create-order" element={<CreateOrder />} exact />
@@ -77,7 +91,6 @@ function App() {
             <Route path="/admin/dbentities/addproduct" element={<AddProduct />} />
             <Route path="/admin/dbentities/editproduct/:id" element={<EditProduct />} />
             <Route path="/admin/dbentities/productOrderDetails" element={< ProductOrderDetails />} exact />
-            <Route path="/admin/dbentities/promotion" element={< Promotion />} exact />
             <Route path="/admin/dbentities/wishListItem" element={< WishListItem />} exact />
             <Route path="/admin/dashboards" element={<Dashboards />} exact />
             <Route path="/profile" element={<ProfileSettings />} exact />

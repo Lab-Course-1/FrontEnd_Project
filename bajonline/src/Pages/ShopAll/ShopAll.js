@@ -46,7 +46,7 @@ const ShopAll = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get(Variables.API_URL + `Category/Categories`,
+      const response = await axios.get(Variables.API_URL + `Category/Categories?page=1&pageSize=100`,
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,

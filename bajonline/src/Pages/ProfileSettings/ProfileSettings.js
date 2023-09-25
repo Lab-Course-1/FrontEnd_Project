@@ -120,7 +120,7 @@ const ProfileSettings = () => {
                             Birthday
                         </label>
                         <input
-                            type="datetime-local"
+                            type="date"
                             id="birthday"
                             className="input"
                             disabled={true}

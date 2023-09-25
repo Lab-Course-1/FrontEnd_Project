@@ -84,11 +84,11 @@ const Users = () => {
                   <td>{user.id}</td>
                   <td>{user.firstName}</td>
                   <td>{user.lastName}</td>
-                  <td>{user.birthday.substring(0, 16)+"..."}</td>
+                  <td>{user.birthday.substring(0, 16) + "..."}</td>
                   <td>{user.address}</td>
                   <td>{user.userName}</td>
-                  <td>{user.createdOn.substring(0, 16)+"..."}</td>
-                  <td>{user.email.substring(0, 16)+"..."}</td>
+                  <td>{user.createdOn.substring(0, 16) + "..."}</td>
+                  <td>{user.email.substring(0, 16) + "..."}</td>
                   <td>{user.role}</td>
                   <td>
                     <a

@@ -13,6 +13,7 @@ import GppGoodIcon from "@mui/icons-material/GppGood";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
 import mikmik from "./Assets/mikmik.png";
 
+import CustomerReviews from "../Components/CustomerReviews/CustomerReviews";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { Variables } from "../../Variables";
@@ -34,9 +35,9 @@ const ProductPage = () => {
   const [price, setPrice] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [stock, setStock] = useState(0);
-  const [categoryId, setCategoryId] = useState("");
-  const [totalSold, setTotalSold] = useState(0);
   const [categoryName, setCategoryName] = useState("");
+  const [rating, setRating] = useState(0)
+  const [reviewComment, setReviewComment] = useState("")
 
   useEffect(() => {
     const id = queryParams.get("id");
@@ -59,8 +60,6 @@ const ProductPage = () => {
           setProductName(fetchProduct.name);
           setPrice(fetchProduct.price);
           setStock(fetchProduct.stock);
-          setTotalSold(fetchProduct.totalSold);
-          setCategoryId(fetchProduct.categoryId)
           if (
             fetchProduct.imageUrl === "string" ||
             fetchProduct.imageUrl === ""
@@ -79,7 +78,6 @@ const ProductPage = () => {
           );
           const categoryData = categoryResponse.data;
           if (categoryData) {
-            setCategoryId(fetchProduct.categoryId);
             setCategoryName(categoryData.name);
           }
         }
@@ -167,6 +165,42 @@ const ProductPage = () => {
     }
   };
 
+  const handleSubmitReview = async (e) => {
+    e.preventDefault()
+    if (!sessionStorage.getItem("jwtToken")) {
+      showWarningNotification("You must be logged in to make a review!", "You'll be redirected to login.", 2000)
+      setTimeout(() => { navigate("/login") }, 2000)
+      return;
+    }
+    const response = await axios.get(Variables.API_URL + `user/UserInfo`,
+      {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+        },
+      }
+    );
+    const userId = response.data.id;
+    try {
+      await axios.post(Variables.API_URL + `Review/Review`,
+        {
+          userId: userId,
+          productId,
+          rating,
+          reviewComment
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+          },
+        }
+      );
+      showSuccessNotification("Review is added successfully!", "", 2000)
+    } catch (error) {
+      showWarningNotification("Error while adding review!", "", 2000)
+    }
+    setRating(0);
+    setReviewComment("");
+  };
   return (
     <div className="background__productpage">
       <Navbar />
@@ -306,12 +340,47 @@ const ProductPage = () => {
           </p>
         </div>
       </div>
-
-      <hr />
+      {
+        productId > 0 &&
+        <CustomerReviews productId={productId} />
+      }
+      <div className="review">
+        <h3>Add review</h3>
+        <div className="rating">
+          <label htmlFor="rating">Rating:</label>
+          <select
+            id="rating"
+            value={rating}
+            onChange={(e) => setRating(e.target.value)}
+          >
+            <option value={0}>Select a Rating</option>
+            <option value={1}>1 - Poor</option>
+            <option value={2}>2 - Fair</option>
+            <option value={3}>3 - Good</option>
+            <option value={4}>4 - Very Good</option>
+            <option value={5}>5 - Excellent</option>
+          </select>
+        </div>
+        <div className="comment">
+          <label htmlFor="comment">Comment:</label>
+          <textarea
+            id="comment"
+            value={reviewComment}
+            onChange={(e) => setReviewComment(e.target.value)}
+            rows="3"
+          ></textarea>
+        </div>
+        <button
+          className="submit-button"
+          onClick={handleSubmitReview}
+          disabled={rating === 0 || reviewComment.trim() === ""}
+        >
+          Submit Review
+        </button>
+      </div>
 
       <Footer />
     </div>
-
   );
 };
 

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -9,11 +10,10 @@ const Footer = () => {
           <i>SmartSupplies.</i>
         </h2>
         <ul>
-          <li>Home</li>
-          <li>Shop All</li>
-          <li>Our Story</li>
-          <li>Our Craft</li>
-          <li>Contact</li>
+          <a href="/"><li>Home</li></a>
+          <a href="/shopall"><li>Shop All</li></a>
+          <a href="/ourstory"><li>Our Story</li></a>
+          <a href="/contact"><li>Contact</li></a>
         </ul>
         <ul>
           <li>FAQ</li>

@@ -84,6 +84,11 @@ const DbEntities = () => {
             <NavLink to="/admin/dbentities/promotion">View Promotions</NavLink>
           </div>
           <div className="card">
+            <h4>Reviews</h4>
+            <p>Dashboard for Reviews</p>
+            <NavLink to="/admin/dbentities/reviews">View Reviews</NavLink>
+          </div>
+          <div className="card">
             <h4>WishListItems</h4>
             <p>Dashboard for Wish List Items</p>
             <NavLink to="/admin/dbentities/wishListItem">

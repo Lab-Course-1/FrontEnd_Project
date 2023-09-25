@@ -1,37 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { Variables } from "../../../../Variables";
 import axios from "axios";
-
 import "../Entity.css";
 import SimpleNavbar from "../Navbar/SimpleNavbar";
 
-const Categories = () => {
+const Reviews = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [categoryList, setCategoryList] = useState([]);
-  const [noMoreCategories, setNoMoreCategories] = useState(false);
+  const [reviewList, setReviewList] = useState([]);
+  const [noMoreReviews, setNoMoreReviews] = useState(false);
 
   useEffect(() => {
-    getCategoryList();
+    getReviewList();
   }, []);
 
-  const getCategoryList = async () => {
+  const getReviewList = async () => {
     try {
       const response = await axios.get(
-        Variables.API_URL + `Category/Categories?page=${currentPage}&pageSize=10`,
+        Variables.API_URL + `Review/Reviews?page=${currentPage}&pageSize=10`,
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
           },
         }
       );
-      const newCategories = response.data;
-      if (newCategories.length === 0) {
-        setNoMoreCategories(true);
+      const newReviews = response.data;
+      if (newReviews.length === 0) {
+        setNoMoreReviews(true);
       }
       if (currentPage === 1) {
-        setCategoryList(newCategories);
+        setReviewList(newReviews);
       } else {
-        setCategoryList((prevCategories) => [...prevCategories, ...newCategories]);
+        setReviewList((prevReviews) => [...prevReviews, ...newReviews]);
       }
       setCurrentPage((prevPage) => prevPage + 1);
     } catch (error) {
@@ -39,20 +38,20 @@ const Categories = () => {
     }
   };
 
-  const handleDeleteCategory = async (id) => {
+  const handleDeleteReview = async (id) => {
     try {
       const response = await axios.delete(
-        Variables.API_URL + `Category/Category?id=${id}`, {
+        Variables.API_URL + `Review/Review?id=${id}`, {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
         },
       }
       );
-      setCategoryList((prevCategories) =>
-        prevCategories.filter((category) => category.id !== id)
+      setReviewList((prevReviews) =>
+        prevReviews.filter((review) => review.id !== id)
       );
     } catch (error) {
-      console.error("Error deleting category:", error);
+      console.error("Error deleting review:", error);
     }
   };
 
@@ -60,40 +59,42 @@ const Categories = () => {
     <>
       <SimpleNavbar />
       <div className="entity__container">
-        <h1>Categories</h1>
+        <h1>Reviews</h1>
         <div className="add">
-          <a href="AddCategory" className="button">
-            Create Category
+          <a href="AddReview" className="button">
+            Create Review
           </a>
         </div>
         <table>
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Created On</th>
+              <th>User Id</th>
+              <th>Product Id</th>
+              <th>Rating</th>
+              <th>Review Comment</th>
               <th className="change">Change</th>
             </tr>
           </thead>
           <tbody>
-            {categoryList.length > 0 &&
-              categoryList.map((category) => (
-                <tr key={category.id}>
-                  <td>{category.id}</td>
-                  <td>{category.name}</td>
-                  <td>{category.description}</td>
-                  <td>{category.createdOn}</td>
+            {reviewList.length > 0 &&
+              reviewList.map((review) => (
+                <tr key={review.id}>
+                  <td>{review.id}</td>
+                  <td>{review.userId}</td>
+                  <td>{review.productId}</td>
+                  <td>{review.rating}</td>
+                  <td>{review.reviewComment.substring(0, 50) + "..."}</td>
                   <td>
                     <a
-                      href={`editcategory/${category.id}`}
+                      href={`editreview/${review.id}`}
                       className="edit__button btn"
                     >
                       Edit
                     </a>
                     <button
                       type="button"
-                      onClick={() => handleDeleteCategory(category.id)}
+                      onClick={() => handleDeleteReview(review.id)}
                       className="delete__button btn"
                     >
                       Delete
@@ -103,12 +104,12 @@ const Categories = () => {
               ))}
           </tbody>
         </table>
-        {!noMoreCategories && (
-          <button type="button" className="load__more" onClick={getCategoryList}>
+        {!noMoreReviews && (
+          <button type="button" className="load__more" onClick={getReviewList}>
             Load More
           </button>
         )}
-        {noMoreCategories && (
+        {noMoreReviews && (
           <h3 className="reached__final__page">Reached final page!</h3>
         )}
       </div>
@@ -116,4 +117,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default Reviews;
